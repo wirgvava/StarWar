@@ -20,8 +20,8 @@
 		A587D69C2C25AFD600096F4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A587D69E2C25AFD700096F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A587D6A12C25AFD700096F4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A598FAA52C25B9CE00EF9F16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A598FAAE2C25BBF800EF9F16 /* Minecraft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Minecraft.ttf; sourceTree = "<group>"; };
+		A5DAADF42C25BF38002E017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 			children = (
 				A5551E542C25B83A00A7309C /* Fonts */,
 				A587D69E2C25AFD700096F4B /* Assets.xcassets */,
-				A598FAA52C25B9CE00EF9F16 /* Info.plist */,
+				A5DAADF42C25BF38002E017E /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

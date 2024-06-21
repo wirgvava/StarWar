@@ -1,5 +1,5 @@
 //
-//  Ship_5.swift
+//  Ship_1.swift
 //  StarWar
 //
 //  Created by Konstantine Tsirgvava on 21.06.24.
@@ -7,18 +7,17 @@
 
 import SwiftUI
 
-struct Ship_5: View {
+struct Ship_1: View {
     @StateObject private var animationManager: AnimationManager
     
     init() {
-        _animationManager = StateObject(wrappedValue: AnimationManager(images: ["Ship 5.1", "Ship 5.2", "Ship 5.3", "Ship 5.4", "Ship 5.5", "Ship 5.6", "Ship 5.7"]))
+        _animationManager = StateObject(wrappedValue: AnimationManager(images: ["Ship 1.1", "Ship 1.2", "Ship 1.3"]))
     }
     
     var body: some View {
         Image(animationManager.images[animationManager.currentImageIndex])
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 90, height: 90)
             .onAppear(){
                 animationManager.startAnimation()
             }
@@ -26,5 +25,5 @@ struct Ship_5: View {
 }
 
 #Preview {
-    Ship_5()
+    Ship_1()
 }

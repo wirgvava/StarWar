@@ -16,8 +16,9 @@ struct Ship_1: View {
     
     var body: some View {
         Image(animationManager.images[animationManager.currentImageIndex])
-//            .resizable()
-//            .aspectRatio(contentMode: .fit)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 50, height: 50)
             .onAppear(){
                 animationManager.startAnimation()
             }

@@ -8,23 +8,56 @@
 import SwiftUI
 
 struct Ship_2: View {
-    @StateObject private var animationManager: AnimationManager
+    @State var startShoot: Bool = false
+    @Binding var isPlaying: Bool
+    @Binding var shipPosition: CGPoint
+
+    @State var shipPositionForBullet: CGPoint = CGPoint(
+        x: UIScreen.main.bounds.width / 2,
+        y: UIScreen.main.bounds.height / 2
+    )
     
-    init() {
-        _animationManager = StateObject(wrappedValue: AnimationManager(images: ["Ship 2.1", "Ship 2.2", "Ship 2.3", "Ship 2.4", "Ship 2.5", "Ship 2.6"]))
-    }
+    @StateObject private var animationManager: AnimationManager = .init(images: ["Ship 2.1", "Ship 2.2", "Ship 2.3", "Ship 2.4", "Ship 2.5", "Ship 2.6"])
     
     var body: some View {
-        Image(animationManager.images[animationManager.currentImageIndex])
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 70, height: 70)
-            .onAppear(){
-                animationManager.startAnimation()
-            }
+        ZStack {
+            Ship_2_Bullets(isPlaying: $startShoot, shipPositionForBullet: $shipPositionForBullet)
+            
+            Rectangle()
+                .frame(width: 70, height: 70)
+                .foregroundColor(Color.clear)
+                .overlay {
+                    Image(animationManager.images[animationManager.currentImageIndex])
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
+                .position(shipPosition)
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            self.shipPosition = value.location
+                            self.isPlaying = true
+                        }
+                )
+            
+        }
+        .onAppear(){
+            animationManager.startAnimation()
+        }
+        .onChange(of: isPlaying) { _, newValue in
+            startShoot = newValue
+        }
+        .onChange(of: shipPosition) { _, newValue in
+            shipPositionForBullet = newValue
+        }
     }
 }
 
 #Preview {
-    Ship_2()
+    Ship_2(isPlaying: .constant(true), shipPosition: .constant(
+        CGPoint(
+            x: UIScreen.main.bounds.width / 2,
+            y: UIScreen.main.bounds.height / 2)
+        )
+    )
 }

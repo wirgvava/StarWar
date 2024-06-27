@@ -7,17 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A57F95122C2820E100C5A4DC /* Ship_1_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */; };
 		A587D69B2C25AFD600096F4B /* StarWarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587D69A2C25AFD600096F4B /* StarWarApp.swift */; };
 		A587D69D2C25AFD600096F4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587D69C2C25AFD600096F4B /* ContentView.swift */; };
 		A587D69F2C25AFD700096F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A587D69E2C25AFD700096F4B /* Assets.xcassets */; };
 		A587D6A22C25AFD700096F4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A587D6A12C25AFD700096F4B /* Preview Assets.xcassets */; };
 		A598FAAF2C25BBF800EF9F16 /* Minecraft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A598FAAE2C25BBF800EF9F16 /* Minecraft.ttf */; };
+		A59A9C022C29ADDB008409C1 /* Ship_2_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A9C012C29ADDB008409C1 /* Ship_2_Bullets.swift */; };
+		A59A9C042C29B82E008409C1 /* Ship_3_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A9C032C29B82E008409C1 /* Ship_3_Bullets.swift */; };
+		A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A9C052C29B91E008409C1 /* Ship_5_Bullets.swift */; };
+		A59A9C082C29BA55008409C1 /* Ship_4_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A9C072C29BA55008409C1 /* Ship_4_Bullets.swift */; };
+		A5A3BEE82C29E7F000F16880 /* Ship_6_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3BEE72C29E7F000F16880 /* Ship_6_Bullets.swift */; };
+		A5A3BEEB2C29EBF500F16880 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3BEEA2C29EBF500F16880 /* Bullet.swift */; };
 		A5E562A42C25C09C00908A3B /* Ship_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562A32C25C08F00908A3B /* Ship_1.swift */; };
 		A5E562AA2C25CB7E00908A3B /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562A92C25CB4B00908A3B /* AnimationManager.swift */; };
 		A5E562AC2C25CDDD00908A3B /* Ship_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562AB2C25CDD900908A3B /* Ship_2.swift */; };
 		A5E562AE2C25CECF00908A3B /* Ship_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562AD2C25CECC00908A3B /* Ship_3.swift */; };
-		A5E562B02C25CF0B00908A3B /* Ship_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562AF2C25CF0800908A3B /* Ship_4.swift */; };
-		A5E562B22C25CF6900908A3B /* Ship_5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562B12C25CF6300908A3B /* Ship_5.swift */; };
+		A5E562B02C25CF0B00908A3B /* Ship_5.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562AF2C25CF0800908A3B /* Ship_5.swift */; };
+		A5E562B22C25CF6900908A3B /* Ship_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562B12C25CF6300908A3B /* Ship_4.swift */; };
 		A5E562B42C25CFB800908A3B /* Ship_6.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562B32C25CFB500908A3B /* Ship_6.swift */; };
 		A5E562B82C25D17D00908A3B /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562B72C25D17B00908A3B /* Coin.swift */; };
 		A5E562BB2C25DA1400908A3B /* Explode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562BA2C25DA0F00908A3B /* Explode.swift */; };
@@ -25,22 +32,30 @@
 		A5E562C12C25DB1C00908A3B /* Monster_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C02C25DB1800908A3B /* Monster_2.swift */; };
 		A5E562C32C25DB3900908A3B /* Monster_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C22C25DB3600908A3B /* Monster_3.swift */; };
 		A5E562C52C25DB5100908A3B /* Monster_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C42C25DB4E00908A3B /* Monster_4.swift */; };
+		A5F7EA262C260E06000F3D41 /* Stars.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7EA252C260E06000F3D41 /* Stars.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_1_Bullets.swift; sourceTree = "<group>"; };
 		A587D6972C25AFD600096F4B /* StarWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A587D69A2C25AFD600096F4B /* StarWarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarApp.swift; sourceTree = "<group>"; };
 		A587D69C2C25AFD600096F4B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A587D69E2C25AFD700096F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A587D6A12C25AFD700096F4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A598FAAE2C25BBF800EF9F16 /* Minecraft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Minecraft.ttf; sourceTree = "<group>"; };
+		A59A9C012C29ADDB008409C1 /* Ship_2_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_2_Bullets.swift; sourceTree = "<group>"; };
+		A59A9C032C29B82E008409C1 /* Ship_3_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_3_Bullets.swift; sourceTree = "<group>"; };
+		A59A9C052C29B91E008409C1 /* Ship_5_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_5_Bullets.swift; sourceTree = "<group>"; };
+		A59A9C072C29BA55008409C1 /* Ship_4_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_4_Bullets.swift; sourceTree = "<group>"; };
+		A5A3BEE72C29E7F000F16880 /* Ship_6_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_6_Bullets.swift; sourceTree = "<group>"; };
+		A5A3BEEA2C29EBF500F16880 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		A5DAADF42C25BF38002E017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5E562A32C25C08F00908A3B /* Ship_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_1.swift; sourceTree = "<group>"; };
 		A5E562A92C25CB4B00908A3B /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		A5E562AB2C25CDD900908A3B /* Ship_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_2.swift; sourceTree = "<group>"; };
 		A5E562AD2C25CECC00908A3B /* Ship_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_3.swift; sourceTree = "<group>"; };
-		A5E562AF2C25CF0800908A3B /* Ship_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_4.swift; sourceTree = "<group>"; };
-		A5E562B12C25CF6300908A3B /* Ship_5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_5.swift; sourceTree = "<group>"; };
+		A5E562AF2C25CF0800908A3B /* Ship_5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_5.swift; sourceTree = "<group>"; };
+		A5E562B12C25CF6300908A3B /* Ship_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_4.swift; sourceTree = "<group>"; };
 		A5E562B32C25CFB500908A3B /* Ship_6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_6.swift; sourceTree = "<group>"; };
 		A5E562B72C25D17B00908A3B /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		A5E562BA2C25DA0F00908A3B /* Explode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explode.swift; sourceTree = "<group>"; };
@@ -48,6 +63,7 @@
 		A5E562C02C25DB1800908A3B /* Monster_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_2.swift; sourceTree = "<group>"; };
 		A5E562C22C25DB3600908A3B /* Monster_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_3.swift; sourceTree = "<group>"; };
 		A5E562C42C25DB4E00908A3B /* Monster_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_4.swift; sourceTree = "<group>"; };
+		A5F7EA252C260E06000F3D41 /* Stars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +83,19 @@
 				A598FAAE2C25BBF800EF9F16 /* Minecraft.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A57F95102C2820CD00C5A4DC /* Bullets */ = {
+			isa = PBXGroup;
+			children = (
+				A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */,
+				A59A9C012C29ADDB008409C1 /* Ship_2_Bullets.swift */,
+				A59A9C032C29B82E008409C1 /* Ship_3_Bullets.swift */,
+				A59A9C072C29BA55008409C1 /* Ship_4_Bullets.swift */,
+				A59A9C052C29B91E008409C1 /* Ship_5_Bullets.swift */,
+				A5A3BEE72C29E7F000F16880 /* Ship_6_Bullets.swift */,
+			);
+			path = Bullets;
 			sourceTree = "<group>";
 		};
 		A587D68E2C25AFD600096F4B = {
@@ -115,10 +144,19 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A5A3BEE92C29EBDF00F16880 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A5A3BEEA2C29EBF500F16880 /* Bullet.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A5E562A12C25C07100908A3B /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				A5E562A82C25CB3800908A3B /* Managers */,
+				A5A3BEE92C29EBDF00F16880 /* Models */,
 				A5E562A22C25C07500908A3B /* Views */,
 			);
 			path = Core;
@@ -127,10 +165,12 @@
 		A5E562A22C25C07500908A3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A57F95102C2820CD00C5A4DC /* Bullets */,
 				A5E562B62C25D16E00908A3B /* Coin */,
 				A5E562B92C25DA0000908A3B /* Explode */,
 				A5E562BC2C25DAA900908A3B /* Monsters */,
 				A5E562B52C25D0D100908A3B /* Ships */,
+				A5F7EA242C260DF5000F3D41 /* Stars */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,8 +189,8 @@
 				A5E562A32C25C08F00908A3B /* Ship_1.swift */,
 				A5E562AB2C25CDD900908A3B /* Ship_2.swift */,
 				A5E562AD2C25CECC00908A3B /* Ship_3.swift */,
-				A5E562AF2C25CF0800908A3B /* Ship_4.swift */,
-				A5E562B12C25CF6300908A3B /* Ship_5.swift */,
+				A5E562B12C25CF6300908A3B /* Ship_4.swift */,
+				A5E562AF2C25CF0800908A3B /* Ship_5.swift */,
 				A5E562B32C25CFB500908A3B /* Ship_6.swift */,
 			);
 			path = Ships;
@@ -183,6 +223,14 @@
 			path = Monsters;
 			sourceTree = "<group>";
 		};
+		A5F7EA242C260DF5000F3D41 /* Stars */ = {
+			isa = PBXGroup;
+			children = (
+				A5F7EA252C260E06000F3D41 /* Stars.swift */,
+			);
+			path = Stars;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,6 +247,8 @@
 			dependencies = (
 			);
 			name = StarWar;
+			packageProductDependencies = (
+			);
 			productName = StarWar;
 			productReference = A587D6972C25AFD600096F4B /* StarWar.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +277,8 @@
 				Base,
 			);
 			mainGroup = A587D68E2C25AFD600096F4B;
+			packageReferences = (
+			);
 			productRefGroup = A587D6982C25AFD600096F4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -254,11 +306,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */,
 				A5E562BB2C25DA1400908A3B /* Explode.swift in Sources */,
 				A5E562AA2C25CB7E00908A3B /* AnimationManager.swift in Sources */,
 				A5E562A42C25C09C00908A3B /* Ship_1.swift in Sources */,
+				A5F7EA262C260E06000F3D41 /* Stars.swift in Sources */,
+				A59A9C022C29ADDB008409C1 /* Ship_2_Bullets.swift in Sources */,
+				A57F95122C2820E100C5A4DC /* Ship_1_Bullets.swift in Sources */,
 				A5E562B42C25CFB800908A3B /* Ship_6.swift in Sources */,
-				A5E562B02C25CF0B00908A3B /* Ship_4.swift in Sources */,
+				A5E562B02C25CF0B00908A3B /* Ship_5.swift in Sources */,
+				A59A9C082C29BA55008409C1 /* Ship_4_Bullets.swift in Sources */,
 				A587D69D2C25AFD600096F4B /* ContentView.swift in Sources */,
 				A5E562BF2C25DAC000908A3B /* Monster_1.swift in Sources */,
 				A5E562C12C25DB1C00908A3B /* Monster_2.swift in Sources */,
@@ -267,8 +324,11 @@
 				A5E562C52C25DB5100908A3B /* Monster_4.swift in Sources */,
 				A5E562AE2C25CECF00908A3B /* Ship_3.swift in Sources */,
 				A5E562B82C25D17D00908A3B /* Coin.swift in Sources */,
+				A5A3BEEB2C29EBF500F16880 /* Bullet.swift in Sources */,
 				A5E562C32C25DB3900908A3B /* Monster_3.swift in Sources */,
-				A5E562B22C25CF6900908A3B /* Ship_5.swift in Sources */,
+				A59A9C042C29B82E008409C1 /* Ship_3_Bullets.swift in Sources */,
+				A5A3BEE82C29E7F000F16880 /* Ship_6_Bullets.swift in Sources */,
+				A5E562B22C25CF6900908A3B /* Ship_4.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -384,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -411,7 +471,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,7 +505,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

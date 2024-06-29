@@ -7,18 +7,15 @@
 
 import SwiftUI
 
-struct Star: Identifiable {
-    let id = UUID()
-    var position: CGPoint
-}
-
 struct Stars: View {
     @State private var stars: [Star] = []
     @State private var timer: Timer?
     @State private var speedUpTimer: Timer?
     @Binding var isPlaying: Bool
     @State private var index: Int = 0
-    let starAnimationSpeeds = [0.1, 0.075, 0.05, 0.025, 0.01, 0.0075, 0,005, 0.0025, 0.001]
+    let starAnimationSpeeds = [
+        0.1, 0.075, 0.05, 0.025, 0.01, 0.0075, 0,005, 0.0025, 0.001
+    ]
     
     var body: some View {
         ZStack {

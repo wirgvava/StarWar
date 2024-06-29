@@ -8,62 +8,58 @@
 import SwiftUI
 
 struct Ship_6_Bullets: View {
-    @State private var bullets: [Bullet] = []
-    @State private var timer: Timer?
+    @Binding var bullets: [Bullet]
     @Binding var isPlaying: Bool
-    
-    let screenHeight = UIScreen.main.bounds.height
     @Binding var shipPositionForBullet: CGPoint
+    @State private var timer: Timer?
   
     var body: some View {
-        ZStack {
-            ForEach(bullets) { bullet in
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(.pinkBullet)
-                        .frame(width: 2, height: 4)
-                        .position(x: bullet.position.x - 38,
-                                  y: bullet.position.y + 40)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.pinkBullet)
-                        .frame(width: 2, height: 4)
-                        .position(x: bullet.position.x - 30,
-                                  y: bullet.position.y + 40)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.orange)
-                        .frame(width: 4, height: 6)
-                        .position(x: bullet.position.x - 18,
-                                  y: bullet.position.y + 20)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.yellow)
-                        .frame(width: 6, height: 15)
-                        .position(bullet.position)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.orange)
-                        .frame(width: 4, height: 6)
-                        .position(x: bullet.position.x + 18,
-                                  y: bullet.position.y + 20)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.pinkBullet)
-                        .frame(width: 2, height: 4)
-                        .position(x: bullet.position.x + 38,
-                                  y: bullet.position.y + 40)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.pinkBullet)
-                        .frame(width: 2, height: 4)
-                        .position(x: bullet.position.x + 30,
-                                  y: bullet.position.y + 40)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                }
+        ForEach(bullets) { bullet in
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.pinkBullet)
+                    .frame(width: 2, height: 4)
+                    .position(x: bullet.position.x - 38,
+                              y: bullet.position.y + 40)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.pinkBullet)
+                    .frame(width: 2, height: 4)
+                    .position(x: bullet.position.x - 30,
+                              y: bullet.position.y + 40)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.orange)
+                    .frame(width: 4, height: 6)
+                    .position(x: bullet.position.x - 18,
+                              y: bullet.position.y + 20)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.yellow)
+                    .frame(width: 6, height: 15)
+                    .position(bullet.position)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.orange)
+                    .frame(width: 4, height: 6)
+                    .position(x: bullet.position.x + 18,
+                              y: bullet.position.y + 20)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.pinkBullet)
+                    .frame(width: 2, height: 4)
+                    .position(x: bullet.position.x + 30,
+                              y: bullet.position.y + 40)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.pinkBullet)
+                    .frame(width: 2, height: 4)
+                    .position(x: bullet.position.x + 38,
+                              y: bullet.position.y + 40)
+                    .animation(.smooth, value: bullet.position)
             }
-            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
         .onChange(of: isPlaying) { _, newValue in
             if newValue {
                 startBulletAnimation()
@@ -77,7 +73,7 @@ struct Ship_6_Bullets: View {
     
     // Start Shooting bullets
     private func startBulletAnimation() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0, repeats: true, block: { _ in
             moveBulletsTop()
             addBullet()
         })
@@ -91,11 +87,14 @@ struct Ship_6_Bullets: View {
     
     // Adding new bullets
     private func addBullet() {
+        if bullets.count == 200 {
+            bullets.removeFirst()
+        }
         let newBullet = Bullet(
             position: CGPoint(
                 x: shipPositionForBullet.x,
-                y: shipPositionForBullet.y)
-            )
+                y: shipPositionForBullet.y), 
+            type: 6)
         bullets.append(newBullet)
     }
     
@@ -113,10 +112,12 @@ struct Ship_6_Bullets: View {
 }
 
 #Preview {
-    Ship_6_Bullets(isPlaying: .constant(true), shipPositionForBullet: .constant(
-        CGPoint(
-            x: UIScreen.main.bounds.width / 2,
-            y: UIScreen.main.bounds.height / 2)
-        )
-    )
+    Ship_6_Bullets(bullets: .constant([Bullet(position:
+                    CGPoint(x: UIScreen.main.bounds.width / 2,
+                            y: UIScreen.main.bounds.height / 2), type: 6)]),
+                   isPlaying: .constant(true),
+                   shipPositionForBullet: .constant(
+                    CGPoint(
+                        x: UIScreen.main.bounds.width / 2,
+                        y: UIScreen.main.bounds.height / 2)))
 }

@@ -8,24 +8,20 @@
 import SwiftUI
 
 struct Ship_1_Bullets: View {
-    @State private var bullets: [Bullet] = []
-    @State private var timer: Timer?
+    @Binding var bullets: [Bullet]
     @Binding var isPlaying: Bool
-    
-    let screenHeight = UIScreen.main.bounds.height
     @Binding var shipPositionForBullet: CGPoint
-  
+    @State private var timer: Timer?
+    
     var body: some View {
-        ZStack {
-            ForEach(bullets) { bullet in
-                Rectangle()
-                    .foregroundColor(.lightBlueBullet)
-                    .frame(width: 6, height: 6)
-                    .position(bullet.position)
-                    .animation(.linear(duration: 0.1), value: bullet.position)
-            }
-            .ignoresSafeArea()
+        ForEach(bullets) { bullet in
+            Rectangle()
+                .foregroundColor(.lightBlueBullet)
+                .frame(width: 6, height: 6)
+                .position(bullet.position)
+                .animation(.smooth, value: bullet.position)
         }
+        .ignoresSafeArea()
         .onChange(of: isPlaying) { _, newValue in
             if newValue {
                 startBulletAnimation()
@@ -39,7 +35,7 @@ struct Ship_1_Bullets: View {
     
     // Start Shooting bullets
     private func startBulletAnimation() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0, repeats: true, block: { _ in
             moveBulletsTop()
             addBullet()
         })
@@ -53,10 +49,14 @@ struct Ship_1_Bullets: View {
     
     // Adding new bullets
     private func addBullet() {
+        if bullets.count == 200 {
+            bullets.removeFirst()
+        }
         let newBullet = Bullet(
             position: CGPoint(
                 x: shipPositionForBullet.x,
-                y: shipPositionForBullet.y + 32)
+                y: shipPositionForBullet.y + 32),
+            type: 1
             )
         bullets.append(newBullet)
     }
@@ -66,7 +66,7 @@ struct Ship_1_Bullets: View {
         let screenHeight = UIScreen.main.bounds.height
         bullets = bullets.map { bullet in
             var newBullet = bullet
-            newBullet.position.y -= 20
+            newBullet.position.y -= 15
             return newBullet
         }.filter {
             $0.position.y <= screenHeight
@@ -75,10 +75,12 @@ struct Ship_1_Bullets: View {
 }
 
 #Preview {
-    Ship_1_Bullets(isPlaying: .constant(true), shipPositionForBullet: .constant(
-        CGPoint(
-            x: UIScreen.main.bounds.width / 2,
-            y: UIScreen.main.bounds.height / 2)
-        )
-    )
+    Ship_1_Bullets(bullets: .constant([Bullet(position:
+                    CGPoint(x: UIScreen.main.bounds.width / 2,
+                            y: UIScreen.main.bounds.height / 2), type: 1)]),
+                   isPlaying: .constant(true),
+                   shipPositionForBullet: .constant(
+                    CGPoint(
+                        x: UIScreen.main.bounds.width / 2,
+                        y: UIScreen.main.bounds.height / 2)))
 }

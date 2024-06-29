@@ -8,50 +8,46 @@
 import SwiftUI
 
 struct Ship_5_Bullets: View {
-    @State private var bullets: [Bullet] = []
-    @State private var timer: Timer?
+    @Binding var bullets: [Bullet]
     @Binding var isPlaying: Bool
-    
-    let screenHeight = UIScreen.main.bounds.height
     @Binding var shipPositionForBullet: CGPoint
+    @State private var timer: Timer?
   
     var body: some View {
-        ZStack {
-            ForEach(bullets) { bullet in
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(.pinkBullet)
-                        .frame(width: 4, height: 6)
-                        .position(x: bullet.position.x - 28,
-                                  y: bullet.position.y + 25)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.orange)
-                        .frame(width: 6, height: 10)
-                        .position(x: bullet.position.x - 14,
-                                  y: bullet.position.y + 25)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.limeBullet)
-                        .frame(width: 8, height: 20)
-                        .position(bullet.position)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.orange)
-                        .frame(width: 6, height: 10)
-                        .position(x: bullet.position.x + 14,
-                                  y: bullet.position.y + 25)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.pinkBullet)
-                        .frame(width: 4, height: 6)
-                        .position(x: bullet.position.x + 28,
-                                  y: bullet.position.y + 25)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                }
+        ForEach(bullets) { bullet in
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.pinkBullet)
+                    .frame(width: 4, height: 6)
+                    .position(x: bullet.position.x - 28,
+                              y: bullet.position.y + 25)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.orange)
+                    .frame(width: 6, height: 10)
+                    .position(x: bullet.position.x - 14,
+                              y: bullet.position.y + 25)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.limeBullet)
+                    .frame(width: 8, height: 20)
+                    .position(bullet.position)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.orange)
+                    .frame(width: 6, height: 10)
+                    .position(x: bullet.position.x + 14,
+                              y: bullet.position.y + 25)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.pinkBullet)
+                    .frame(width: 4, height: 6)
+                    .position(x: bullet.position.x + 28,
+                              y: bullet.position.y + 25)
+                    .animation(.smooth, value: bullet.position)
             }
-            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
         .onChange(of: isPlaying) { _, newValue in
             if newValue {
                 startBulletAnimation()
@@ -65,7 +61,7 @@ struct Ship_5_Bullets: View {
     
     // Start Shooting bullets
     private func startBulletAnimation() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0, repeats: true, block: { _ in
             moveBulletsTop()
             addBullet()
         })
@@ -79,11 +75,14 @@ struct Ship_5_Bullets: View {
     
     // Adding new bullets
     private func addBullet() {
+        if bullets.count == 200 {
+            bullets.removeFirst()
+        }
         let newBullet = Bullet(
             position: CGPoint(
                 x: shipPositionForBullet.x,
-                y: shipPositionForBullet.y)
-            )
+                y: shipPositionForBullet.y), 
+            type: 5)
         bullets.append(newBullet)
     }
     
@@ -101,10 +100,12 @@ struct Ship_5_Bullets: View {
 }
 
 #Preview {
-    Ship_5_Bullets(isPlaying: .constant(true), shipPositionForBullet: .constant(
-        CGPoint(
-            x: UIScreen.main.bounds.width / 2,
-            y: UIScreen.main.bounds.height / 2)
-        )
-    )
+    Ship_5_Bullets(bullets: .constant([Bullet(position:
+                    CGPoint(x: UIScreen.main.bounds.width / 2,
+                            y: UIScreen.main.bounds.height / 2), type: 5)]),
+                   isPlaying: .constant(true),
+                   shipPositionForBullet: .constant(
+                    CGPoint(
+                        x: UIScreen.main.bounds.width / 2,
+                        y: UIScreen.main.bounds.height / 2)))
 }

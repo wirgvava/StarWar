@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct Ship_4: View {
-    @State var startShoot: Bool = false
     @Binding var isPlaying: Bool
     @Binding var shipPosition: CGPoint
-
+    @Binding var bullets: [Bullet]
+    @State var startShoot: Bool = false
     @State var shipPositionForBullet: CGPoint = CGPoint(
         x: UIScreen.main.bounds.width / 2,
         y: UIScreen.main.bounds.height / 2
@@ -20,7 +20,7 @@ struct Ship_4: View {
     
     var body: some View {
         ZStack {
-            Ship_4_Bullets(isPlaying: $startShoot, shipPositionForBullet: $shipPositionForBullet)
+            Ship_4_Bullets(bullets: $bullets, isPlaying: $startShoot, shipPositionForBullet: $shipPositionForBullet)
             Rectangle()
                 .frame(width: 90, height: 90)
                 .foregroundColor(Color.clear)
@@ -55,6 +55,13 @@ struct Ship_4: View {
         CGPoint(
             x: UIScreen.main.bounds.width / 2,
             y: UIScreen.main.bounds.height / 2)
-        )
+    ), bullets: .constant(
+        [Bullet(position:
+                    CGPoint(
+                        x: UIScreen.main.bounds.width / 2,
+                        y: UIScreen.main.bounds.height / 2), 
+                type: 4
+               )
+        ])
     )
 }

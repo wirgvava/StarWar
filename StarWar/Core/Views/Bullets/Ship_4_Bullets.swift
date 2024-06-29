@@ -8,38 +8,34 @@
 import SwiftUI
 
 struct Ship_4_Bullets: View {
-    @State private var bullets: [Bullet] = []
-    @State private var timer: Timer?
+    @Binding var bullets: [Bullet]
     @Binding var isPlaying: Bool
-    
-    let screenHeight = UIScreen.main.bounds.height
     @Binding var shipPositionForBullet: CGPoint
-  
+    @State private var timer: Timer?
+
     var body: some View {
-        ZStack {
-            ForEach(bullets) { bullet in
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(.mint)
-                        .frame(width: 4, height: 6)
-                        .position(x: bullet.position.x - 25,
-                                  y: bullet.position.y + 20)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.green)
-                        .frame(width: 6, height: 15)
-                        .position(bullet.position)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                    Rectangle()
-                        .foregroundColor(.mint)
-                        .frame(width: 4, height: 6)
-                        .position(x: bullet.position.x + 25,
-                                  y: bullet.position.y + 20)
-                        .animation(.linear(duration: 0.1), value: bullet.position)
-                }
+        ForEach(bullets) { bullet in
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.mint)
+                    .frame(width: 4, height: 6)
+                    .position(x: bullet.position.x - 25,
+                              y: bullet.position.y + 20)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.green)
+                    .frame(width: 6, height: 15)
+                    .position(bullet.position)
+                    .animation(.smooth, value: bullet.position)
+                Rectangle()
+                    .foregroundColor(.mint)
+                    .frame(width: 4, height: 6)
+                    .position(x: bullet.position.x + 25,
+                              y: bullet.position.y + 20)
+                    .animation(.smooth, value: bullet.position)
             }
-            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
         .onChange(of: isPlaying) { _, newValue in
             if newValue {
                 startBulletAnimation()
@@ -53,7 +49,7 @@ struct Ship_4_Bullets: View {
     
     // Start Shooting bullets
     private func startBulletAnimation() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 0, repeats: true, block: { _ in
             moveBulletsTop()
             addBullet()
         })
@@ -67,11 +63,14 @@ struct Ship_4_Bullets: View {
     
     // Adding new bullets
     private func addBullet() {
+        if bullets.count == 200 {
+            bullets.removeFirst()
+        }
         let newBullet = Bullet(
             position: CGPoint(
                 x: shipPositionForBullet.x,
-                y: shipPositionForBullet.y)
-            )
+                y: shipPositionForBullet.y), 
+            type: 4)
         bullets.append(newBullet)
     }
     
@@ -89,10 +88,12 @@ struct Ship_4_Bullets: View {
 }
 
 #Preview {
-    Ship_4_Bullets(isPlaying: .constant(true), shipPositionForBullet: .constant(
-        CGPoint(
-            x: UIScreen.main.bounds.width / 2,
-            y: UIScreen.main.bounds.height / 2)
-        )
-    )
+    Ship_4_Bullets(bullets: .constant([Bullet(position:
+                    CGPoint(x: UIScreen.main.bounds.width / 2,
+                            y: UIScreen.main.bounds.height / 2), type: 4)]),
+                   isPlaying: .constant(true),
+                   shipPositionForBullet: .constant(
+                    CGPoint(
+                        x: UIScreen.main.bounds.width / 2,
+                        y: UIScreen.main.bounds.height / 2)))
 }

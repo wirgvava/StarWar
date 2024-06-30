@@ -106,7 +106,8 @@ struct MovingMonsters: View {
         let newMonster = Monster(
             position: CGPoint(
                 x: CGFloat.random(in: 0...screenWidth),
-                y: 0), monsterType: Int.random(in: 1...4))
+                y: 0), 
+            monsterType: Int.random(in: 1...4))
         monsters.append(newMonster)
     }
     

@@ -10,4 +10,5 @@ import SwiftUI
 struct Star: Identifiable {
     let id = UUID()
     var position: CGPoint
+    var type: Int
 }

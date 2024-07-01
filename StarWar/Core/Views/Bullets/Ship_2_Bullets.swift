@@ -24,7 +24,9 @@ struct Ship_2_Bullets: View {
         .ignoresSafeArea()
         .onChange(of: isPlaying) { _, newValue in
             if newValue {
-                startBulletAnimation()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    startBulletAnimation()
+                }
             } else {
                 stopBulletsAnimationTimer()
             }

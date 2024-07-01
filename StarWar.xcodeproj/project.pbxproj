@@ -24,6 +24,9 @@
 		A5A3BEEB2C29EBF500F16880 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3BEEA2C29EBF500F16880 /* Bullet.swift */; };
 		A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */; };
 		A5C810342C2DCE2500FF2FFD /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */; };
+		A5E12DBD2C3331E7008E92D8 /* HighScoreBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBC2C3331E7008E92D8 /* HighScoreBanner.swift */; };
+		A5E12DC02C33339D008E92D8 /* InGameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBF2C33339D008E92D8 /* InGameInfo.swift */; };
+		A5E12DC32C3336BF008E92D8 /* MenuButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DC22C3336BF008E92D8 /* MenuButtons.swift */; };
 		A5E3AABF2C3194F9007D923F /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E3AABE2C3194F9007D923F /* StarView.swift */; };
 		A5E562A42C25C09C00908A3B /* Ship_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562A32C25C08F00908A3B /* Ship_1.swift */; };
 		A5E562AA2C25CB7E00908A3B /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562A92C25CB4B00908A3B /* AnimationManager.swift */; };
@@ -61,6 +64,9 @@
 		A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMonsters.swift; sourceTree = "<group>"; };
 		A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		A5DAADF42C25BF38002E017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5E12DBC2C3331E7008E92D8 /* HighScoreBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreBanner.swift; sourceTree = "<group>"; };
+		A5E12DBF2C33339D008E92D8 /* InGameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameInfo.swift; sourceTree = "<group>"; };
+		A5E12DC22C3336BF008E92D8 /* MenuButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtons.swift; sourceTree = "<group>"; };
 		A5E3AABE2C3194F9007D923F /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		A5E562A32C25C08F00908A3B /* Ship_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_1.swift; sourceTree = "<group>"; };
 		A5E562A92C25CB4B00908A3B /* AnimationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
@@ -175,6 +181,30 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A5E12DBB2C3331D7008E92D8 /* HighScoreBanner */ = {
+			isa = PBXGroup;
+			children = (
+				A5E12DBC2C3331E7008E92D8 /* HighScoreBanner.swift */,
+			);
+			path = HighScoreBanner;
+			sourceTree = "<group>";
+		};
+		A5E12DBE2C33338E008E92D8 /* InGameInfo */ = {
+			isa = PBXGroup;
+			children = (
+				A5E12DBF2C33339D008E92D8 /* InGameInfo.swift */,
+			);
+			path = InGameInfo;
+			sourceTree = "<group>";
+		};
+		A5E12DC12C3336B5008E92D8 /* MenuButtons */ = {
+			isa = PBXGroup;
+			children = (
+				A5E12DC22C3336BF008E92D8 /* MenuButtons.swift */,
+			);
+			path = MenuButtons;
+			sourceTree = "<group>";
+		};
 		A5E562A12C25C07100908A3B /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +222,9 @@
 				A57F95102C2820CD00C5A4DC /* Bullets */,
 				A5E562B62C25D16E00908A3B /* Coin */,
 				A5E562B92C25DA0000908A3B /* Explode */,
+				A5E12DBB2C3331D7008E92D8 /* HighScoreBanner */,
+				A5E12DBE2C33338E008E92D8 /* InGameInfo */,
+				A5E12DC12C3336B5008E92D8 /* MenuButtons */,
 				A5E562BC2C25DAA900908A3B /* Monsters */,
 				A5E562B52C25D0D100908A3B /* Ships */,
 				A5F7EA242C260DF5000F3D41 /* Stars */,
@@ -344,6 +377,8 @@
 				A57F95122C2820E100C5A4DC /* Ship_1_Bullets.swift in Sources */,
 				A5E562B42C25CFB800908A3B /* Ship_6.swift in Sources */,
 				A5E562B02C25CF0B00908A3B /* Ship_5.swift in Sources */,
+				A5E12DBD2C3331E7008E92D8 /* HighScoreBanner.swift in Sources */,
+				A5E12DC02C33339D008E92D8 /* InGameInfo.swift in Sources */,
 				A59A9C082C29BA55008409C1 /* Ship_4_Bullets.swift in Sources */,
 				A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */,
 				A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */,
@@ -356,6 +391,7 @@
 				A5E562C52C25DB5100908A3B /* Monster_4.swift in Sources */,
 				A5E562AE2C25CECF00908A3B /* Ship_3.swift in Sources */,
 				A5E562B82C25D17D00908A3B /* Coin.swift in Sources */,
+				A5E12DC32C3336BF008E92D8 /* MenuButtons.swift in Sources */,
 				A5A3BEEB2C29EBF500F16880 /* Bullet.swift in Sources */,
 				A5E562C32C25DB3900908A3B /* Monster_3.swift in Sources */,
 				A59A9C042C29B82E008409C1 /* Ship_3_Bullets.swift in Sources */,

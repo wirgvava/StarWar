@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Combine
 
 struct Stars: View {
     @State private var stars: [Star] = []
     @Binding var isPlaying: Bool
     @State private var intervalBetweenStars = 1
     @State private var index: Int = 0
-    let starAnimationSpeeds = [
+    let speeds = [
         0.025, 0.01, 0.0075, 0.005, 0.0025, 0.001, 0
     ]
        
@@ -35,7 +36,7 @@ struct Stars: View {
         .onChange(of: isPlaying, { _, newValue in
             if newValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                    let lastIndex = starAnimationSpeeds.count - 1
+                    let lastIndex = speeds.count - 1
                     index = index == lastIndex ? lastIndex : index + 1
                     withAnimation(.smooth) {
                         startStarAnimation()
@@ -44,7 +45,7 @@ struct Stars: View {
             }
         })
         .onChange(of: index, { _, _ in
-            guard index != starAnimationSpeeds.count - 1 else { return }
+            guard index != speeds.count - 1 else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
                 index += 1
                 withAnimation(.smooth) {
@@ -69,7 +70,7 @@ struct Stars: View {
     
     // Start normal speed star animation
     private func startStarAnimation() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + starAnimationSpeeds[index]) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + speeds[index]) {
             moveStarsDown()
             addStar()
             startStarAnimation()

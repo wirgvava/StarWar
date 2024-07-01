@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct Explode: View {
-    @StateObject private var animationManager: AnimationManager
-    
-    init() {
-        _animationManager = StateObject(wrappedValue: AnimationManager(images: ["ExplodeAnim 1", "ExplodeAnim 2", "ExplodeAnim 3"], animationDuration: 0.1))
-    }
+    @StateObject private var animationManager: AnimationManager = .init(
+        images: [.explodeAnim1, .explodeAnim2, .explodeAnim3],
+        animationDuration: 0.1)
     
     var body: some View {
         Image(animationManager.images[animationManager.currentImageIndex])

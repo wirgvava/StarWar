@@ -9,15 +9,16 @@ import SwiftUI
 
 struct MovingMonsters: View {
     @Binding var bullets: [Bullet]
-    @State private var monsters: [Monster] = []
-    @State private var explosions: [Explosion] = []
-    @State private var movingDownTimer: Timer?
-    @State private var addingMonstersTimer: Timer?
-    @State private var speedUpTimer: Timer?
     @Binding var isPlaying: Bool
     @Binding var score: Int
+    @State private var monsters: [Monster] = []
+    @State private var explosions: [Explosion] = []
+    @State private var intervalBetweenMonsters = 1
     @State private var index: Int = 0
-    let monsterAnimationSpeeds = [0.1, 0.075, 0.05, 0.025, 0.01]
+    let speeds: [TimeInterval] = [
+        0.05, 0.045, 0.04, 0.035, 0.03, 0.025, 0.02, 0.015, 0.01,
+        0.009, 0.008, 0.007, 0.006, 0.005, 0.004, 0.003, 0.002, 0.001, 0
+    ]
     
     var body: some View {
         ZStack {
@@ -43,72 +44,62 @@ struct MovingMonsters: View {
         .onChange(of: isPlaying, { _, newValue in
             if newValue {
                 startMonsterAnimation()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                    let lastIndex = speeds.count - 1
+                    index = index == lastIndex ? lastIndex : index + 1
+                    startMonsterAnimation()
+                }
             } else {
                 removeMonsters()
             }
         })
-        .onDisappear {
-            stopMonsterAnimationTimers()
-        }
+        .onChange(of: index, { _, _ in
+            guard index != speeds.count - 1 else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+                index += 1
+                withAnimation(.smooth) {
+                    startMonsterAnimation()
+                }
+            }
+        })
     }
     
     // Function to return the appropriate monster view based on the monster type
     @ViewBuilder
     private func monsterView(for type: Int) -> some View {
         switch type {
-        case 1:
-            Monster_1()
-        case 2:
-            Monster_2()
-        case 3:
-            Monster_3()
-        case 4:
-            Monster_4()
-        default:
-            Monster_1()
+        case 1:     Monster_1()
+        case 2:     Monster_2()
+        case 3:     Monster_3()
+        case 4:     Monster_4()
+        default:    Monster_1()
         }
     }
     
     // Speed Up Monster animations
     private func startMonsterAnimation(){
-        let lastIndex = monsterAnimationSpeeds.count - 1
-        speedUpTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { _ in
-            index = index == lastIndex ? lastIndex : index + 1
-            addMoveAnimation()
-        }
-    }
-    
-    // Start normal speed monster animation
-    private func addMoveAnimation(){
-        movingDownTimer = Timer.scheduledTimer(withTimeInterval: monsterAnimationSpeeds[index], repeats: true) { _ in
+        DispatchQueue.main.asyncAfter(deadline: .now() + speeds[index]){
             moveMonstersDown()
-            detectCollisions()
-        }
-        
-        addingMonstersTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ _ in
             addMonsters()
+            detectCollisions()
+            startMonsterAnimation()
         }
     }
-    
-    // Stop Timers
-    private func stopMonsterAnimationTimers(){
-        movingDownTimer?.invalidate()
-        addingMonstersTimer?.invalidate()
-        speedUpTimer?.invalidate()
-        movingDownTimer = nil
-        addingMonstersTimer = nil
-        speedUpTimer = nil
-    }
-    
+
     // Adding new monsters on the top
     private func addMonsters(){
-        let screenWidth = UIScreen.main.bounds.width
-        let newMonster = Monster(
-            position: CGPoint(
-                x: CGFloat.random(in: 0...screenWidth),
-                y: 0), 
-            monsterType: Int.random(in: 1...4))
-        monsters.append(newMonster)
+        if intervalBetweenMonsters == 30 {
+            let screenWidth = UIScreen.main.bounds.width
+            let newMonster = Monster(
+                position: CGPoint(
+                    x: CGFloat.random(in: 0...screenWidth),
+                    y: 0),
+                monsterType: Int.random(in: 1...4))
+            monsters.append(newMonster)
+            intervalBetweenMonsters = 1
+        } else {
+            intervalBetweenMonsters += 1
+        }
     }
     
     // Moving monsters to the bottom
@@ -166,7 +157,6 @@ struct MovingMonsters: View {
             ]
             return bulletPositionDistance(with: offsets, bullet: bullet, monster: monster)
             
-            
         default:
             return bullet.position.distance(to: monster.position) < 20
         }
@@ -189,5 +179,9 @@ struct MovingMonsters: View {
 }
 
 #Preview {
-    MovingMonsters(bullets: .constant([Bullet(position: CGPoint(x: 100, y: 100), type: 1)]), isPlaying: .constant(true), score: .constant(0))
+    MovingMonsters(bullets: .constant([Bullet(position: 
+                                                CGPoint(x: 100, y: 100),
+                                              type: 1)]),
+                   isPlaying: .constant(true), 
+                   score: .constant(0))
 }

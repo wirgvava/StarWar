@@ -10,10 +10,10 @@ import SwiftUI
 class AnimationManager: ObservableObject {
     @Published var currentImageIndex = 0
     var speed = DispatchTime.now()
-    var images: [String] = []
+    var images: [ImageResource] = []
     var animationDuration: Double = 0.08
 
-    init(images: [String], animationDuration: Double = 0.02) {
+    init(images: [ImageResource], animationDuration: Double = 0.02) {
         self.images = images
         self.animationDuration = animationDuration
     }

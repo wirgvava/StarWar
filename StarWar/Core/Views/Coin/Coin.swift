@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct Coin: View {
-    @StateObject private var animationManager: AnimationManager
-    
-    init() {
-        _animationManager = StateObject(wrappedValue: AnimationManager(images: ["Coin(front view)", "Coin(side view)"], animationDuration: 0.1))
-    }
-    
+    @StateObject private var animationManager: AnimationManager = .init(
+        images: [.coinFrontView, .coinSideView],
+        animationDuration: 0.1)
+   
     var body: some View {
         Image(animationManager.images[animationManager.currentImageIndex])
             .resizable()

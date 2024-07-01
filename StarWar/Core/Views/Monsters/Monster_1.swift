@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct Monster_1: View {
-    @StateObject private var animationManager: AnimationManager
-    
-    init() {
-        _animationManager = StateObject(wrappedValue: AnimationManager(images: ["Monster 1.1", "Monster 1.2"], animationDuration: 0.1))
-    }
+    @StateObject private var animationManager: AnimationManager = .init(
+        images: [.monster11, .monster12],
+        animationDuration: 0.1)
     
     var body: some View {
         Image(animationManager.images[animationManager.currentImageIndex])

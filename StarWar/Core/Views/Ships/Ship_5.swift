@@ -14,9 +14,9 @@ struct Ship_5: View {
     @State var startShoot: Bool = false
     @State var shipPositionForBullet: CGPoint = CGPoint(
         x: UIScreen.main.bounds.width / 2,
-        y: UIScreen.main.bounds.height / 2
-    )
-    @StateObject private var animationManager: AnimationManager = .init(images: ["Ship 4.1", "Ship 4.2", "Ship 4.3"])
+        y: UIScreen.main.bounds.height / 2)
+    @StateObject private var animationManager: AnimationManager = .init(
+        images: [.ship51, .ship52, .ship53])
     
     var body: some View {
         ZStack {
@@ -51,17 +51,13 @@ struct Ship_5: View {
 }
 
 #Preview {
-    Ship_5(isPlaying: .constant(true), shipPosition: .constant(
-        CGPoint(
-            x: UIScreen.main.bounds.width / 2,
-            y: UIScreen.main.bounds.height / 2)
-    ), bullets: .constant(
-        [Bullet(position:
-                    CGPoint(
-                        x: UIScreen.main.bounds.width / 2,
-                        y: UIScreen.main.bounds.height / 2), 
-                type: 5
-               )
-        ])
+    Ship_5(isPlaying: .constant(true), 
+           shipPosition: .constant(
+            CGPoint(x: UIScreen.main.bounds.width / 2,
+                    y: UIScreen.main.bounds.height / 2)),
+           bullets: .constant([
+            Bullet(position: CGPoint(x: UIScreen.main.bounds.width / 2,
+                                     y: UIScreen.main.bounds.height / 2), 
+                   type: 5 )])
     )
 }

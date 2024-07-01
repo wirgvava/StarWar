@@ -24,7 +24,9 @@ struct Ship_3_Bullets: View {
         .ignoresSafeArea()
         .onChange(of: isPlaying) { _, newValue in
             if newValue {
-                startBulletAnimation()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    startBulletAnimation()
+                }
             } else {
                 stopBulletsAnimationTimer()
             }
@@ -76,7 +78,8 @@ struct Ship_3_Bullets: View {
 #Preview {
     Ship_3_Bullets(bullets: .constant([Bullet(position:
                     CGPoint(x: UIScreen.main.bounds.width / 2,
-                            y: UIScreen.main.bounds.height / 2), type: 3)]),
+                            y: UIScreen.main.bounds.height / 2), 
+                                              type: 3)]),
                    isPlaying: .constant(true),
                    shipPositionForBullet: .constant(
                     CGPoint(

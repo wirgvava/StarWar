@@ -67,6 +67,7 @@ struct Ship_6_Bullets: View {
                 }
             } else {
                 stopBulletsAnimationTimer()
+                bullets.removeAll()
             }
         }.onDisappear(){
             stopBulletsAnimationTimer()

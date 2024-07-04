@@ -9,7 +9,11 @@ import SwiftUI
 
 struct MovingMonsters: View {
     @Binding var bullets: [Bullet]
+    @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
+    @Binding var gameOver: Bool
+    @Binding var shipType: Int
+    @Binding var shipPosition: CGPoint
     @Binding var score: Int
     @State private var monsters: [Monster] = []
     @State private var explosions: [Explosion] = []
@@ -29,7 +33,7 @@ struct MovingMonsters: View {
             .ignoresSafeArea()
             
             ForEach(explosions) { explosion in
-                Explode()
+                Explode(size: 90)
                     .position(x: explosion.position.x,
                               y: explosion.position.y - 50)
                     .onAppear {
@@ -50,13 +54,13 @@ struct MovingMonsters: View {
                     startMonsterAnimation()
                 }
             } else {
-                removeMonsters()
+                index = 0
             }
         })
         .onChange(of: index, { _, _ in
             guard index != speeds.count - 1 else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                index += 1
+                index = isPlaying ? index + 1 : index
                 withAnimation(.smooth) {
                     startMonsterAnimation()
                 }
@@ -78,11 +82,13 @@ struct MovingMonsters: View {
     
     // Speed Up Monster animations
     private func startMonsterAnimation(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + speeds[index]){
-            moveMonstersDown()
-            addMonsters()
-            detectCollisions()
-            startMonsterAnimation()
+        if isPlaying {
+            DispatchQueue.main.asyncAfter(deadline: .now() + speeds[index]){
+                moveMonstersDown()
+                addMonsters()
+                detectCollisions()
+                startMonsterAnimation()
+            }
         }
     }
 
@@ -118,8 +124,14 @@ struct MovingMonsters: View {
         monsters.removeAll()
     }
     
-    // Detect collisions between bullets and monsters
+    // Detect collisions
     private func detectCollisions() {
+        detectCollisionsForMonsters()
+        detectCollisionsForTheShip()
+    }
+    
+    // Check for collision between Bullets and Monsters
+    private func detectCollisionsForMonsters(){
         for bullet in bullets {
             for monster in monsters {
                 if kill(monster: monster, with: bullet) {
@@ -134,6 +146,44 @@ struct MovingMonsters: View {
         }
     }
     
+    // Check for collision between monsters and the ship
+    private func detectCollisionsForTheShip(){
+        for monster in monsters {
+            if monsterHitsShip(monster: monster, shipPosition: shipPosition) {
+                withAnimation(.easeOut) {
+                    gameOver = true
+                    isPlayable = false
+                    isPlaying = false
+                    triggerExplosion(at: shipPosition)
+                    removeMonsters()
+                }
+                break
+            }
+        }
+    }
+    
+    // Monster distance to the ship
+    private func monsterHitsShip(monster: Monster, shipPosition: CGPoint) -> Bool {
+        let monsterPosition = CGRect(x: monster.position.x, y: monster.position.y - 60, width: 50, height: 50)
+        
+        var shipSize: CGFloat = 50
+        
+        switch shipType {
+        case 1: shipSize = 50
+        case 2: shipSize = 70
+        case 3: shipSize = 80
+        case 4: shipSize = 90
+        case 5: shipSize = 90
+        case 6: shipSize = 90
+        default:shipSize = 50
+        }
+        
+        let shipPosition = CGRect(x: shipPosition.x, y: shipPosition.y, width: shipSize, height: shipSize)
+        
+        return shipPosition.intersects(monsterPosition)
+    }
+    
+    // Bullets distance to monster
     private func kill(monster: Monster, with bullet: Bullet) -> Bool {
         switch bullet.type {
         case 1, 2, 3:
@@ -171,17 +221,10 @@ struct MovingMonsters: View {
         }
     }
     
+    // Explosion
     private func triggerExplosion(at position: CGPoint) {
         let newExplosion = Explosion(position: position, 
                                      animationDuration: 0.2)
         explosions.append(newExplosion)
     }
-}
-
-#Preview {
-    MovingMonsters(bullets: .constant([Bullet(position: 
-                                                CGPoint(x: 100, y: 100),
-                                              type: 1)]),
-                   isPlaying: .constant(true), 
-                   score: .constant(0))
 }

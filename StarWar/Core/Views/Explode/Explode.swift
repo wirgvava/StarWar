@@ -11,12 +11,17 @@ struct Explode: View {
     @StateObject private var animationManager: AnimationManager = .init(
         images: [.explodeAnim1, .explodeAnim2, .explodeAnim3],
         animationDuration: 0.1)
+    var size: CGFloat
+    
+    init(size: CGFloat) {
+        self.size = size
+    }
     
     var body: some View {
         Image(animationManager.images[animationManager.currentImageIndex])
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 90, height: 90)
+            .frame(width: size, height: size)
             .onAppear(){
                 animationManager.startAnimation()
             }
@@ -24,5 +29,5 @@ struct Explode: View {
 }
 
 #Preview {
-    Explode()
+    Explode(size: 90)
 }

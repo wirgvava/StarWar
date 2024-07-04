@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import Combine
 
 struct Stars: View {
-    @State private var stars: [Star] = []
     @Binding var isPlaying: Bool
-    @State private var intervalBetweenStars = 1
+    @State private var speedUpSwitcher: Bool = false
+    @State private var stars: [Star] = []
+    @State private var intervalBetweenStars = 0
     @State private var index: Int = 0
     let speeds = [
         0.025, 0.01, 0.0075, 0.005, 0.0025, 0.001, 0
@@ -35,24 +35,22 @@ struct Stars: View {
         }
         .onChange(of: isPlaying, { _, newValue in
             if newValue {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                    let lastIndex = speeds.count - 1
-                    index = index == lastIndex ? lastIndex : index + 1
-                    withAnimation(.smooth) {
-                        startStarAnimation()
-                    }
-                }
+                speedUpSwitcher.toggle()
             }
         })
-        .onChange(of: index, { _, _ in
-            guard index != speeds.count - 1 else { return }
+        .onChange(of: speedUpSwitcher) { _, _ in
+            guard isPlaying else {
+                index = 0
+                startStarAnimation()
+                return
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                index += 1
-                withAnimation(.smooth) {
-                    startStarAnimation()
-                }
+                let lastIndex = speeds.count - 1
+                index = index == lastIndex ? lastIndex : index + 1
+                startStarAnimation()
+                speedUpSwitcher.toggle()
             }
-        })
+        }
     }
    
     // Spawn initial stars on appear
@@ -67,7 +65,7 @@ struct Stars: View {
                               type: Int.random(in: 1...32)))
         }
     }
-    
+ 
     // Start normal speed star animation
     private func startStarAnimation() {
         DispatchQueue.main.asyncAfter(deadline: .now() + speeds[index]) {

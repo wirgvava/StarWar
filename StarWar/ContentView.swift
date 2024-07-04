@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isPlayable: Bool = true
     @State private var isPlaying: Bool = false
+    @State private var gameOver: Bool = false
+    @State private var shipType: Int = 1
+    @State private var currentScoreShown = false
     @State private var bullets: [Bullet] = []
     @State private var score: Int = 0
     @State private var highScore: Int = 18404
@@ -27,13 +31,18 @@ struct ContentView: View {
          
             HighScoreBanner(topPadding: $highScoreBannerTopPadding, highScore: $highScore)
             
+            if currentScoreShown {
+                CurrentScore(score: $score)
+                    .padding(.top, highScoreBannerTopPadding + 120)
+            }
+            
             MenuButtons(sidePadding: $menuButtonsSidePadding)
             
-            Ship_1(isPlaying: $isPlaying, shipPosition: $shipPosition, bullets: $bullets)
+            MovingMonsters(bullets: $bullets, isPlayable: $isPlayable, isPlaying: $isPlaying, gameOver: $gameOver, shipType: $shipType, shipPosition: $shipPosition, score: $score)
+            
+            Ship_1(shipType: $shipType, isPlayable: $isPlayable, isPlaying: $isPlaying, gameOver: $gameOver, shipPosition: $shipPosition, bullets: $bullets)
                 .scaleEffect(isPlaying ? 1.0 : 1.8)
                 .animation(.easeOut, value: isPlaying)
-            
-            MovingMonsters(bullets: $bullets, isPlaying: $isPlaying, score: $score)
             
             InGameInfo(score: $score, scoreTopPadding: $scoreTopPadding)
         }
@@ -43,6 +52,15 @@ struct ContentView: View {
                     self.highScoreBannerTopPadding = -600
                     self.scoreTopPadding = -350
                     self.menuButtonsSidePadding = -40
+                    self.currentScoreShown = false
+                    self.score = 0
+                }
+            } else {
+                withAnimation(.snappy) {
+                    self.currentScoreShown = true
+                    self.highScoreBannerTopPadding = -300
+                    self.scoreTopPadding = -600
+                    self.menuButtonsSidePadding = 20
                 }
             }
         }

@@ -16,7 +16,7 @@ struct Monster_1: View {
         Image(animationManager.images[animationManager.currentImageIndex])
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 70, height: 70)
+            .frame(width: 50, height: 50)
             .onAppear(){
                 animationManager.startAnimation()
             }

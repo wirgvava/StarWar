@@ -10,6 +10,7 @@
 		A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9552C3002EA00AB5143 /* Monster.swift */; };
 		A50DB9582C3002F200AB5143 /* Explosion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9572C3002F200AB5143 /* Explosion.swift */; };
 		A50DB95A2C305BA900AB5143 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9592C305BA900AB5143 /* Star.swift */; };
+		A51AE95D2C356C230064407A /* CurrentScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AE95C2C356C230064407A /* CurrentScore.swift */; };
 		A57F95122C2820E100C5A4DC /* Ship_1_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */; };
 		A587D69B2C25AFD600096F4B /* StarWarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587D69A2C25AFD600096F4B /* StarWarApp.swift */; };
 		A587D69D2C25AFD600096F4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587D69C2C25AFD600096F4B /* ContentView.swift */; };
@@ -48,6 +49,7 @@
 		A50DB9552C3002EA00AB5143 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A50DB9572C3002F200AB5143 /* Explosion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explosion.swift; sourceTree = "<group>"; };
 		A50DB9592C305BA900AB5143 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		A51AE95C2C356C230064407A /* CurrentScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentScore.swift; sourceTree = "<group>"; };
 		A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_1_Bullets.swift; sourceTree = "<group>"; };
 		A587D6972C25AFD600096F4B /* StarWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A587D69A2C25AFD600096F4B /* StarWarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarApp.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A51AE95B2C356C160064407A /* Current Score */ = {
+			isa = PBXGroup;
+			children = (
+				A51AE95C2C356C230064407A /* CurrentScore.swift */,
+			);
+			path = "Current Score";
+			sourceTree = "<group>";
+		};
 		A5551E542C25B83A00A7309C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +231,7 @@
 			children = (
 				A57F95102C2820CD00C5A4DC /* Bullets */,
 				A5E562B62C25D16E00908A3B /* Coin */,
+				A51AE95B2C356C160064407A /* Current Score */,
 				A5E562B92C25DA0000908A3B /* Explode */,
 				A5E12DBB2C3331D7008E92D8 /* HighScoreBanner */,
 				A5E12DBE2C33338E008E92D8 /* InGameInfo */,
@@ -368,6 +379,7 @@
 				A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */,
 				A5E562BB2C25DA1400908A3B /* Explode.swift in Sources */,
 				A5E562AA2C25CB7E00908A3B /* AnimationManager.swift in Sources */,
+				A51AE95D2C356C230064407A /* CurrentScore.swift in Sources */,
 				A50DB95A2C305BA900AB5143 /* Star.swift in Sources */,
 				A5E562A42C25C09C00908A3B /* Ship_1.swift in Sources */,
 				A50DB9582C3002F200AB5143 /* Explosion.swift in Sources */,

@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct Ship_2: View {
+    @Binding var shipType: Int
+    @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
+    @Binding var gameOver: Bool
     @Binding var shipPosition: CGPoint
     @Binding var bullets: [Bullet]
     @State var startShoot: Bool = false
@@ -34,13 +37,21 @@ struct Ship_2: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            self.shipPosition = value.location
-                            self.isPlaying = true
+                            if isPlayable {
+                                self.shipPosition = value.location
+                                self.isPlaying = true
+                            }
                         }
                 )
             
+            if gameOver {
+                Explode(size: 165)
+                    .position(shipPosition)
+            }
+            
         }
         .onAppear(){
+            shipType = 2
             animationManager.startAnimation()
         }
         .onChange(of: isPlaying) { _, newValue in
@@ -49,17 +60,33 @@ struct Ship_2: View {
         .onChange(of: shipPosition) { _, newValue in
             shipPositionForBullet = newValue
         }
+        .onChange(of: gameOver) { _, newValue in
+            if newValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    gameOver = false
+                    isPlayable = true
+                    withAnimation {
+                        shipPosition = CGPoint(
+                            x: UIScreen.main.bounds.width / 2,
+                            y: (UIScreen.main.bounds.height / 2) - 50)
+                    }
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    Ship_2(isPlaying: .constant(true), 
+    Ship_2(shipType: .constant(2),
+           isPlayable: .constant(true),
+           isPlaying: .constant(true),
+           gameOver: .constant(true),
            shipPosition: .constant(
             CGPoint(x: UIScreen.main.bounds.width / 2,
                     y: UIScreen.main.bounds.height / 2)),
            bullets: .constant([
-            Bullet(position: CGPoint(x: UIScreen.main.bounds.width / 2,
-                                     y: UIScreen.main.bounds.height / 2), 
-                   type: 2 )])
+            Bullet(position:CGPoint(x: UIScreen.main.bounds.width / 2,
+                                    y: UIScreen.main.bounds.height / 2),
+                   type: 1) ])
     )
 }

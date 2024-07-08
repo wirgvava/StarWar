@@ -36,7 +36,7 @@ struct ContentView: View {
                     .padding(.top, highScoreBannerTopPadding + 120)
             }
             
-            MenuButtons(sidePadding: $menuButtonsSidePadding)
+            MenuButtons(sidePadding: $menuButtonsSidePadding, gameOver: $gameOver)
             
             MovingMonsters(bullets: $bullets, isPlayable: $isPlayable, isPlaying: $isPlaying, gameOver: $gameOver, shipType: $shipType, shipPosition: $shipPosition, score: $score)
             

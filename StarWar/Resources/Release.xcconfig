@@ -1,0 +1,12 @@
+//
+//  Release.xcconfig
+//  StarWar
+//
+//  Created by Konstantine Tsirgvava on 08.07.24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+GADApplicationIdentifier = ca-app-pub-3940256099942544~1458002511
+GADRewardedAd = ca-app-pub-3940256099942544/1712485313

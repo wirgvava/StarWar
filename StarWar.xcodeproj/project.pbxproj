@@ -11,6 +11,13 @@
 		A50DB9582C3002F200AB5143 /* Explosion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9572C3002F200AB5143 /* Explosion.swift */; };
 		A50DB95A2C305BA900AB5143 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9592C305BA900AB5143 /* Star.swift */; };
 		A51AE95D2C356C230064407A /* CurrentScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AE95C2C356C230064407A /* CurrentScore.swift */; };
+		A522EDF42C3BFDE100D36552 /* AppStorage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EDF32C3BFDE100D36552 /* AppStorage+Extensions.swift */; };
+		A522EDF62C3C0B6500D36552 /* AppStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EDF52C3C0B6500D36552 /* AppStorageManager.swift */; };
+		A522EDF92C3C17D200D36552 /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EDF82C3C17D200D36552 /* HealthView.swift */; };
+		A522EDFC2C3C1E7B00D36552 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A522EDFB2C3C1E7B00D36552 /* GoogleMobileAds */; };
+		A522EDFF2C3C1FFB00D36552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */; };
+		A522EE012C3C231100D36552 /* RewardAdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EE002C3C231100D36552 /* RewardAdsManager.swift */; };
+		A57A63AD2C3709F400260919 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A63AC2C3709F400260919 /* CommonMethods.swift */; };
 		A57F95122C2820E100C5A4DC /* Ship_1_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */; };
 		A587D69B2C25AFD600096F4B /* StarWarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587D69A2C25AFD600096F4B /* StarWarApp.swift */; };
 		A587D69D2C25AFD600096F4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587D69C2C25AFD600096F4B /* ContentView.swift */; };
@@ -50,6 +57,13 @@
 		A50DB9572C3002F200AB5143 /* Explosion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explosion.swift; sourceTree = "<group>"; };
 		A50DB9592C305BA900AB5143 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		A51AE95C2C356C230064407A /* CurrentScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentScore.swift; sourceTree = "<group>"; };
+		A522EDF32C3BFDE100D36552 /* AppStorage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStorage+Extensions.swift"; sourceTree = "<group>"; };
+		A522EDF52C3C0B6500D36552 /* AppStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageManager.swift; sourceTree = "<group>"; };
+		A522EDF82C3C17D200D36552 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		A522EDFD2C3C1F4A00D36552 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A522EE002C3C231100D36552 /* RewardAdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAdsManager.swift; sourceTree = "<group>"; };
+		A57A63AC2C3709F400260919 /* CommonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_1_Bullets.swift; sourceTree = "<group>"; };
 		A587D6972C25AFD600096F4B /* StarWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A587D69A2C25AFD600096F4B /* StarWarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarApp.swift; sourceTree = "<group>"; };
@@ -91,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A522EDFC2C3C1E7B00D36552 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,12 +120,28 @@
 			path = "Current Score";
 			sourceTree = "<group>";
 		};
+		A522EDF72C3C178900D36552 /* Health */ = {
+			isa = PBXGroup;
+			children = (
+				A522EDF82C3C17D200D36552 /* HealthView.swift */,
+			);
+			path = Health;
+			sourceTree = "<group>";
+		};
 		A5551E542C25B83A00A7309C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				A598FAAE2C25BBF800EF9F16 /* Minecraft.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A57A63AB2C3709E000260919 /* Common Methods */ = {
+			isa = PBXGroup;
+			children = (
+				A57A63AC2C3709F400260919 /* CommonMethods.swift */,
+			);
+			path = "Common Methods";
 			sourceTree = "<group>";
 		};
 		A57F95102C2820CD00C5A4DC /* Bullets */ = {
@@ -145,6 +176,7 @@
 		A587D6992C25AFD600096F4B /* StarWar */ = {
 			isa = PBXGroup;
 			children = (
+				A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */,
 				A587D69A2C25AFD600096F4B /* StarWarApp.swift */,
 				A587D69C2C25AFD600096F4B /* ContentView.swift */,
 				A5E562A12C25C07100908A3B /* Core */,
@@ -168,6 +200,7 @@
 				A5551E542C25B83A00A7309C /* Fonts */,
 				A587D69E2C25AFD700096F4B /* Assets.xcassets */,
 				A5DAADF42C25BF38002E017E /* Info.plist */,
+				A522EDFD2C3C1F4A00D36552 /* Release.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -186,6 +219,7 @@
 		A5C810322C2DCE1500FF2FFD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A522EDF32C3BFDE100D36552 /* AppStorage+Extensions.swift */,
 				A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */,
 			);
 			path = Extensions;
@@ -218,6 +252,7 @@
 		A5E562A12C25C07100908A3B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A57A63AB2C3709E000260919 /* Common Methods */,
 				A5C810322C2DCE1500FF2FFD /* Extensions */,
 				A5E562A82C25CB3800908A3B /* Managers */,
 				A5A3BEE92C29EBDF00F16880 /* Models */,
@@ -233,6 +268,7 @@
 				A5E562B62C25D16E00908A3B /* Coin */,
 				A51AE95B2C356C160064407A /* Current Score */,
 				A5E562B92C25DA0000908A3B /* Explode */,
+				A522EDF72C3C178900D36552 /* Health */,
 				A5E12DBB2C3331D7008E92D8 /* HighScoreBanner */,
 				A5E12DBE2C33338E008E92D8 /* InGameInfo */,
 				A5E12DC12C3336B5008E92D8 /* MenuButtons */,
@@ -247,6 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				A5E562A92C25CB4B00908A3B /* AnimationManager.swift */,
+				A522EDF52C3C0B6500D36552 /* AppStorageManager.swift */,
+				A522EE002C3C231100D36552 /* RewardAdsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -318,6 +356,7 @@
 			);
 			name = StarWar;
 			packageProductDependencies = (
+				A522EDFB2C3C1E7B00D36552 /* GoogleMobileAds */,
 			);
 			productName = StarWar;
 			productReference = A587D6972C25AFD600096F4B /* StarWar.app */;
@@ -348,6 +387,7 @@
 			);
 			mainGroup = A587D68E2C25AFD600096F4B;
 			packageReferences = (
+				A522EDFA2C3C1E7B00D36552 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = A587D6982C25AFD600096F4B /* Products */;
 			projectDirPath = "";
@@ -378,15 +418,18 @@
 			files = (
 				A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */,
 				A5E562BB2C25DA1400908A3B /* Explode.swift in Sources */,
+				A522EDFF2C3C1FFB00D36552 /* AppDelegate.swift in Sources */,
 				A5E562AA2C25CB7E00908A3B /* AnimationManager.swift in Sources */,
 				A51AE95D2C356C230064407A /* CurrentScore.swift in Sources */,
 				A50DB95A2C305BA900AB5143 /* Star.swift in Sources */,
 				A5E562A42C25C09C00908A3B /* Ship_1.swift in Sources */,
 				A50DB9582C3002F200AB5143 /* Explosion.swift in Sources */,
 				A5F7EA262C260E06000F3D41 /* Stars.swift in Sources */,
+				A522EDF42C3BFDE100D36552 /* AppStorage+Extensions.swift in Sources */,
 				A59A9C022C29ADDB008409C1 /* Ship_2_Bullets.swift in Sources */,
 				A5C810342C2DCE2500FF2FFD /* CGPoint+Extensions.swift in Sources */,
 				A57F95122C2820E100C5A4DC /* Ship_1_Bullets.swift in Sources */,
+				A522EDF92C3C17D200D36552 /* HealthView.swift in Sources */,
 				A5E562B42C25CFB800908A3B /* Ship_6.swift in Sources */,
 				A5E562B02C25CF0B00908A3B /* Ship_5.swift in Sources */,
 				A5E12DBD2C3331E7008E92D8 /* HighScoreBanner.swift in Sources */,
@@ -400,13 +443,16 @@
 				A5E562C12C25DB1C00908A3B /* Monster_2.swift in Sources */,
 				A5E562AC2C25CDDD00908A3B /* Ship_2.swift in Sources */,
 				A587D69B2C25AFD600096F4B /* StarWarApp.swift in Sources */,
+				A522EE012C3C231100D36552 /* RewardAdsManager.swift in Sources */,
 				A5E562C52C25DB5100908A3B /* Monster_4.swift in Sources */,
 				A5E562AE2C25CECF00908A3B /* Ship_3.swift in Sources */,
 				A5E562B82C25D17D00908A3B /* Coin.swift in Sources */,
 				A5E12DC32C3336BF008E92D8 /* MenuButtons.swift in Sources */,
 				A5A3BEEB2C29EBF500F16880 /* Bullet.swift in Sources */,
+				A57A63AD2C3709F400260919 /* CommonMethods.swift in Sources */,
 				A5E562C32C25DB3900908A3B /* Monster_3.swift in Sources */,
 				A59A9C042C29B82E008409C1 /* Ship_3_Bullets.swift in Sources */,
+				A522EDF62C3C0B6500D36552 /* AppStorageManager.swift in Sources */,
 				A5A3BEE82C29E7F000F16880 /* Ship_6_Bullets.swift in Sources */,
 				A5E562B22C25CF6900908A3B /* Ship_4.swift in Sources */,
 			);
@@ -544,6 +590,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StarWar/Preview Content\"";
 				DEVELOPMENT_TEAM = NW6K64987Z;
 				ENABLE_PREVIEWS = YES;
+				GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
+				GADRewardedAd = "ca-app-pub-3940256099942544/1712485313";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarWar/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
@@ -578,6 +626,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StarWar/Preview Content\"";
 				DEVELOPMENT_TEAM = NW6K64987Z;
 				ENABLE_PREVIEWS = YES;
+				GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
+				GADRewardedAd = "ca-app-pub-3940256099942544/1712485313";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarWar/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
@@ -624,6 +674,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A522EDFA2C3C1E7B00D36552 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A522EDFB2C3C1E7B00D36552 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A522EDFA2C3C1E7B00D36552 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A587D68F2C25AFD600096F4B /* Project object */;
 }

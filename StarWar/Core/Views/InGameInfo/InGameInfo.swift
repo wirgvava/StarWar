@@ -11,22 +11,10 @@ struct InGameInfo: View {
     @Binding var score: Int
     @Binding var scoreTopPadding: CGFloat
     
-    // TODO: add logic later.
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
             HStack {
-                Image(.healthFull)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-                Image(.healthHalf)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
-                Image(.healthEmpty)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
+                healthView(heartSize: 30)
             }
             
             Spacer()

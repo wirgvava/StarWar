@@ -37,9 +37,13 @@ struct Ship_1: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            if isPlayable {
-                                self.shipPosition = value.location
-                                self.isPlaying = true
+                            if AppStorageManager.pointOfHealth != 0 {
+                                if isPlayable {
+                                    self.shipPosition = value.location
+                                    self.isPlaying = true
+                                }
+                            } else {
+                                vibration()
                             }
                         }
                 )
@@ -74,6 +78,8 @@ struct Ship_1: View {
             }
         }
     }
+    
+    
 }
 
 #Preview {

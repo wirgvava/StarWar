@@ -36,7 +36,16 @@ struct MenuButtons: View {
                     } label: {
                         Text("Watch Ad")
                             .foregroundColor(.white)
-                            .font(.custom("Minecraft", size: animateToggle ? 28 : 24))
+                            .font(.custom("Minecraft", size: 24))
+                            .scaleEffect(animateToggle ? 1.5 : 1.0)
+                    }
+                    .onAppear(){
+                        let baseAnimation = Animation.easeInOut(duration: 0.5)
+                        let repeated = baseAnimation.repeatForever(autoreverses: true)
+                        
+                        withAnimation(repeated) {
+                            animateToggle.toggle()
+                        }
                     }
                     
                     Spacer()
@@ -100,6 +109,7 @@ struct MenuButtons: View {
             if AppStorageManager.pointOfHealth == 0 {
                 let difference = Int(AppStorageManager.date.timeIntervalSince(Date.now))
                 self.timeRemaining = difference
+                rewardAdsManager.loadReward()
                 startTimer()
             }
         }
@@ -107,7 +117,7 @@ struct MenuButtons: View {
     
     // Timer
     private func startTimer(){
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
             guard AppStorageManager.timerIsActive else {
                 timer?.invalidate()
                 timer = nil
@@ -116,7 +126,6 @@ struct MenuButtons: View {
             
             let difference = Int(AppStorageManager.date.timeIntervalSince(Date.now))
             self.timeRemaining = difference
-            animateToggle.toggle()
             
             if self.timeRemaining < 0 {
                 AppStorageManager.pointOfHealth = 6

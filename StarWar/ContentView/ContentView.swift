@@ -47,6 +47,16 @@ struct ContentView: View {
                            score: $viewModel.score,
                            shipType: viewModel.shipType)
             
+            MovingCoins(isPlaying: $viewModel.isPlaying,
+                        shipPosition: $viewModel.shipPosition, 
+                        shipType: viewModel.shipType)
+            
+            MovingMeteors(isPlayable: $viewModel.isPlayable,
+                          isPlaying: $viewModel.isPlaying,
+                          gameOver: $viewModel.gameOver,
+                          shipPosition: $viewModel.shipPosition,
+                          shipType: viewModel.shipType)
+            
             Ship_1(shipType: $viewModel.shipType,
                    isPlayable: $viewModel.isPlayable,
                    isPlaying: $viewModel.isPlaying,

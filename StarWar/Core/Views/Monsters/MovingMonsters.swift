@@ -153,19 +153,7 @@ struct MovingMonsters: View {
     // Monster distance to the ship
     private func monsterHitsShip(monster: Monster, shipPosition: CGPoint) -> Bool {
         let monsterPosition = CGRect(x: monster.position.x, y: monster.position.y - 60, width: 50, height: 50)
-        
-        var shipSize: CGFloat = 50
-        
-        switch shipType {
-        case 1: shipSize = 50
-        case 2: shipSize = 70
-        case 3: shipSize = 80
-        case 4: shipSize = 90
-        case 5: shipSize = 90
-        case 6: shipSize = 90
-        default:shipSize = 50
-        }
-        
+        let shipSize = sizeForShip(type: shipType)
         let shipPosition = CGRect(x: shipPosition.x, y: shipPosition.y, width: shipSize, height: shipSize)
         
         return shipPosition.intersects(monsterPosition)

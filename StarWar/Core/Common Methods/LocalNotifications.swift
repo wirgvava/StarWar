@@ -1,19 +1,12 @@
 //
-//  CommonMethods.swift
+//  LocalNotifications.swift
 //  StarWar
 //
 //  Created by Konstantine Tsirgvava on 04.07.24.
 //
 
-import UIKit
 import UserNotifications
 
-func vibration() {
-    let generator = UIImpactFeedbackGenerator(style: .soft)
-    generator.impactOccurred()
-}
-
-// Request notification permission
 func requestNotificationPermission() {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
         if let error = error {
@@ -26,7 +19,6 @@ func requestNotificationPermission() {
     }
 }
 
-// Send notification
 func sendNotification() {
     let content = UNMutableNotificationContent()
     content.title = "Pew Pew"

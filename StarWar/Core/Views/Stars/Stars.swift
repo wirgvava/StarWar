@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct Stars: View {
-    @Binding var isPlaying: Bool
     @State private var speedUpSwitcher: Bool = false
     @State private var stars: [Star] = []
     @State private var intervalBetweenStars = 0
     @State private var index: Int = 0
+    var isPlaying: Bool
     let speeds = [
         0.025, 0.01, 0.0075, 0.005, 0.0025, 0.001, 0
     ]
@@ -106,8 +106,4 @@ struct Stars: View {
             $0.position.y <= screenHeight
         }
     }
-}
-
-#Preview {
-    Stars(isPlaying: .constant(true))
 }

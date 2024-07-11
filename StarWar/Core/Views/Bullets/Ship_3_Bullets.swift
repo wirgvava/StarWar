@@ -9,9 +9,9 @@ import SwiftUI
 
 struct Ship_3_Bullets: View {
     @Binding var bullets: [Bullet]
-    @Binding var isPlaying: Bool
-    @Binding var shipPositionForBullet: CGPoint
+    @Binding var shipPosition: CGPoint
     @State private var timer: Timer?
+    var isPlaying: Bool
   
     var body: some View {
         ForEach(bullets) { bullet in
@@ -57,8 +57,8 @@ struct Ship_3_Bullets: View {
         }
         let newBullet = Bullet(
             position: CGPoint(
-                x: shipPositionForBullet.x,
-                y: shipPositionForBullet.y + 5), 
+                x: shipPosition.x,
+                y: shipPosition.y + 5),
             type: 3)
         bullets.append(newBullet)
     }
@@ -75,16 +75,3 @@ struct Ship_3_Bullets: View {
         }
     }
 }
-
-#Preview {
-    Ship_3_Bullets(bullets: .constant([Bullet(position:
-                    CGPoint(x: UIScreen.main.bounds.width / 2,
-                            y: UIScreen.main.bounds.height / 2), 
-                                              type: 3)]),
-                   isPlaying: .constant(true),
-                   shipPositionForBullet: .constant(
-                    CGPoint(
-                        x: UIScreen.main.bounds.width / 2,
-                        y: UIScreen.main.bounds.height / 2)))
-}
-

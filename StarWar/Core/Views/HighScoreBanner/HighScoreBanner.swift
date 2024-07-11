@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HighScoreBanner: View {
-    @Binding var topPadding: CGFloat
-    @Binding var highScore: Int
+    var score: Int
+    var topPadding: CGFloat
     
     var body: some View {
         VStack {
@@ -21,22 +21,25 @@ struct HighScoreBanner: View {
             
             HStack {
                 Text("High Score")
-                    .foregroundColor(.white)
-                    .font(.custom("Minecraft", size: 28))
+                    .customFont(color: .white, size: 28)
                     .padding(.top, topPadding + 80)
                 
                 Spacer()
                 
-                Text("\(highScore)")
-                    .foregroundColor(.white)
-                    .font(.custom("Minecraft", size: 28))
+                Text("\(AppStorageManager.userHighScore)")
+                    .customFont(color: .white, size: 28)
                     .padding(.top, topPadding + 80)
             }
             .padding(.horizontal)
+        }
+        .onChange(of: score) { _, newValue in
+            if newValue > AppStorageManager.userHighScore {
+                AppStorageManager.userHighScore = newValue
+            }
         }
     }
 }
 
 #Preview {
-    HighScoreBanner(topPadding: .constant(-300), highScore: .constant(19204))
+    HighScoreBanner(score: 404, topPadding: -300)
 }

@@ -11,4 +11,5 @@ class AppStorageManager {
     @AppStorage("pointOfHealth") static var pointOfHealth: Int = 6
     @AppStorage.Converter("date") static var date: Date = .now
     @AppStorage("timerIsActive") static var timerIsActive = false
+    @AppStorage("userHighScore") static var userHighScore: Int = 0
 }

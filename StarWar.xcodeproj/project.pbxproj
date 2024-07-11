@@ -17,6 +17,15 @@
 		A522EDFC2C3C1E7B00D36552 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A522EDFB2C3C1E7B00D36552 /* GoogleMobileAds */; };
 		A522EDFF2C3C1FFB00D36552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */; };
 		A522EE012C3C231100D36552 /* RewardAdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EE002C3C231100D36552 /* RewardAdsManager.swift */; };
+		A56FC1DD2C3D4B4700F68711 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1DC2C3D4B4700F68711 /* FirebaseAnalytics */; };
+		A56FC1DF2C3D4B4700F68711 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1DE2C3D4B4700F68711 /* FirebaseCrashlytics */; };
+		A56FC1E12C3D4B4700F68711 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1E02C3D4B4700F68711 /* FirebaseFirestore */; };
+		A56FC1E32C3D4B5E00F68711 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A56FC1E22C3D4B5E00F68711 /* GoogleService-Info.plist */; };
+		A56FC1E52C3D4CD600F68711 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */; };
+		A56FC1E72C3D50C300F68711 /* TopScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC1E62C3D50C300F68711 /* TopScores.swift */; };
+		A56FC1EB2C3D6C9C00F68711 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC1EA2C3D6C9C00F68711 /* ContentView-ViewModel.swift */; };
+		A56FC1EF2C3D872900F68711 /* MonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC1EE2C3D872900F68711 /* MonsterView.swift */; };
+		A56FC1F32C3D974900F68711 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56FC1F22C3D974900F68711 /* LeaderboardView.swift */; };
 		A57A63AD2C3709F400260919 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A63AC2C3709F400260919 /* CommonMethods.swift */; };
 		A57F95122C2820E100C5A4DC /* Ship_1_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */; };
 		A587D69B2C25AFD600096F4B /* StarWarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A587D69A2C25AFD600096F4B /* StarWarApp.swift */; };
@@ -28,8 +37,10 @@
 		A59A9C042C29B82E008409C1 /* Ship_3_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A9C032C29B82E008409C1 /* Ship_3_Bullets.swift */; };
 		A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A9C052C29B91E008409C1 /* Ship_5_Bullets.swift */; };
 		A59A9C082C29BA55008409C1 /* Ship_4_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59A9C072C29BA55008409C1 /* Ship_4_Bullets.swift */; };
+		A59EBA452C3FE6CA00E21B02 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59EBA442C3FE6CA00E21B02 /* Text+Extensions.swift */; };
 		A5A3BEE82C29E7F000F16880 /* Ship_6_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3BEE72C29E7F000F16880 /* Ship_6_Bullets.swift */; };
 		A5A3BEEB2C29EBF500F16880 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3BEEA2C29EBF500F16880 /* Bullet.swift */; };
+		A5A822272C3EF1BA00C85152 /* AddHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A822262C3EF1BA00C85152 /* AddHighScore.swift */; };
 		A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */; };
 		A5C810342C2DCE2500FF2FFD /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */; };
 		A5E12DBD2C3331E7008E92D8 /* HighScoreBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBC2C3331E7008E92D8 /* HighScoreBanner.swift */; };
@@ -63,6 +74,12 @@
 		A522EDFD2C3C1F4A00D36552 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A522EE002C3C231100D36552 /* RewardAdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAdsManager.swift; sourceTree = "<group>"; };
+		A56FC1E22C3D4B5E00F68711 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		A56FC1E62C3D50C300F68711 /* TopScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScores.swift; sourceTree = "<group>"; };
+		A56FC1EA2C3D6C9C00F68711 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		A56FC1EE2C3D872900F68711 /* MonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterView.swift; sourceTree = "<group>"; };
+		A56FC1F22C3D974900F68711 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		A57A63AC2C3709F400260919 /* CommonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		A57F95112C2820E100C5A4DC /* Ship_1_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_1_Bullets.swift; sourceTree = "<group>"; };
 		A587D6972C25AFD600096F4B /* StarWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,8 +92,10 @@
 		A59A9C032C29B82E008409C1 /* Ship_3_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_3_Bullets.swift; sourceTree = "<group>"; };
 		A59A9C052C29B91E008409C1 /* Ship_5_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_5_Bullets.swift; sourceTree = "<group>"; };
 		A59A9C072C29BA55008409C1 /* Ship_4_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_4_Bullets.swift; sourceTree = "<group>"; };
+		A59EBA442C3FE6CA00E21B02 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
 		A5A3BEE72C29E7F000F16880 /* Ship_6_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_6_Bullets.swift; sourceTree = "<group>"; };
 		A5A3BEEA2C29EBF500F16880 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		A5A822262C3EF1BA00C85152 /* AddHighScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHighScore.swift; sourceTree = "<group>"; };
 		A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMonsters.swift; sourceTree = "<group>"; };
 		A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		A5DAADF42C25BF38002E017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +124,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A56FC1DF2C3D4B4700F68711 /* FirebaseCrashlytics in Frameworks */,
+				A56FC1E12C3D4B4700F68711 /* FirebaseFirestore in Frameworks */,
+				A56FC1DD2C3D4B4700F68711 /* FirebaseAnalytics in Frameworks */,
 				A522EDFC2C3C1E7B00D36552 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +156,43 @@
 				A598FAAE2C25BBF800EF9F16 /* Minecraft.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A56FC1E82C3D6C6400F68711 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */,
+				A587D69A2C25AFD600096F4B /* StarWarApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		A56FC1E92C3D6C7900F68711 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				A587D69C2C25AFD600096F4B /* ContentView.swift */,
+				A56FC1EA2C3D6C9C00F68711 /* ContentView-ViewModel.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		A56FC1F02C3D876000F68711 /* MonsterTypes */ = {
+			isa = PBXGroup;
+			children = (
+				A5E562BE2C25DABA00908A3B /* Monster_1.swift */,
+				A5E562C02C25DB1800908A3B /* Monster_2.swift */,
+				A5E562C22C25DB3600908A3B /* Monster_3.swift */,
+				A5E562C42C25DB4E00908A3B /* Monster_4.swift */,
+			);
+			path = MonsterTypes;
+			sourceTree = "<group>";
+		};
+		A56FC1F12C3D971D00F68711 /* LeaderboardView */ = {
+			isa = PBXGroup;
+			children = (
+				A56FC1F22C3D974900F68711 /* LeaderboardView.swift */,
+			);
+			path = LeaderboardView;
 			sourceTree = "<group>";
 		};
 		A57A63AB2C3709E000260919 /* Common Methods */ = {
@@ -176,9 +235,9 @@
 		A587D6992C25AFD600096F4B /* StarWar */ = {
 			isa = PBXGroup;
 			children = (
-				A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */,
-				A587D69A2C25AFD600096F4B /* StarWarApp.swift */,
-				A587D69C2C25AFD600096F4B /* ContentView.swift */,
+				A56FC1E82C3D6C6400F68711 /* Application */,
+				A56FC1E92C3D6C7900F68711 /* ContentView */,
+				A56FC1F12C3D971D00F68711 /* LeaderboardView */,
 				A5E562A12C25C07100908A3B /* Core */,
 				A587D6A82C25B42300096F4B /* Resources */,
 				A587D6A02C25AFD700096F4B /* Preview Content */,
@@ -199,8 +258,9 @@
 			children = (
 				A5551E542C25B83A00A7309C /* Fonts */,
 				A587D69E2C25AFD700096F4B /* Assets.xcassets */,
-				A5DAADF42C25BF38002E017E /* Info.plist */,
 				A522EDFD2C3C1F4A00D36552 /* Release.xcconfig */,
+				A5DAADF42C25BF38002E017E /* Info.plist */,
+				A56FC1E22C3D4B5E00F68711 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -212,8 +272,17 @@
 				A50DB9572C3002F200AB5143 /* Explosion.swift */,
 				A50DB9552C3002EA00AB5143 /* Monster.swift */,
 				A50DB9592C305BA900AB5143 /* Star.swift */,
+				A56FC1E62C3D50C300F68711 /* TopScores.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A5A822252C3EF18E00C85152 /* AddHighScore */ = {
+			isa = PBXGroup;
+			children = (
+				A5A822262C3EF1BA00C85152 /* AddHighScore.swift */,
+			);
+			path = AddHighScore;
 			sourceTree = "<group>";
 		};
 		A5C810322C2DCE1500FF2FFD /* Extensions */ = {
@@ -221,6 +290,7 @@
 			children = (
 				A522EDF32C3BFDE100D36552 /* AppStorage+Extensions.swift */,
 				A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */,
+				A59EBA442C3FE6CA00E21B02 /* Text+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -264,6 +334,7 @@
 		A5E562A22C25C07500908A3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A5A822252C3EF18E00C85152 /* AddHighScore */,
 				A57F95102C2820CD00C5A4DC /* Bullets */,
 				A5E562B62C25D16E00908A3B /* Coin */,
 				A51AE95B2C356C160064407A /* Current Score */,
@@ -284,6 +355,7 @@
 			children = (
 				A5E562A92C25CB4B00908A3B /* AnimationManager.swift */,
 				A522EDF52C3C0B6500D36552 /* AppStorageManager.swift */,
+				A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */,
 				A522EE002C3C231100D36552 /* RewardAdsManager.swift */,
 			);
 			path = Managers;
@@ -321,10 +393,8 @@
 		A5E562BC2C25DAA900908A3B /* Monsters */ = {
 			isa = PBXGroup;
 			children = (
-				A5E562BE2C25DABA00908A3B /* Monster_1.swift */,
-				A5E562C02C25DB1800908A3B /* Monster_2.swift */,
-				A5E562C22C25DB3600908A3B /* Monster_3.swift */,
-				A5E562C42C25DB4E00908A3B /* Monster_4.swift */,
+				A56FC1F02C3D876000F68711 /* MonsterTypes */,
+				A56FC1EE2C3D872900F68711 /* MonsterView.swift */,
 				A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */,
 			);
 			path = Monsters;
@@ -357,6 +427,9 @@
 			name = StarWar;
 			packageProductDependencies = (
 				A522EDFB2C3C1E7B00D36552 /* GoogleMobileAds */,
+				A56FC1DC2C3D4B4700F68711 /* FirebaseAnalytics */,
+				A56FC1DE2C3D4B4700F68711 /* FirebaseCrashlytics */,
+				A56FC1E02C3D4B4700F68711 /* FirebaseFirestore */,
 			);
 			productName = StarWar;
 			productReference = A587D6972C25AFD600096F4B /* StarWar.app */;
@@ -388,6 +461,7 @@
 			mainGroup = A587D68E2C25AFD600096F4B;
 			packageReferences = (
 				A522EDFA2C3C1E7B00D36552 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				A56FC1DB2C3D4B4700F68711 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = A587D6982C25AFD600096F4B /* Products */;
 			projectDirPath = "";
@@ -404,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A598FAAF2C25BBF800EF9F16 /* Minecraft.ttf in Resources */,
+				A56FC1E32C3D4B5E00F68711 /* GoogleService-Info.plist in Resources */,
 				A587D6A22C25AFD700096F4B /* Preview Assets.xcassets in Resources */,
 				A587D69F2C25AFD700096F4B /* Assets.xcassets in Resources */,
 			);
@@ -431,6 +506,8 @@
 				A57F95122C2820E100C5A4DC /* Ship_1_Bullets.swift in Sources */,
 				A522EDF92C3C17D200D36552 /* HealthView.swift in Sources */,
 				A5E562B42C25CFB800908A3B /* Ship_6.swift in Sources */,
+				A56FC1EF2C3D872900F68711 /* MonsterView.swift in Sources */,
+				A59EBA452C3FE6CA00E21B02 /* Text+Extensions.swift in Sources */,
 				A5E562B02C25CF0B00908A3B /* Ship_5.swift in Sources */,
 				A5E12DBD2C3331E7008E92D8 /* HighScoreBanner.swift in Sources */,
 				A5E12DC02C33339D008E92D8 /* InGameInfo.swift in Sources */,
@@ -439,19 +516,24 @@
 				A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */,
 				A587D69D2C25AFD600096F4B /* ContentView.swift in Sources */,
 				A5E562BF2C25DAC000908A3B /* Monster_1.swift in Sources */,
+				A56FC1EB2C3D6C9C00F68711 /* ContentView-ViewModel.swift in Sources */,
 				A5E3AABF2C3194F9007D923F /* StarView.swift in Sources */,
 				A5E562C12C25DB1C00908A3B /* Monster_2.swift in Sources */,
 				A5E562AC2C25CDDD00908A3B /* Ship_2.swift in Sources */,
 				A587D69B2C25AFD600096F4B /* StarWarApp.swift in Sources */,
+				A56FC1E72C3D50C300F68711 /* TopScores.swift in Sources */,
 				A522EE012C3C231100D36552 /* RewardAdsManager.swift in Sources */,
 				A5E562C52C25DB5100908A3B /* Monster_4.swift in Sources */,
 				A5E562AE2C25CECF00908A3B /* Ship_3.swift in Sources */,
 				A5E562B82C25D17D00908A3B /* Coin.swift in Sources */,
+				A56FC1E52C3D4CD600F68711 /* FirestoreManager.swift in Sources */,
 				A5E12DC32C3336BF008E92D8 /* MenuButtons.swift in Sources */,
 				A5A3BEEB2C29EBF500F16880 /* Bullet.swift in Sources */,
 				A57A63AD2C3709F400260919 /* CommonMethods.swift in Sources */,
 				A5E562C32C25DB3900908A3B /* Monster_3.swift in Sources */,
 				A59A9C042C29B82E008409C1 /* Ship_3_Bullets.swift in Sources */,
+				A56FC1F32C3D974900F68711 /* LeaderboardView.swift in Sources */,
+				A5A822272C3EF1BA00C85152 /* AddHighScore.swift in Sources */,
 				A522EDF62C3C0B6500D36552 /* AppStorageManager.swift in Sources */,
 				A5A3BEE82C29E7F000F16880 /* Ship_6_Bullets.swift in Sources */,
 				A5E562B22C25CF6900908A3B /* Ship_4.swift in Sources */,
@@ -684,6 +766,14 @@
 				minimumVersion = 11.6.0;
 			};
 		};
+		A56FC1DB2C3D4B4700F68711 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -691,6 +781,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A522EDFA2C3C1E7B00D36552 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		A56FC1DC2C3D4B4700F68711 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A56FC1DB2C3D4B4700F68711 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		A56FC1DE2C3D4B4700F68711 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A56FC1DB2C3D4B4700F68711 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		A56FC1E02C3D4B4700F68711 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A56FC1DB2C3D4B4700F68711 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,18 +12,18 @@ struct MovingMonsters: View {
     @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
     @Binding var gameOver: Bool
-    @Binding var shipType: Int
     @Binding var shipPosition: CGPoint
     @Binding var score: Int
     @State private var monsters: [Monster] = []
     @State private var explosions: [Explosion] = []
     @State private var intervalBetweenMonsters = 1
     @State private var index: Int = 0
+    var shipType: Int
     let speeds: [TimeInterval] = [
         0.05, 0.045, 0.04, 0.035, 0.03, 0.025, 0.02, 0.015, 0.01,
         0.009, 0.008, 0.007, 0.006, 0.005, 0.004, 0.003, 0.002, 0.001, 0
     ]
-    
+        
     var body: some View {
         ZStack {
             ForEach(monsters) { monster in
@@ -66,18 +66,6 @@ struct MovingMonsters: View {
                 }
             }
         })
-    }
-    
-    // Function to return the appropriate monster view based on the monster type
-    @ViewBuilder
-    private func monsterView(for type: Int) -> some View {
-        switch type {
-        case 1:     Monster_1()
-        case 2:     Monster_2()
-        case 3:     Monster_3()
-        case 4:     Monster_4()
-        default:    Monster_1()
-        }
     }
     
     // Speed Up Monster animations

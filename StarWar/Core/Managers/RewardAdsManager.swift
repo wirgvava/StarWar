@@ -14,22 +14,19 @@ class RewardAdsManager: NSObject, ObservableObject, GADFullScreenContentDelegate
     let rewardedAdUnitID = Bundle.main.infoDictionary?["GADRewardedAd"] as? String ?? ""
     
     func loadReward() {
-        DispatchQueue.main.async {
-            GADRewardedAd.load(withAdUnitID: self.rewardedAdUnitID, 
-                               request: GADRequest()) { [weak self] ad, error in
-                guard let self = self else { return }
-                if let error = error {
-                    print("Failed to load ad: \(error.localizedDescription)")
-                    self.rewardLoaded = false
-                    return
-                }
-                self.rewardAd = ad
-                self.rewardAd?.fullScreenContentDelegate = self
-                self.rewardLoaded = true
-                print("Ad loaded successfully.")
+        GADRewardedAd.load(withAdUnitID: self.rewardedAdUnitID,
+                           request: GADRequest()) { [weak self] ad, error in
+            guard let self = self else { return }
+            if let error = error {
+                print("Failed to load ad: \(error.localizedDescription)")
+                self.rewardLoaded = false
+                return
             }
+            self.rewardAd = ad
+            self.rewardAd?.fullScreenContentDelegate = self
+            self.rewardLoaded = true
+            print("Ad loaded successfully.")
         }
-        
     }
     
     func displayReward(from viewController: UIViewController) {

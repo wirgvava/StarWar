@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct InGameInfo: View {
-    @Binding var score: Int
-    @Binding var scoreTopPadding: CGFloat
+    var score: Int
+    var scoreTopPadding: CGFloat
     
     var body: some View {
         HStack(alignment: .top) {
@@ -20,8 +20,7 @@ struct InGameInfo: View {
             Spacer()
             
             Text("Score\n\(score)")
-                .font(.custom("Minecraft", fixedSize: 24))
-                .foregroundColor(.white)
+                .customFont(color: .white, size: 24)
                 .multilineTextAlignment(.trailing)
         }
         .padding(.horizontal)
@@ -31,7 +30,7 @@ struct InGameInfo: View {
 
 #Preview {
     InGameInfo(
-        score: .constant(1920),
-        scoreTopPadding: .constant(-600)
+        score: 1920,
+        scoreTopPadding: -600
     )
 }

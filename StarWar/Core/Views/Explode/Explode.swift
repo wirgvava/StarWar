@@ -12,11 +12,7 @@ struct Explode: View {
         images: [.explodeAnim1, .explodeAnim2, .explodeAnim3],
         animationDuration: 0.1)
     var size: CGFloat
-    
-    init(size: CGFloat) {
-        self.size = size
-    }
-    
+   
     var body: some View {
         Image(animationManager.images[animationManager.currentImageIndex])
             .resizable()

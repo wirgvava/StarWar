@@ -40,7 +40,7 @@
 		A5A3BEE82C29E7F000F16880 /* Ship_6_Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3BEE72C29E7F000F16880 /* Ship_6_Bullets.swift */; };
 		A5A3BEEB2C29EBF500F16880 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A3BEEA2C29EBF500F16880 /* Bullet.swift */; };
 		A5A822272C3EF1BA00C85152 /* AddHighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A822262C3EF1BA00C85152 /* AddHighScore.swift */; };
-		A5C2505E2C3FF80400AEFA71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5C2505D2C3FF80400AEFA71 /* GoogleService-Info.plist */; };
+		A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */; };
 		A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */; };
 		A5C810342C2DCE2500FF2FFD /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */; };
 		A5E12DBD2C3331E7008E92D8 /* HighScoreBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBC2C3331E7008E92D8 /* HighScoreBanner.swift */; };
@@ -95,7 +95,7 @@
 		A5A3BEE72C29E7F000F16880 /* Ship_6_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_6_Bullets.swift; sourceTree = "<group>"; };
 		A5A3BEEA2C29EBF500F16880 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		A5A822262C3EF1BA00C85152 /* AddHighScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHighScore.swift; sourceTree = "<group>"; };
-		A5C2505D2C3FF80400AEFA71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMonsters.swift; sourceTree = "<group>"; };
 		A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		A5DAADF42C25BF38002E017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -260,7 +260,7 @@
 				A587D69E2C25AFD700096F4B /* Assets.xcassets */,
 				A522EDFD2C3C1F4A00D36552 /* Release.xcconfig */,
 				A5DAADF42C25BF38002E017E /* Info.plist */,
-				A5C2505D2C3FF80400AEFA71 /* GoogleService-Info.plist */,
+				A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -478,7 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A598FAAF2C25BBF800EF9F16 /* Minecraft.ttf in Resources */,
-				A5C2505E2C3FF80400AEFA71 /* GoogleService-Info.plist in Resources */,
+				A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */,
 				A587D6A22C25AFD700096F4B /* Preview Assets.xcassets in Resources */,
 				A587D69F2C25AFD700096F4B /* Assets.xcassets in Resources */,
 			);

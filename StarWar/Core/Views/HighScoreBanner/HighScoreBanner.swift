@@ -35,6 +35,10 @@ struct HighScoreBanner: View {
         .onChange(of: score) { _, newValue in
             if newValue > AppStorageManager.userHighScore {
                 AppStorageManager.userHighScore = newValue
+                GameCenterManager.shared.save(
+                    data: GameData(userHighScore: newValue,
+                                   money: AppStorageManager.money,
+                                   unlockedShips: AppStorageManager.unlockedShips))
             }
         }
     }

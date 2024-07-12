@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A501B6922C41810D0063DA61 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6912C4181030063DA61 /* GameCenterManager.swift */; };
+		A501B6942C419EC10063DA61 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6932C419EBD0063DA61 /* GameData.swift */; };
+		A501B6962C41A8AF0063DA61 /* ArrayToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6952C41A8970063DA61 /* ArrayToJSON.swift */; };
 		A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9552C3002EA00AB5143 /* Monster.swift */; };
 		A50DB9582C3002F200AB5143 /* Explosion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9572C3002F200AB5143 /* Explosion.swift */; };
 		A50DB95A2C305BA900AB5143 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9592C305BA900AB5143 /* Star.swift */; };
@@ -71,6 +74,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A501B68E2C4180B30063DA61 /* StarWar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StarWar.entitlements; sourceTree = "<group>"; };
+		A501B6912C4181030063DA61 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
+		A501B6932C419EBD0063DA61 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		A501B6952C41A8970063DA61 /* ArrayToJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayToJSON.swift; sourceTree = "<group>"; };
 		A50DB9552C3002EA00AB5143 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A50DB9572C3002F200AB5143 /* Explosion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explosion.swift; sourceTree = "<group>"; };
 		A50DB9592C305BA900AB5143 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
@@ -211,6 +218,7 @@
 		A57A63AB2C3709E000260919 /* Common Methods */ = {
 			isa = PBXGroup;
 			children = (
+				A501B6952C41A8970063DA61 /* ArrayToJSON.swift */,
 				A57A63AC2C3709F400260919 /* LocalNotifications.swift */,
 				A59E9FE22C40541500CF5ABB /* SizeForShipType.swift */,
 				A59E9FE42C4054D600CF5ABB /* Vibration.swift */,
@@ -250,6 +258,7 @@
 		A587D6992C25AFD600096F4B /* StarWar */ = {
 			isa = PBXGroup;
 			children = (
+				A501B68E2C4180B30063DA61 /* StarWar.entitlements */,
 				A56FC1E82C3D6C6400F68711 /* Application */,
 				A56FC1E92C3D6C7900F68711 /* ContentView */,
 				A56FC1F12C3D971D00F68711 /* LeaderboardView */,
@@ -294,6 +303,7 @@
 				A5A3BEEA2C29EBF500F16880 /* Bullet.swift */,
 				A5A35C922C4016440077A2E4 /* Coin.swift */,
 				A50DB9572C3002F200AB5143 /* Explosion.swift */,
+				A501B6932C419EBD0063DA61 /* GameData.swift */,
 				A59E9FDE2C404FEA00CF5ABB /* Meteor.swift */,
 				A50DB9552C3002EA00AB5143 /* Monster.swift */,
 				A50DB9592C305BA900AB5143 /* Star.swift */,
@@ -382,6 +392,7 @@
 				A5E562A92C25CB4B00908A3B /* AnimationManager.swift */,
 				A522EDF52C3C0B6500D36552 /* AppStorageManager.swift */,
 				A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */,
+				A501B6912C4181030063DA61 /* GameCenterManager.swift */,
 				A522EE002C3C231100D36552 /* RewardAdsManager.swift */,
 			);
 			path = Managers;
@@ -520,6 +531,7 @@
 			files = (
 				A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */,
 				A5E562BB2C25DA1400908A3B /* Explode.swift in Sources */,
+				A501B6922C41810D0063DA61 /* GameCenterManager.swift in Sources */,
 				A522EDFF2C3C1FFB00D36552 /* AppDelegate.swift in Sources */,
 				A5E562AA2C25CB7E00908A3B /* AnimationManager.swift in Sources */,
 				A51AE95D2C356C230064407A /* CurrentScore.swift in Sources */,
@@ -543,6 +555,7 @@
 				A59A9C082C29BA55008409C1 /* Ship_4_Bullets.swift in Sources */,
 				A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */,
 				A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */,
+				A501B6942C419EC10063DA61 /* GameData.swift in Sources */,
 				A59E9FE32C40541500CF5ABB /* SizeForShipType.swift in Sources */,
 				A587D69D2C25AFD600096F4B /* ContentView.swift in Sources */,
 				A5E562BF2C25DAC000908A3B /* Monster_1.swift in Sources */,
@@ -565,6 +578,7 @@
 				A59E9FDD2C404EAE00CF5ABB /* MeteorView.swift in Sources */,
 				A5A35C952C40167B0077A2E4 /* MovingCoins.swift in Sources */,
 				A5E562C32C25DB3900908A3B /* Monster_3.swift in Sources */,
+				A501B6962C41A8AF0063DA61 /* ArrayToJSON.swift in Sources */,
 				A59A9C042C29B82E008409C1 /* Ship_3_Bullets.swift in Sources */,
 				A56FC1F32C3D974900F68711 /* LeaderboardView.swift in Sources */,
 				A5A822272C3EF1BA00C85152 /* AddHighScore.swift in Sources */,

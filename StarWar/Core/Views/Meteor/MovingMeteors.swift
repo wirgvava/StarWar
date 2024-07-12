@@ -46,7 +46,7 @@ struct MovingMeteors: View {
 
     // Adding new meteors on the top
     private func addMeteors(){
-        if intervalBetweenMeteors == 2000 {
+        if intervalBetweenMeteors == 1500 {
             let screenWidth = UIScreen.main.bounds.width
             let newMeteor = Meteor(
                 position: CGPoint(

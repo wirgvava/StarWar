@@ -53,5 +53,23 @@ extension ContentView {
                 self.menuButtonsSidePadding = 20
             }
         }
+        
+        func gameCenterAuthenticateAndFetchingData(){
+            GameCenterManager.shared.authenticate() { isAuthenticated in
+                if isAuthenticated {
+                    self.fetchData()
+                }
+            }
+        }
+        
+        func fetchData(){
+            GameCenterManager.shared.fetchSavedData { gameData in
+                if let gameData = gameData {
+                    AppStorageManager.money = gameData.money
+                    AppStorageManager.userHighScore = gameData.userHighScore
+                    AppStorageManager.unlockedShips = gameData.unlockedShips
+                }
+            }
+        }
     }
 }

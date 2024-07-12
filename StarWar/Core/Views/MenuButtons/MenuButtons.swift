@@ -71,6 +71,7 @@ struct MenuButtons: View {
                     // Market Button
                     Button(action: {
                         print("Coin tapped!")
+                        print("Your Current Balance: ", AppStorageManager.money)
                     }) {
                         Image(.coinFrontView)
                             .resizable()

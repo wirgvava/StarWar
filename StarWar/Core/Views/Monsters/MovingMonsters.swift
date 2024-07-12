@@ -144,6 +144,10 @@ struct MovingMonsters: View {
                     isPlaying = false
                     triggerExplosion(at: shipPosition)
                     removeMonsters()
+                    GameCenterManager.shared.save(
+                        data: GameData(userHighScore: AppStorageManager.userHighScore,
+                                       money: AppStorageManager.money,
+                                       unlockedShips: AppStorageManager.unlockedShips))
                 }
                 break
             }

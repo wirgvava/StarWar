@@ -83,6 +83,9 @@ struct ContentView: View {
                 viewModel.notPlayingMode()
             }
         }
+        .onAppear() {
+            viewModel.gameCenterAuthenticateAndFetchingData()
+        }
     }
 }
 

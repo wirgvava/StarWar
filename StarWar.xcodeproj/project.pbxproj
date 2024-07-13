@@ -20,6 +20,7 @@
 		A522EDFC2C3C1E7B00D36552 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = A522EDFB2C3C1E7B00D36552 /* GoogleMobileAds */; };
 		A522EDFF2C3C1FFB00D36552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */; };
 		A522EE012C3C231100D36552 /* RewardAdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EE002C3C231100D36552 /* RewardAdsManager.swift */; };
+		A53687912C42C2960046D80A /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53687902C42C28F0046D80A /* MarketView.swift */; };
 		A56FC1DD2C3D4B4700F68711 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1DC2C3D4B4700F68711 /* FirebaseAnalytics */; };
 		A56FC1DF2C3D4B4700F68711 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1DE2C3D4B4700F68711 /* FirebaseCrashlytics */; };
 		A56FC1E12C3D4B4700F68711 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1E02C3D4B4700F68711 /* FirebaseFirestore */; };
@@ -87,6 +88,7 @@
 		A522EDF82C3C17D200D36552 /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
 		A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A522EE002C3C231100D36552 /* RewardAdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAdsManager.swift; sourceTree = "<group>"; };
+		A53687902C42C28F0046D80A /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
 		A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		A56FC1E62C3D50C300F68711 /* TopScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScores.swift; sourceTree = "<group>"; };
 		A56FC1EA2C3D6C9C00F68711 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
@@ -178,6 +180,32 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		A557381B2C42C0FE00A802C7 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				A501B68E2C4180B30063DA61 /* StarWar.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
+		A557381C2C42C13F00A802C7 /* MarketView */ = {
+			isa = PBXGroup;
+			children = (
+				A53687902C42C28F0046D80A /* MarketView.swift */,
+			);
+			path = MarketView;
+			sourceTree = "<group>";
+		};
+		A557381D2C42C16B00A802C7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				A56FC1E92C3D6C7900F68711 /* ContentView */,
+				A56FC1F12C3D971D00F68711 /* LeaderboardView */,
+				A557381C2C42C13F00A802C7 /* MarketView */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		A56FC1E82C3D6C6400F68711 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,10 +286,8 @@
 		A587D6992C25AFD600096F4B /* StarWar */ = {
 			isa = PBXGroup;
 			children = (
-				A501B68E2C4180B30063DA61 /* StarWar.entitlements */,
 				A56FC1E82C3D6C6400F68711 /* Application */,
-				A56FC1E92C3D6C7900F68711 /* ContentView */,
-				A56FC1F12C3D971D00F68711 /* LeaderboardView */,
+				A557381D2C42C16B00A802C7 /* Main */,
 				A5E562A12C25C07100908A3B /* Core */,
 				A587D6A82C25B42300096F4B /* Resources */,
 				A587D6A02C25AFD700096F4B /* Preview Content */,
@@ -280,6 +306,7 @@
 		A587D6A82C25B42300096F4B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A557381B2C42C0FE00A802C7 /* Entitlements */,
 				A5551E542C25B83A00A7309C /* Fonts */,
 				A587D69E2C25AFD700096F4B /* Assets.xcassets */,
 				A5DAADF42C25BF38002E017E /* Info.plist */,
@@ -534,6 +561,7 @@
 				A501B6922C41810D0063DA61 /* GameCenterManager.swift in Sources */,
 				A522EDFF2C3C1FFB00D36552 /* AppDelegate.swift in Sources */,
 				A5E562AA2C25CB7E00908A3B /* AnimationManager.swift in Sources */,
+				A53687912C42C2960046D80A /* MarketView.swift in Sources */,
 				A51AE95D2C356C230064407A /* CurrentScore.swift in Sources */,
 				A50DB95A2C305BA900AB5143 /* Star.swift in Sources */,
 				A5E562A42C25C09C00908A3B /* Ship_1.swift in Sources */,
@@ -715,7 +743,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = StarWar/StarWar.entitlements;
+				CODE_SIGN_ENTITLEMENTS = StarWar/Resources/Entitlements/StarWar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StarWar/Preview Content\"";
@@ -742,6 +770,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -752,7 +781,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = StarWar/StarWar.entitlements;
+				CODE_SIGN_ENTITLEMENTS = StarWar/Resources/Entitlements/StarWar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StarWar/Preview Content\"";
@@ -779,6 +808,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_GLOBAL_CONCURRENCY = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

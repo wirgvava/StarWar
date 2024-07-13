@@ -31,6 +31,12 @@ struct ContentView: View {
                 }
             }
             
+            if viewModel.isMarketShown {
+                withAnimation {
+                    MarketView()
+                }
+            }
+            
             MenuButtons(shipIsMovingLeft: $viewModel.shipIsMovingLeft,
                         shipIsMovingRight: $viewModel.shipIsMovingRight,
                         isMarketShown: $viewModel.isMarketShown,

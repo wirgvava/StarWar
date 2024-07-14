@@ -16,10 +16,14 @@ struct ContentView: View {
                 .scaleEffect(viewModel.isPlaying ? 1.0 : 2.0)
                 .animation(.easeOut, value: viewModel.isPlaying)
             
-            HighScoreBanner(score: viewModel.score,
-                            topPadding: viewModel.highScoreBannerTopPadding)
+            StarWarBanner(topPadding: viewModel.highScoreBannerTopPadding)
             
-            if viewModel.currentScoreShown {
+            if !viewModel.isMarketShown && !viewModel.isLeaderboardShown && !viewModel.isSettingsShown {
+                HighScore(score: viewModel.score,
+                          topPadding: viewModel.highScoreBannerTopPadding)
+            }
+            
+            if viewModel.currentScoreShown && !viewModel.isMarketShown && !viewModel.isLeaderboardShown && !viewModel.isSettingsShown {
                 CurrentScore(isAddHighScoreShown: $viewModel.isAddHighScoreShown,
                              score: viewModel.score)
                 .padding(.top, viewModel.highScoreBannerTopPadding + 120)

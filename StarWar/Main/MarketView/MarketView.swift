@@ -30,6 +30,7 @@ struct MarketView: View {
                 Text("\(AppStorageManager.money)")
                     .customFont(color: .white, size: 30)
             }
+            .padding(.bottom, 100)
             
             // Switch The Ships buttons
             HStack {
@@ -53,7 +54,7 @@ struct MarketView: View {
                         .frame(width: 30)
                 }
             }
-            .padding(.vertical, 100)
+            .padding(.bottom, 100)
             
             // Select / Buy buttons
             Button {

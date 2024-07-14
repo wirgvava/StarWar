@@ -54,7 +54,8 @@
 		A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */; };
 		A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */; };
 		A5C810342C2DCE2500FF2FFD /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */; };
-		A5E12DBD2C3331E7008E92D8 /* HighScoreBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBC2C3331E7008E92D8 /* HighScoreBanner.swift */; };
+		A5DC0D832C43D13100495CCF /* StarWarBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DC0D822C43D12900495CCF /* StarWarBanner.swift */; };
+		A5E12DBD2C3331E7008E92D8 /* HighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBC2C3331E7008E92D8 /* HighScore.swift */; };
 		A5E12DC02C33339D008E92D8 /* InGameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBF2C33339D008E92D8 /* InGameInfo.swift */; };
 		A5E12DC32C3336BF008E92D8 /* MenuButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DC22C3336BF008E92D8 /* MenuButtons.swift */; };
 		A5E3AABF2C3194F9007D923F /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E3AABE2C3194F9007D923F /* StarView.swift */; };
@@ -121,7 +122,8 @@
 		A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMonsters.swift; sourceTree = "<group>"; };
 		A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
 		A5DAADF42C25BF38002E017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5E12DBC2C3331E7008E92D8 /* HighScoreBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreBanner.swift; sourceTree = "<group>"; };
+		A5DC0D822C43D12900495CCF /* StarWarBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarBanner.swift; sourceTree = "<group>"; };
+		A5E12DBC2C3331E7008E92D8 /* HighScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScore.swift; sourceTree = "<group>"; };
 		A5E12DBF2C33339D008E92D8 /* InGameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameInfo.swift; sourceTree = "<group>"; };
 		A5E12DC22C3336BF008E92D8 /* MenuButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtons.swift; sourceTree = "<group>"; };
 		A5E3AABE2C3194F9007D923F /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
@@ -357,12 +359,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A5E12DBB2C3331D7008E92D8 /* HighScoreBanner */ = {
+		A5DC0D812C43D12000495CCF /* StarWarBanner */ = {
 			isa = PBXGroup;
 			children = (
-				A5E12DBC2C3331E7008E92D8 /* HighScoreBanner.swift */,
+				A5DC0D822C43D12900495CCF /* StarWarBanner.swift */,
 			);
-			path = HighScoreBanner;
+			path = StarWarBanner;
+			sourceTree = "<group>";
+		};
+		A5E12DBB2C3331D7008E92D8 /* HighScore */ = {
+			isa = PBXGroup;
+			children = (
+				A5E12DBC2C3331E7008E92D8 /* HighScore.swift */,
+			);
+			path = HighScore;
 			sourceTree = "<group>";
 		};
 		A5E12DBE2C33338E008E92D8 /* InGameInfo */ = {
@@ -402,13 +412,14 @@
 				A51AE95B2C356C160064407A /* Current Score */,
 				A5E562B92C25DA0000908A3B /* Explode */,
 				A522EDF72C3C178900D36552 /* Health */,
-				A5E12DBB2C3331D7008E92D8 /* HighScoreBanner */,
+				A5E12DBB2C3331D7008E92D8 /* HighScore */,
 				A5E12DBE2C33338E008E92D8 /* InGameInfo */,
 				A5E12DC12C3336B5008E92D8 /* MenuButtons */,
 				A59E9FDB2C404E9E00CF5ABB /* Meteor */,
 				A5E562BC2C25DAA900908A3B /* Monsters */,
 				A5E562B52C25D0D100908A3B /* Ships */,
 				A5F7EA242C260DF5000F3D41 /* Stars */,
+				A5DC0D812C43D12000495CCF /* StarWarBanner */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -556,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5DC0D832C43D13100495CCF /* StarWarBanner.swift in Sources */,
 				A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */,
 				A5E562BB2C25DA1400908A3B /* Explode.swift in Sources */,
 				A501B6922C41810D0063DA61 /* GameCenterManager.swift in Sources */,
@@ -578,7 +590,7 @@
 				A59EBA452C3FE6CA00E21B02 /* Text+Extensions.swift in Sources */,
 				A5E562B02C25CF0B00908A3B /* Ship_5.swift in Sources */,
 				A5A35C932C4016440077A2E4 /* Coin.swift in Sources */,
-				A5E12DBD2C3331E7008E92D8 /* HighScoreBanner.swift in Sources */,
+				A5E12DBD2C3331E7008E92D8 /* HighScore.swift in Sources */,
 				A5E12DC02C33339D008E92D8 /* InGameInfo.swift in Sources */,
 				A59A9C082C29BA55008409C1 /* Ship_4_Bullets.swift in Sources */,
 				A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */,

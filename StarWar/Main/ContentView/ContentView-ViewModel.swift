@@ -25,7 +25,7 @@ extension ContentView {
             y: (UIScreen.main.bounds.height / 2) - 50)
         
         // Navigation
-        var isMarketShown: Bool = true
+        var isMarketShown: Bool = false
         var isLeaderboardShown: Bool = false
         var isSettingsShown: Bool = false
         var isAddHighScoreShown: Bool = false

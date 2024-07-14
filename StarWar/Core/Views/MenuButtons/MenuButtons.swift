@@ -70,8 +70,9 @@ struct MenuButtons: View {
                 VStack(spacing: 25) {
                     // Market Button
                     Button(action: {
-                        print("Coin tapped!")
-                        print("Your Current Balance: ", AppStorageManager.money)
+                        withAnimation {
+                            isMarketShown = true
+                        }
                     }) {
                         Image(.coinFrontView)
                             .resizable()

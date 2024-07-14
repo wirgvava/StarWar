@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MarketView: View {
-    
-    @State private var isUnlocked: Bool = false
+    @Binding var isUnlocked: Bool
+    @Binding var shipType: Int
     @State private var price: Int = 250
-    
+
     var body: some View {
         VStack {
             // Header with amount of money
@@ -35,7 +35,8 @@ struct MarketView: View {
             // Switch The Ships buttons
             HStack {
                 Button {
-                    print("Left")
+                    guard shipType != 1 else { return }
+                    shipType -= 1
                 } label: {
                     Image(.left)
                         .resizable()
@@ -46,7 +47,8 @@ struct MarketView: View {
                 Spacer()
                 
                 Button {
-                    print("Right")
+                    guard shipType != 6 else { return }
+                    shipType += 1
                 } label: {
                     Image(.right)
                         .resizable()
@@ -56,18 +58,20 @@ struct MarketView: View {
             }
             .padding(.bottom, 100)
             
-            // Select / Buy buttons
+            // Buy button
             Button {
-                print("Selected")
+                guard !isUnlocked else { return }
+                // TODO: Buy logic
+                print("BUY")
             } label: {
                 ZStack {
                     Rectangle()
                         .frame(width: 150, height: 50)
-                        .foregroundStyle(isUnlocked ? .white : .yellow)
+                        .foregroundStyle(isUnlocked ? .clear : .yellow)
                     
                     Rectangle()
                         .frame(width: 140, height: 60)
-                        .foregroundStyle(isUnlocked ? .white : .yellow)
+                        .foregroundStyle(isUnlocked ? .clear : .yellow)
                     
                     HStack {
                         if !isUnlocked {
@@ -85,16 +89,30 @@ struct MarketView: View {
                             }
                             
                         }
-                        Text(isUnlocked ? "Select" : " \(price)")
+                        Text(isUnlocked ? "" : " \(price)")
                             .customFont(color: .black, size: 24)
                     }
                 }
             }
         }
         .padding(.horizontal)
+        .onAppear() {
+            isUnlocked = AppStorageManager.unlockedShips.contains(shipType) ? true : false
+        }
+        .onChange(of: shipType) { _, newValue in
+            isUnlocked = AppStorageManager.unlockedShips.contains(newValue) ? true : false
+            
+            switch newValue {
+            case 2:     price = 350
+            case 3:     price = 450
+            case 4:     price = 650
+            case 5:     price = 850
+            case 6:     price = 1000
+            default:    price = 150
+            }
+        }
     }
-}
-
-#Preview {
-    MarketView()
+    
+    
+    
 }

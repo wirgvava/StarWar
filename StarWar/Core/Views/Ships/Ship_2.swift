@@ -19,7 +19,6 @@ struct Ship_2: View {
         images: [.ship21, .ship22, .ship23, .ship24, .ship25, .ship26])
     
     var isMovingLeft: Bool
-    var isMovingRight: Bool
     
     var body: some View {
         ZStack {
@@ -80,13 +79,6 @@ struct Ship_2: View {
                 flyAwayAnimation(value: newValue, rotateDegree: 90, flyToCoordinateX: UIScreen.main.bounds.width / 2)
             }
         }
-        .onChange(of: isMovingRight) { _, newValue in
-            if newValue {
-                flyAwayAnimation(value: newValue, rotateDegree: 90, flyToCoordinateX: UIScreen.main.bounds.width)
-            } else {
-                flyAwayAnimation(value: newValue, rotateDegree: -90, flyToCoordinateX: UIScreen.main.bounds.width / 2)
-            }
-        }
     }
     
     private func flyAwayAnimation(value: Bool, rotateDegree: Double, flyToCoordinateX: CGFloat){
@@ -129,7 +121,6 @@ struct Ship_2: View {
             Bullet(position:CGPoint(x: UIScreen.main.bounds.width / 2,
                                     y: UIScreen.main.bounds.height / 2),
                    type: 1) ]),
-           isMovingLeft: true,
-           isMovingRight: false
+           isMovingLeft: true
     )
 }

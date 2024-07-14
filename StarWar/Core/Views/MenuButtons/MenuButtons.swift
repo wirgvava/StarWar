@@ -13,9 +13,10 @@ struct MenuButtons: View {
     @State private var timer: Timer?
     @State private var timeRemaining: Int = 7200
     @State private var animateToggle: Bool = true
+    @State private var messageIsShown: Bool = false
     
     @Binding var shipIsMovingLeft: Bool
-    @Binding var shipIsMovingRight: Bool
+    @Binding var shipIsUnlocked: Bool
     
     @Binding var isMarketShown: Bool
     @Binding var isLeaderboardShown: Bool
@@ -103,6 +104,10 @@ struct MenuButtons: View {
             } else {
                 VStack {
                     Spacer()
+                    if messageIsShown {
+                        Text("Choose the ship you own.")
+                            .customFont(color: .white, size: 20)
+                    }
                     Spacer()
                     Button(action: {
                         closeAction()
@@ -142,14 +147,26 @@ struct MenuButtons: View {
                 startTimer()
             }
         }
+        .onChange(of: messageIsShown) { _, newValue in
+            if newValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    withAnimation(.smooth(duration: 1.0)) {
+                        messageIsShown = false
+                    }
+                }
+            }
+        }
     }
     
     // Close Action
     private func closeAction(){
         if isMarketShown {
             withAnimation {
+                guard shipIsUnlocked else {
+                    messageIsShown = true
+                    return
+                }
                 isMarketShown = false
-                // do something here with ship
             }
         } else if isLeaderboardShown {
             withAnimation {
@@ -194,7 +211,7 @@ struct MenuButtons: View {
 
 #Preview {
     MenuButtons(shipIsMovingLeft: .constant(false),
-                shipIsMovingRight: .constant(false),
+                shipIsUnlocked: .constant(false),
                 isMarketShown: .constant(false),
                 isLeaderboardShown: .constant(false),
                 isSettingsShown: .constant(false),

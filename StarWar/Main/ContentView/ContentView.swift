@@ -37,12 +37,13 @@ struct ContentView: View {
             
             if viewModel.isMarketShown {
                 withAnimation {
-                    MarketView()
+                    MarketView(isUnlocked: $viewModel.shipIsUnlocked,
+                               shipType: $viewModel.shipType)
                 }
             }
             
             MenuButtons(shipIsMovingLeft: $viewModel.shipIsMovingLeft,
-                        shipIsMovingRight: $viewModel.shipIsMovingRight,
+                        shipIsUnlocked: $viewModel.shipIsUnlocked,
                         isMarketShown: $viewModel.isMarketShown,
                         isLeaderboardShown: $viewModel.isLeaderboardShown,
                         isSettingsShown: $viewModel.isSettingsShown,
@@ -67,14 +68,13 @@ struct ContentView: View {
                           shipPosition: $viewModel.shipPosition,
                           shipType: viewModel.shipType)
             
-            Ship_1(shipType: $viewModel.shipType,
-                   isPlayable: $viewModel.isPlayable,
-                   isPlaying: $viewModel.isPlaying,
-                   gameOver: $viewModel.gameOver,
-                   shipPosition: $viewModel.shipPosition,
-                   bullets: $viewModel.bullets,
-                   isMovingLeft: viewModel.shipIsMovingLeft,
-                   isMovingRight: viewModel.shipIsMovingRight)
+            viewModel.ship(shipType: $viewModel.shipType,
+                           isPlayable: $viewModel.isPlayable,
+                           isPlaying: $viewModel.isPlaying,
+                           gameOver: $viewModel.gameOver,
+                           shipPosition: $viewModel.shipPosition,
+                           bullets: $viewModel.bullets,
+                           isMovingLeft: viewModel.shipIsMovingLeft)
             .scaleEffect(viewModel.isPlaying ? 1.0 : 1.8)
             .animation(.easeOut, value: viewModel.isPlaying)
             
@@ -86,15 +86,15 @@ struct ContentView: View {
                              score: viewModel.score)
             }
         }
+        .onAppear() {
+            viewModel.gameCenterAuthenticateAndFetchingData()
+        }
         .onChange(of: viewModel.isPlaying) { _, newValue in
             if newValue {
                 viewModel.isPlayingMode()
             } else {
                 viewModel.notPlayingMode()
             }
-        }
-        .onAppear() {
-            viewModel.gameCenterAuthenticateAndFetchingData()
         }
     }
 }

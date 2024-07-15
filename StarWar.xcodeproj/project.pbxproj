@@ -10,6 +10,7 @@
 		A501B6922C41810D0063DA61 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6912C4181030063DA61 /* GameCenterManager.swift */; };
 		A501B6942C419EC10063DA61 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6932C419EBD0063DA61 /* GameData.swift */; };
 		A501B6962C41A8AF0063DA61 /* ArrayToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6952C41A8970063DA61 /* ArrayToJSON.swift */; };
+		A50AB89E2C45211C0018C13E /* WatchAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AB89D2C4521180018C13E /* WatchAdView.swift */; };
 		A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9552C3002EA00AB5143 /* Monster.swift */; };
 		A50DB9582C3002F200AB5143 /* Explosion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9572C3002F200AB5143 /* Explosion.swift */; };
 		A50DB95A2C305BA900AB5143 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9592C305BA900AB5143 /* Star.swift */; };
@@ -80,6 +81,7 @@
 		A501B6912C4181030063DA61 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
 		A501B6932C419EBD0063DA61 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		A501B6952C41A8970063DA61 /* ArrayToJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayToJSON.swift; sourceTree = "<group>"; };
+		A50AB89D2C4521180018C13E /* WatchAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAdView.swift; sourceTree = "<group>"; };
 		A50DB9552C3002EA00AB5143 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A50DB9572C3002F200AB5143 /* Explosion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explosion.swift; sourceTree = "<group>"; };
 		A50DB9592C305BA900AB5143 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
@@ -158,6 +160,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A50AB89C2C4520F50018C13E /* WatchAdView */ = {
+			isa = PBXGroup;
+			children = (
+				A50AB89D2C4521180018C13E /* WatchAdView.swift */,
+			);
+			path = WatchAdView;
+			sourceTree = "<group>";
+		};
 		A51AE95B2C356C160064407A /* Current Score */ = {
 			isa = PBXGroup;
 			children = (
@@ -420,6 +430,7 @@
 				A5E562B52C25D0D100908A3B /* Ships */,
 				A5F7EA242C260DF5000F3D41 /* Stars */,
 				A5DC0D812C43D12000495CCF /* StarWarBanner */,
+				A50AB89C2C4520F50018C13E /* WatchAdView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -622,6 +633,7 @@
 				A59A9C042C29B82E008409C1 /* Ship_3_Bullets.swift in Sources */,
 				A56FC1F32C3D974900F68711 /* LeaderboardView.swift in Sources */,
 				A5A822272C3EF1BA00C85152 /* AddHighScore.swift in Sources */,
+				A50AB89E2C45211C0018C13E /* WatchAdView.swift in Sources */,
 				A522EDF62C3C0B6500D36552 /* AppStorageManager.swift in Sources */,
 				A5A3BEE82C29E7F000F16880 /* Ship_6_Bullets.swift in Sources */,
 				A5E562B22C25CF6900908A3B /* Ship_4.swift in Sources */,
@@ -761,8 +773,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StarWar/Preview Content\"";
 				DEVELOPMENT_TEAM = NW6K64987Z;
 				ENABLE_PREVIEWS = YES;
-				GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
-				GADRewardedAd = "ca-app-pub-3940256099942544/1712485313";
+				GADApplicationIdentifier = "ca-app-pub-7386410973532338~2974354255";
+				GADRewardedAd = "ca-app-pub-7386410973532338/3940909421";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarWar/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";
@@ -799,8 +811,8 @@
 				DEVELOPMENT_ASSET_PATHS = "\"StarWar/Preview Content\"";
 				DEVELOPMENT_TEAM = NW6K64987Z;
 				ENABLE_PREVIEWS = YES;
-				GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
-				GADRewardedAd = "ca-app-pub-3940256099942544/1712485313";
+				GADApplicationIdentifier = "ca-app-pub-7386410973532338~2974354255";
+				GADRewardedAd = "ca-app-pub-7386410973532338/3940909421";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarWar/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.action-games";

@@ -18,24 +18,25 @@ struct ContentView: View {
             
             StarWarBanner(topPadding: viewModel.highScoreBannerTopPadding)
             
-            if !viewModel.isMarketShown && !viewModel.isLeaderboardShown && !viewModel.isSettingsShown {
-                HighScore(score: viewModel.score,
+            if !viewModel.isMarketPresented && !viewModel.isLeaderboardPresented && !viewModel.isSettingsPresented {
+                HighScore(isAddHighScorePresented: $viewModel.isAddHighScorePresented,
+                          isPlaying: viewModel.isPlaying,
+                          score: viewModel.score,
                           topPadding: viewModel.highScoreBannerTopPadding)
             }
             
-            if viewModel.currentScoreShown && !viewModel.isMarketShown && !viewModel.isLeaderboardShown && !viewModel.isSettingsShown {
-                CurrentScore(isAddHighScoreShown: $viewModel.isAddHighScoreShown,
-                             score: viewModel.score)
+            if viewModel.currentScorePresented && !viewModel.isMarketPresented && !viewModel.isLeaderboardPresented && !viewModel.isSettingsPresented {
+                CurrentScore(score: viewModel.score)
                 .padding(.top, viewModel.highScoreBannerTopPadding + 120)
             }
             
-            if viewModel.isLeaderboardShown {
+            if viewModel.isLeaderboardPresented {
                 withAnimation {
                     LeaderboardView()
                 }
             }
             
-            if viewModel.isMarketShown {
+            if viewModel.isMarketPresented {
                 withAnimation {
                     MarketView(isUnlocked: $viewModel.shipIsUnlocked,
                                shipType: $viewModel.shipType)
@@ -45,9 +46,11 @@ struct ContentView: View {
             MenuButtons(isPlayable: $viewModel.isPlayable,
                         shipIsMovingLeft: $viewModel.shipIsMovingLeft,
                         shipIsUnlocked: $viewModel.shipIsUnlocked,
-                        isMarketShown: $viewModel.isMarketShown,
-                        isLeaderboardShown: $viewModel.isLeaderboardShown,
-                        isSettingsShown: $viewModel.isSettingsShown,
+                        isMarketPresented: $viewModel.isMarketPresented,
+                        isLeaderboardPresented: $viewModel.isLeaderboardPresented,
+                        isSettingsPresented: $viewModel.isSettingsPresented,
+                        isAddHighScorePresented: $viewModel.isAddHighScorePresented,
+                        isWatchAdViewPresented: $viewModel.isWatchAdViewPresented,
                         sidePadding: viewModel.menuButtonsSidePadding,
                         gameOver: viewModel.gameOver)
             
@@ -60,7 +63,8 @@ struct ContentView: View {
                            shipType: viewModel.shipType)
             
             MovingCoins(isPlaying: $viewModel.isPlaying,
-                        shipPosition: $viewModel.shipPosition, 
+                        shipPosition: $viewModel.shipPosition,
+                        collectedCoins: $viewModel.collectedCoins, 
                         shipType: viewModel.shipType)
             
             MovingMeteors(isPlayable: $viewModel.isPlayable,
@@ -82,9 +86,14 @@ struct ContentView: View {
             InGameInfo(score: viewModel.score,
                        scoreTopPadding: viewModel.scoreTopPadding)
             
-            if viewModel.isAddHighScoreShown {
-                AddHighScore(isAddHighScoreShown: $viewModel.isAddHighScoreShown,
+            if viewModel.isAddHighScorePresented {
+                AddHighScore(isAddHighScorePresented: $viewModel.isAddHighScorePresented,
                              score: viewModel.score)
+            }
+            
+            if viewModel.isWatchAdViewPresented && viewModel.currentScorePresented {
+                WatchAdView(isWatchAdViewPresented: $viewModel.isWatchAdViewPresented,
+                            collectedCoins: viewModel.collectedCoins)
             }
         }
         .onAppear() {
@@ -95,6 +104,11 @@ struct ContentView: View {
                 viewModel.isPlayingMode()
             } else {
                 viewModel.notPlayingMode()
+            }
+        }
+        .onChange(of: viewModel.collectedCoins) { _, newValue in
+            if newValue > 0 {
+                viewModel.isWatchAdViewPresented = true
             }
         }
     }

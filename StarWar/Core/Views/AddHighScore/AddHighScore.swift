@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddHighScore: View {
     @State var name: String = ""
-    @Binding var isAddHighScoreShown: Bool
+    @Binding var isAddHighScorePresented: Bool
     var score: Int
     
     var body: some View {
@@ -73,12 +73,13 @@ struct AddHighScore: View {
     
     private func addNewTopScore(){
         if !name.isEmpty {
-            isAddHighScoreShown = false
+            isAddHighScorePresented = false
             FirestoreManager.addTopScore(name: name, score: score)
         }
     }
 }
 
 #Preview {
-    AddHighScore(isAddHighScoreShown: .constant(true), score: 20)
+    AddHighScore(isAddHighScorePresented: .constant(true),
+                 score: 20)
 }

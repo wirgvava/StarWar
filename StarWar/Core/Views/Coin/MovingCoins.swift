@@ -10,6 +10,7 @@ import SwiftUI
 struct MovingCoins: View {
     @Binding var isPlaying: Bool
     @Binding var shipPosition: CGPoint
+    @Binding var collectedCoins: Int
     @State private var coins = [Coin]()
     @State private var intervalBetweenCoins = 1
     var shipType: Int
@@ -63,7 +64,7 @@ struct MovingCoins: View {
         let screenHeight = UIScreen.main.bounds.height
         coins = coins.map { coin in
             var newCoin = coin
-            newCoin.position.y += 1
+            newCoin.position.y += 5
             return newCoin
         }.filter {
             $0.position.y <= screenHeight
@@ -80,6 +81,7 @@ struct MovingCoins: View {
             if catchCoin(coin: coin, with: shipPosition) {
                 if let coinIndex = coins.firstIndex(where: { $0.id == coin.id }) {
                     coins.remove(at: coinIndex)
+                    collectedCoins += 20
                     AppStorageManager.money += 20
                 }
                 break

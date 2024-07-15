@@ -13,22 +13,24 @@ struct MenuButtons: View {
     @State private var timer: Timer?
     @State private var timeRemaining: Int = 7200
     @State private var animateToggle: Bool = true
-    @State private var messageIsShown: Bool = false
+    @State private var messageIsPresented: Bool = false
     @Binding var isPlayable: Bool
     @Binding var shipIsMovingLeft: Bool
     @Binding var shipIsUnlocked: Bool
     
     // Navigation
-    @Binding var isMarketShown: Bool
-    @Binding var isLeaderboardShown: Bool
-    @Binding var isSettingsShown: Bool
+    @Binding var isMarketPresented: Bool
+    @Binding var isLeaderboardPresented: Bool
+    @Binding var isSettingsPresented: Bool
+    @Binding var isAddHighScorePresented: Bool
+    @Binding var isWatchAdViewPresented: Bool
     
     var sidePadding: CGFloat
     var gameOver: Bool
     
     var body: some View {
         HStack {
-            if !isMarketShown && !isLeaderboardShown && !isSettingsShown {
+            if !isMarketPresented && !isLeaderboardPresented && !isSettingsPresented {
                 VStack(spacing: 25) {
                     healthView(heartSize: 40)
                 }
@@ -40,10 +42,7 @@ struct MenuButtons: View {
                         Spacer()
                         
                         Button {
-                            if rewardAdsManager.rewardLoaded {
-                                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-                                rewardAdsManager.displayReward(from: windowScene.windows.first!.rootViewController!)
-                            }
+                            showAd()
                         } label: {
                             Text("Watch Ad")
                                 .customFont(color: .white, size: 24)
@@ -72,8 +71,10 @@ struct MenuButtons: View {
                 VStack(spacing: 25) {
                     // Market Button
                     Button(action: {
+                        guard !isAddHighScorePresented else { return }
+                        guard !isWatchAdViewPresented else { return }
                         withAnimation {
-                            isMarketShown = true
+                            isMarketPresented = true
                             isPlayable = false
                         }
                     }) {
@@ -84,8 +85,10 @@ struct MenuButtons: View {
                     
                     // Leaderboard Button
                     Button(action: {
+                        guard !isAddHighScorePresented else { return }
+                        guard !isWatchAdViewPresented else { return }
                         withAnimation {
-                            isLeaderboardShown = true
+                            isLeaderboardPresented = true
                             shipIsMovingLeft = true
                         }
                     }) {
@@ -96,6 +99,8 @@ struct MenuButtons: View {
                     
                     // Settings Button
                     Button(action: {
+                        guard !isAddHighScorePresented else { return }
+                        guard !isWatchAdViewPresented else { return }
                         print("Settings tapped!")
                     }) {
                         Image(.settings)
@@ -106,7 +111,7 @@ struct MenuButtons: View {
             } else {
                 VStack {
                     Spacer()
-                    if messageIsShown {
+                    if messageIsPresented {
                         Text("Choose the ship you own.")
                             .customFont(color: .white, size: 20)
                     }
@@ -149,36 +154,46 @@ struct MenuButtons: View {
                 startTimer()
             }
         }
-        .onChange(of: messageIsShown) { _, newValue in
+        .onChange(of: messageIsPresented) { _, newValue in
             if newValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     withAnimation(.smooth(duration: 1.0)) {
-                        messageIsShown = false
+                        messageIsPresented = false
                     }
                 }
             }
         }
     }
     
+    private func showAd(){
+        if rewardAdsManager.rewardLoaded {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+            rewardAdsManager.displayReward(from: windowScene.windows.first!.rootViewController!) {
+                AppStorageManager.pointOfHealth = 6
+                AppStorageManager.timerIsActive = false
+            }
+        }
+    }
+    
     // Close Action
     private func closeAction(){
-        if isMarketShown {
+        if isMarketPresented {
             withAnimation {
                 guard shipIsUnlocked else {
-                    messageIsShown = true
+                    messageIsPresented = true
                     return
                 }
-                isMarketShown = false
+                isMarketPresented = false
                 isPlayable = true
             }
-        } else if isLeaderboardShown {
+        } else if isLeaderboardPresented {
             withAnimation {
-                isLeaderboardShown = false
+                isLeaderboardPresented = false
                 shipIsMovingLeft = false
             }
-        } else if isSettingsShown {
+        } else if isSettingsPresented {
             withAnimation {
-                isSettingsShown = false
+                isSettingsPresented = false
                 shipIsMovingLeft = false
             }
         }
@@ -216,9 +231,11 @@ struct MenuButtons: View {
     MenuButtons(isPlayable: .constant(false),
                 shipIsMovingLeft: .constant(false),
                 shipIsUnlocked: .constant(false),
-                isMarketShown: .constant(false),
-                isLeaderboardShown: .constant(false),
-                isSettingsShown: .constant(false),
+                isMarketPresented: .constant(false),
+                isLeaderboardPresented: .constant(false),
+                isSettingsPresented: .constant(false),
+                isAddHighScorePresented: .constant(false),
+                isWatchAdViewPresented: .constant(false),
                 sidePadding: 20,
                 gameOver: true)
 }

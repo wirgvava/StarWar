@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HighScore: View {
+    @Binding var isAddHighScorePresented: Bool
+    var isPlaying: Bool
     var score: Int
     var topPadding: CGFloat
     
@@ -31,6 +33,22 @@ struct HighScore: View {
                     data: GameData(userHighScore: newValue,
                                    money: AppStorageManager.money,
                                    unlockedShips: AppStorageManager.unlockedShips))
+            }
+        }
+        .onChange(of: isPlaying) { _, newValue in
+            if !newValue {
+                checkForLeaderboard()
+            }
+        }
+    }
+    
+    private func checkForLeaderboard(){
+        let topScores = FirestoreManager.topScores
+        
+        for i in 0..<min(100, topScores.count) {
+            if score > topScores[i].score {
+                isAddHighScorePresented = true
+                break
             }
         }
     }

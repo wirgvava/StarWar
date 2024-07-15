@@ -11,7 +11,7 @@ extension ContentView {
     @Observable
     class ViewModel {
         private(set) var highScoreBannerTopPadding: CGFloat = -300
-        private(set) var currentScoreShown = false
+        private(set) var currentScorePresented = false
         private(set) var scoreTopPadding: CGFloat = -600
         private(set) var menuButtonsSidePadding: CGFloat = 20
         var isPlayable: Bool = true
@@ -21,15 +21,17 @@ extension ContentView {
         var shipIsUnlocked: Bool = true
         var bullets: [Bullet] = []
         var score: Int = 0
+        var collectedCoins: Int = 0
         var shipPosition: CGPoint = CGPoint(
             x: UIScreen.main.bounds.width / 2,
             y: (UIScreen.main.bounds.height / 2) - 50)
         
         // Navigation
-        var isMarketShown: Bool = false
-        var isLeaderboardShown: Bool = false
-        var isSettingsShown: Bool = false
-        var isAddHighScoreShown: Bool = false
+        var isWatchAdViewPresented: Bool = false
+        var isMarketPresented: Bool = false
+        var isLeaderboardPresented: Bool = false
+        var isSettingsPresented: Bool = false
+        var isAddHighScorePresented: Bool = false
         
         // ShipAnimation
         var shipIsMovingLeft: Bool = false
@@ -40,14 +42,15 @@ extension ContentView {
                 self.highScoreBannerTopPadding = -600
                 self.scoreTopPadding = -350
                 self.menuButtonsSidePadding = -40
-                self.currentScoreShown = false
+                self.currentScorePresented = false
                 self.score = 0
+                self.collectedCoins = 0
             }
         }
         
         func notPlayingMode(){
             withAnimation(.snappy) {
-                self.currentScoreShown = true
+                self.currentScorePresented = true
                 self.highScoreBannerTopPadding = -300
                 self.scoreTopPadding = -600
                 self.menuButtonsSidePadding = 20

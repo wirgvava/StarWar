@@ -29,7 +29,7 @@ class RewardAdsManager: NSObject, ObservableObject, GADFullScreenContentDelegate
         }
     }
     
-    func displayReward(from viewController: UIViewController) {
+    func displayReward(from viewController: UIViewController, completion: @escaping () -> ()) {
         guard let ad = rewardAd, rewardLoaded else {
             print("Ad not loaded yet. Call loadReward() first.")
             return
@@ -38,8 +38,7 @@ class RewardAdsManager: NSObject, ObservableObject, GADFullScreenContentDelegate
             guard let self = self else { return }
             print("Reward earned!")
             
-            AppStorageManager.pointOfHealth = 6
-            AppStorageManager.timerIsActive = false
+            completion()
             self.rewardLoaded = false
             self.rewardAd = nil
         }

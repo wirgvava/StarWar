@@ -11,7 +11,7 @@ struct MarketView: View {
     @Binding var isUnlocked: Bool
     @Binding var shipType: Int
     @State private var price: Int = 250
-
+    
     var body: some View {
         VStack {
             // Header with amount of money
@@ -35,8 +35,7 @@ struct MarketView: View {
             // Switch The Ships buttons
             HStack {
                 Button {
-                    guard shipType != 1 else { return }
-                    shipType -= 1
+                    previousShip()
                 } label: {
                     Image(.left)
                         .resizable()
@@ -47,8 +46,7 @@ struct MarketView: View {
                 Spacer()
                 
                 Button {
-                    guard shipType != 6 else { return }
-                    shipType += 1
+                    nextShip()
                 } label: {
                     Image(.right)
                         .resizable()
@@ -60,9 +58,7 @@ struct MarketView: View {
             
             // Buy button
             Button {
-                guard !isUnlocked else { return }
-                // TODO: Buy logic
-                print("BUY")
+                buyTheShip()
             } label: {
                 ZStack {
                     Rectangle()
@@ -87,7 +83,6 @@ struct MarketView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 30, height: 30)
                             }
-                            
                         }
                         Text(isUnlocked ? "" : " \(price)")
                             .customFont(color: .black, size: 24)
@@ -101,18 +96,42 @@ struct MarketView: View {
         }
         .onChange(of: shipType) { _, newValue in
             isUnlocked = AppStorageManager.unlockedShips.contains(newValue) ? true : false
-            
-            switch newValue {
-            case 2:     price = 350
-            case 3:     price = 450
-            case 4:     price = 650
-            case 5:     price = 850
-            case 6:     price = 1000
-            default:    price = 150
-            }
+            switchPrices(by: newValue)
         }
     }
     
+    //  MARK: - Methods
+    private func switchPrices(by shipType: Int){
+        switch shipType {
+        case 2:     price = 550
+        case 3:     price = 850
+        case 4:     price = 1000
+        case 5:     price = 1500
+        case 6:     price = 2000
+        default:    price = 550
+        }
+    }
     
+    // Actions
+    private func previousShip(){
+        guard shipType != 1 else { return }
+        shipType -= 1
+    }
     
+    private func nextShip(){
+        guard shipType != 6 else { return }
+        shipType += 1
+    }
+    
+    private func buyTheShip(){
+        guard !isUnlocked else { return }
+        guard AppStorageManager.money >= price else { return }
+        AppStorageManager.money -= price
+        AppStorageManager.unlockedShips.append(shipType)
+        isUnlocked = true
+        GameCenterManager.shared.save(
+            data: GameData(userHighScore: AppStorageManager.userHighScore,
+                           money: AppStorageManager.money,
+                           unlockedShips: AppStorageManager.unlockedShips))
+    }
 }

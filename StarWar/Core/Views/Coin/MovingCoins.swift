@@ -80,7 +80,7 @@ struct MovingCoins: View {
             if catchCoin(coin: coin, with: shipPosition) {
                 if let coinIndex = coins.firstIndex(where: { $0.id == coin.id }) {
                     coins.remove(at: coinIndex)
-                    AppStorageManager.money += 50
+                    AppStorageManager.money += 20
                 }
                 break
             }

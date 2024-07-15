@@ -14,10 +14,11 @@ struct MenuButtons: View {
     @State private var timeRemaining: Int = 7200
     @State private var animateToggle: Bool = true
     @State private var messageIsShown: Bool = false
-    
+    @Binding var isPlayable: Bool
     @Binding var shipIsMovingLeft: Bool
     @Binding var shipIsUnlocked: Bool
     
+    // Navigation
     @Binding var isMarketShown: Bool
     @Binding var isLeaderboardShown: Bool
     @Binding var isSettingsShown: Bool
@@ -73,6 +74,7 @@ struct MenuButtons: View {
                     Button(action: {
                         withAnimation {
                             isMarketShown = true
+                            isPlayable = false
                         }
                     }) {
                         Image(.coinFrontView)
@@ -167,6 +169,7 @@ struct MenuButtons: View {
                     return
                 }
                 isMarketShown = false
+                isPlayable = true
             }
         } else if isLeaderboardShown {
             withAnimation {
@@ -210,7 +213,8 @@ struct MenuButtons: View {
 }
 
 #Preview {
-    MenuButtons(shipIsMovingLeft: .constant(false),
+    MenuButtons(isPlayable: .constant(false),
+                shipIsMovingLeft: .constant(false),
                 shipIsUnlocked: .constant(false),
                 isMarketShown: .constant(false),
                 isLeaderboardShown: .constant(false),

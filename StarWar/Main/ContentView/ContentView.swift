@@ -42,7 +42,8 @@ struct ContentView: View {
                 }
             }
             
-            MenuButtons(shipIsMovingLeft: $viewModel.shipIsMovingLeft,
+            MenuButtons(isPlayable: $viewModel.isPlayable,
+                        shipIsMovingLeft: $viewModel.shipIsMovingLeft,
                         shipIsUnlocked: $viewModel.shipIsUnlocked,
                         isMarketShown: $viewModel.isMarketShown,
                         isLeaderboardShown: $viewModel.isLeaderboardShown,

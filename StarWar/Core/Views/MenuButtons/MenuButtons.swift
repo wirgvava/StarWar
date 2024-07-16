@@ -71,12 +71,7 @@ struct MenuButtons: View {
                 VStack(spacing: 25) {
                     // Market Button
                     Button(action: {
-                        guard !isAddHighScorePresented else { return }
-                        guard !isWatchAdViewPresented else { return }
-                        withAnimation {
-                            isMarketPresented = true
-                            isPlayable = false
-                        }
+                        openMarket()
                     }) {
                         Image(.coinFrontView)
                             .resizable()
@@ -85,12 +80,7 @@ struct MenuButtons: View {
                     
                     // Leaderboard Button
                     Button(action: {
-                        guard !isAddHighScorePresented else { return }
-                        guard !isWatchAdViewPresented else { return }
-                        withAnimation {
-                            isLeaderboardPresented = true
-                            shipIsMovingLeft = true
-                        }
+                        openLeaderboard()
                     }) {
                         Image(.rating)
                             .resizable()
@@ -99,9 +89,7 @@ struct MenuButtons: View {
                     
                     // Settings Button
                     Button(action: {
-                        guard !isAddHighScorePresented else { return }
-                        guard !isWatchAdViewPresented else { return }
-                        print("Settings tapped!")
+                        openSettings()
                     }) {
                         Image(.settings)
                             .resizable()
@@ -165,17 +153,41 @@ struct MenuButtons: View {
         }
     }
     
-    private func showAd(){
-        if rewardAdsManager.rewardLoaded {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-            rewardAdsManager.displayReward(from: windowScene.windows.first!.rootViewController!) {
-                AppStorageManager.pointOfHealth = 6
-                AppStorageManager.timerIsActive = false
-            }
+    // MARK: - Actions
+    private func openMarket(){
+        guard !isAddHighScorePresented else { return }
+        guard !isWatchAdViewPresented else { return }
+        withAnimation {
+            isMarketPresented = true
+            isLeaderboardPresented = false
+            isSettingsPresented = false
+            shipIsMovingLeft = false
+            isPlayable = false
         }
     }
     
-    // Close Action
+    private func openLeaderboard(){
+        guard !isAddHighScorePresented else { return }
+        guard !isWatchAdViewPresented else { return }
+        withAnimation {
+            isLeaderboardPresented = true
+            isMarketPresented = false
+            isSettingsPresented = false
+            shipIsMovingLeft = true
+        }
+    }
+    
+    private func openSettings(){
+        guard !isAddHighScorePresented else { return }
+        guard !isWatchAdViewPresented else { return }
+        withAnimation {
+            isSettingsPresented = true
+            isMarketPresented = false
+            isLeaderboardPresented = false
+            shipIsMovingLeft = true
+        }
+    }
+    
     private func closeAction(){
         if isMarketPresented {
             withAnimation {
@@ -195,6 +207,16 @@ struct MenuButtons: View {
             withAnimation {
                 isSettingsPresented = false
                 shipIsMovingLeft = false
+            }
+        }
+    }
+    
+    private func showAd(){
+        if rewardAdsManager.rewardLoaded {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+            rewardAdsManager.displayReward(from: windowScene.windows.first!.rootViewController!) {
+                AppStorageManager.pointOfHealth = 6
+                AppStorageManager.timerIsActive = false
             }
         }
     }
@@ -225,17 +247,4 @@ struct MenuButtons: View {
         let seconds = time % 60
         return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
-}
-
-#Preview {
-    MenuButtons(isPlayable: .constant(false),
-                shipIsMovingLeft: .constant(false),
-                shipIsUnlocked: .constant(false),
-                isMarketPresented: .constant(false),
-                isLeaderboardPresented: .constant(false),
-                isSettingsPresented: .constant(false),
-                isAddHighScorePresented: .constant(false),
-                isWatchAdViewPresented: .constant(false),
-                sidePadding: 20,
-                gameOver: true)
 }

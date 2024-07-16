@@ -73,6 +73,9 @@
 		A5E562C12C25DB1C00908A3B /* Monster_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C02C25DB1800908A3B /* Monster_2.swift */; };
 		A5E562C32C25DB3900908A3B /* Monster_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C22C25DB3600908A3B /* Monster_3.swift */; };
 		A5E562C52C25DB5100908A3B /* Monster_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C42C25DB4E00908A3B /* Monster_4.swift */; };
+		A5EC2EA32C46F4BD00C9AB5E /* bg_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2EA22C46F4BD00C9AB5E /* bg_sound.wav */; };
+		A5EC2EA62C46F6B500C9AB5E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC2EA52C46F6B100C9AB5E /* SoundManager.swift */; };
+		A5EC2EA82C46F74D00C9AB5E /* collecting coins.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2EA72C46F74D00C9AB5E /* collecting coins.wav */; };
 		A5F7EA262C260E06000F3D41 /* Stars.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7EA252C260E06000F3D41 /* Stars.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +145,9 @@
 		A5E562C02C25DB1800908A3B /* Monster_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_2.swift; sourceTree = "<group>"; };
 		A5E562C22C25DB3600908A3B /* Monster_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_3.swift; sourceTree = "<group>"; };
 		A5E562C42C25DB4E00908A3B /* Monster_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_4.swift; sourceTree = "<group>"; };
+		A5EC2EA22C46F4BD00C9AB5E /* bg_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bg_sound.wav; sourceTree = "<group>"; };
+		A5EC2EA52C46F6B100C9AB5E /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		A5EC2EA72C46F74D00C9AB5E /* collecting coins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "collecting coins.wav"; sourceTree = "<group>"; };
 		A5F7EA252C260E06000F3D41 /* Stars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -320,6 +326,7 @@
 			children = (
 				A557381B2C42C0FE00A802C7 /* Entitlements */,
 				A5551E542C25B83A00A7309C /* Fonts */,
+				A5EC2EA42C46F66B00C9AB5E /* Sounds */,
 				A587D69E2C25AFD700096F4B /* Assets.xcassets */,
 				A5DAADF42C25BF38002E017E /* Info.plist */,
 				A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */,
@@ -443,6 +450,7 @@
 				A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */,
 				A501B6912C4181030063DA61 /* GameCenterManager.swift */,
 				A522EE002C3C231100D36552 /* RewardAdsManager.swift */,
+				A5EC2EA52C46F6B100C9AB5E /* SoundManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -485,6 +493,15 @@
 				A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */,
 			);
 			path = Monsters;
+			sourceTree = "<group>";
+		};
+		A5EC2EA42C46F66B00C9AB5E /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				A5EC2EA22C46F4BD00C9AB5E /* bg_sound.wav */,
+				A5EC2EA72C46F74D00C9AB5E /* collecting coins.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		A5F7EA242C260DF5000F3D41 /* Stars */ = {
@@ -564,9 +581,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5EC2EA82C46F74D00C9AB5E /* collecting coins.wav in Resources */,
 				A598FAAF2C25BBF800EF9F16 /* Minecraft.ttf in Resources */,
 				A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */,
 				A587D6A22C25AFD700096F4B /* Preview Assets.xcassets in Resources */,
+				A5EC2EA32C46F4BD00C9AB5E /* bg_sound.wav in Resources */,
 				A587D69F2C25AFD700096F4B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -607,6 +626,7 @@
 				A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */,
 				A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */,
 				A501B6942C419EC10063DA61 /* GameData.swift in Sources */,
+				A5EC2EA62C46F6B500C9AB5E /* SoundManager.swift in Sources */,
 				A59E9FE32C40541500CF5ABB /* SizeForShipType.swift in Sources */,
 				A587D69D2C25AFD600096F4B /* ContentView.swift in Sources */,
 				A5E562BF2C25DAC000908A3B /* Monster_1.swift in Sources */,

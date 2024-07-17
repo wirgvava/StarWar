@@ -23,7 +23,7 @@ func sendNotification() {
     let content = UNMutableNotificationContent()
     content.title = "Pew Pew"
     content.body = "🚀 Time to shoot 👾"
-    content.sound = UNNotificationSound.default
+    content.sound = UNNotificationSound(named: .init(rawValue: "notification.wav"))
     
     // Extract date components from AppStorageManager.date
     let targetDate = AppStorageManager.date

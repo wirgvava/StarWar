@@ -15,11 +15,11 @@ struct AddHighScore: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .frame(width: UIScreen.main.bounds.width - 115, height: 215)
+                .frame(width: UIScreen.main.bounds.width - 70, height: 205)
                 .foregroundStyle(.limeBullet)
             
             Rectangle()
-                .frame(width: UIScreen.main.bounds.width - 100, height: 200)
+                .frame(width: UIScreen.main.bounds.width - 60, height: 190)
                 .foregroundStyle(.limeBullet)
                 .overlay {
                     VStack(alignment: .center) {
@@ -31,11 +31,13 @@ struct AddHighScore: View {
                         
                         ZStack {
                             Rectangle()
-                                .frame(width: 250, height: 60)
+                                .frame(width: UIScreen.main.bounds.width - 100,
+                                       height: 60)
                                 .foregroundStyle(.white)
                             
                             Rectangle()
-                                .frame(height: 50)
+                                .frame(width: UIScreen.main.bounds.width - 90,
+                                       height: 50)
                                 .foregroundStyle(.white)
                                 .overlay {
                                     TextField("Enter Name", text: $name)
@@ -53,11 +55,11 @@ struct AddHighScore: View {
                         } label: {
                             ZStack {
                                 Rectangle()
-                                    .frame(width: 90, height: 60)
+                                    .frame(width: 150, height: 60)
                                     .foregroundStyle(.pink)
                                 
                                 Rectangle()
-                                    .frame(width: 100, height: 50)
+                                    .frame(width: 160, height: 50)
                                     .foregroundStyle(.pink)
                                     .overlay {
                                         Text("Add")
@@ -73,6 +75,7 @@ struct AddHighScore: View {
     
     private func addNewTopScore(){
         if !name.isEmpty {
+            SoundManager.shared.play(sound: .buttonClick)
             isAddHighScorePresented = false
             FirestoreManager.addTopScore(name: name, score: score)
         }

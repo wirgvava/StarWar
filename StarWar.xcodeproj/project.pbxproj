@@ -22,6 +22,15 @@
 		A522EDFF2C3C1FFB00D36552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */; };
 		A522EE012C3C231100D36552 /* RewardAdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A522EE002C3C231100D36552 /* RewardAdsManager.swift */; };
 		A53687912C42C2960046D80A /* MarketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53687902C42C28F0046D80A /* MarketView.swift */; };
+		A54436D62C47EA62000E74CF /* soundtrack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436D52C47EA62000E74CF /* soundtrack.mp3 */; };
+		A54436D72C47EA62000E74CF /* collecting coins.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436D22C47EA62000E74CF /* collecting coins.mp3 */; };
+		A54436D82C47EA62000E74CF /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436D32C47EA62000E74CF /* explosion.mp3 */; };
+		A54436D92C47EA62000E74CF /* game bg sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436D42C47EA62000E74CF /* game bg sound.mp3 */; };
+		A54436DD2C47F211000E74CF /* buttonClick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436DA2C47F211000E74CF /* buttonClick.mp3 */; };
+		A54436DE2C47F211000E74CF /* healthRestore.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436DB2C47F211000E74CF /* healthRestore.mp3 */; };
+		A54436E12C47F699000E74CF /* notification.wav in Resources */ = {isa = PBXBuildFile; fileRef = A54436E02C47F699000E74CF /* notification.wav */; };
+		A54436E52C480312000E74CF /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436E42C480312000E74CF /* error.mp3 */; };
+		A54436E72C4804A9000E74CF /* buy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436E62C4804A9000E74CF /* buy.mp3 */; };
 		A56FC1DD2C3D4B4700F68711 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1DC2C3D4B4700F68711 /* FirebaseAnalytics */; };
 		A56FC1DF2C3D4B4700F68711 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1DE2C3D4B4700F68711 /* FirebaseCrashlytics */; };
 		A56FC1E12C3D4B4700F68711 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1E02C3D4B4700F68711 /* FirebaseFirestore */; };
@@ -73,9 +82,7 @@
 		A5E562C12C25DB1C00908A3B /* Monster_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C02C25DB1800908A3B /* Monster_2.swift */; };
 		A5E562C32C25DB3900908A3B /* Monster_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C22C25DB3600908A3B /* Monster_3.swift */; };
 		A5E562C52C25DB5100908A3B /* Monster_4.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E562C42C25DB4E00908A3B /* Monster_4.swift */; };
-		A5EC2EA32C46F4BD00C9AB5E /* bg_sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2EA22C46F4BD00C9AB5E /* bg_sound.wav */; };
 		A5EC2EA62C46F6B500C9AB5E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC2EA52C46F6B100C9AB5E /* SoundManager.swift */; };
-		A5EC2EA82C46F74D00C9AB5E /* collecting coins.wav in Resources */ = {isa = PBXBuildFile; fileRef = A5EC2EA72C46F74D00C9AB5E /* collecting coins.wav */; };
 		A5F7EA262C260E06000F3D41 /* Stars.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F7EA252C260E06000F3D41 /* Stars.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +102,15 @@
 		A522EDFE2C3C1FFB00D36552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A522EE002C3C231100D36552 /* RewardAdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAdsManager.swift; sourceTree = "<group>"; };
 		A53687902C42C28F0046D80A /* MarketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketView.swift; sourceTree = "<group>"; };
+		A54436D22C47EA62000E74CF /* collecting coins.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "collecting coins.mp3"; sourceTree = "<group>"; };
+		A54436D32C47EA62000E74CF /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
+		A54436D42C47EA62000E74CF /* game bg sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "game bg sound.mp3"; sourceTree = "<group>"; };
+		A54436D52C47EA62000E74CF /* soundtrack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundtrack.mp3; sourceTree = "<group>"; };
+		A54436DA2C47F211000E74CF /* buttonClick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buttonClick.mp3; sourceTree = "<group>"; };
+		A54436DB2C47F211000E74CF /* healthRestore.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = healthRestore.mp3; sourceTree = "<group>"; };
+		A54436E02C47F699000E74CF /* notification.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notification.wav; sourceTree = "<group>"; };
+		A54436E42C480312000E74CF /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
+		A54436E62C4804A9000E74CF /* buy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buy.mp3; sourceTree = "<group>"; };
 		A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		A56FC1E62C3D50C300F68711 /* TopScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScores.swift; sourceTree = "<group>"; };
 		A56FC1EA2C3D6C9C00F68711 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
@@ -145,9 +161,7 @@
 		A5E562C02C25DB1800908A3B /* Monster_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_2.swift; sourceTree = "<group>"; };
 		A5E562C22C25DB3600908A3B /* Monster_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_3.swift; sourceTree = "<group>"; };
 		A5E562C42C25DB4E00908A3B /* Monster_4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster_4.swift; sourceTree = "<group>"; };
-		A5EC2EA22C46F4BD00C9AB5E /* bg_sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bg_sound.wav; sourceTree = "<group>"; };
 		A5EC2EA52C46F6B100C9AB5E /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		A5EC2EA72C46F74D00C9AB5E /* collecting coins.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "collecting coins.wav"; sourceTree = "<group>"; };
 		A5F7EA252C260E06000F3D41 /* Stars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stars.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -498,8 +512,15 @@
 		A5EC2EA42C46F66B00C9AB5E /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				A5EC2EA22C46F4BD00C9AB5E /* bg_sound.wav */,
-				A5EC2EA72C46F74D00C9AB5E /* collecting coins.wav */,
+				A54436DA2C47F211000E74CF /* buttonClick.mp3 */,
+				A54436E62C4804A9000E74CF /* buy.mp3 */,
+				A54436D22C47EA62000E74CF /* collecting coins.mp3 */,
+				A54436E42C480312000E74CF /* error.mp3 */,
+				A54436D32C47EA62000E74CF /* explosion.mp3 */,
+				A54436DB2C47F211000E74CF /* healthRestore.mp3 */,
+				A54436D42C47EA62000E74CF /* game bg sound.mp3 */,
+				A54436E02C47F699000E74CF /* notification.wav */,
+				A54436D52C47EA62000E74CF /* soundtrack.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -581,11 +602,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5EC2EA82C46F74D00C9AB5E /* collecting coins.wav in Resources */,
+				A54436DD2C47F211000E74CF /* buttonClick.mp3 in Resources */,
+				A54436DE2C47F211000E74CF /* healthRestore.mp3 in Resources */,
 				A598FAAF2C25BBF800EF9F16 /* Minecraft.ttf in Resources */,
+				A54436E12C47F699000E74CF /* notification.wav in Resources */,
+				A54436E72C4804A9000E74CF /* buy.mp3 in Resources */,
 				A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */,
+				A54436E52C480312000E74CF /* error.mp3 in Resources */,
 				A587D6A22C25AFD700096F4B /* Preview Assets.xcassets in Resources */,
-				A5EC2EA32C46F4BD00C9AB5E /* bg_sound.wav in Resources */,
+				A54436D62C47EA62000E74CF /* soundtrack.mp3 in Resources */,
+				A54436D72C47EA62000E74CF /* collecting coins.mp3 in Resources */,
+				A54436D82C47EA62000E74CF /* explosion.mp3 in Resources */,
+				A54436D92C47EA62000E74CF /* game bg sound.mp3 in Resources */,
 				A587D69F2C25AFD700096F4B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

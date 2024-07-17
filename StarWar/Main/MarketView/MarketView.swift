@@ -115,17 +115,20 @@ struct MarketView: View {
     // Actions
     private func previousShip(){
         guard shipType != 1 else { return }
+        SoundManager.shared.play(sound: .buttonClick)
         shipType -= 1
     }
     
     private func nextShip(){
         guard shipType != 6 else { return }
+        SoundManager.shared.play(sound: .buttonClick)
         shipType += 1
     }
     
     private func buyTheShip(){
         guard !isUnlocked else { return }
         guard AppStorageManager.money >= price else { return }
+        SoundManager.shared.play(sound: .buy)
         AppStorageManager.money -= price
         AppStorageManager.unlockedShips.append(shipType)
         isUnlocked = true

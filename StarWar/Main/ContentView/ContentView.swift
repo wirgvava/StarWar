@@ -97,7 +97,7 @@ struct ContentView: View {
             }
         }
         .onAppear() {
-            SoundManager.shared.play(sound: .bgSound, numberOfLoops: -1)
+            SoundManager.shared.play(sound: .soundtrack, numberOfLoops: -1)
             viewModel.gameCenterAuthenticateAndFetchingData()
         }
         .onChange(of: viewModel.isPlaying) { _, newValue in

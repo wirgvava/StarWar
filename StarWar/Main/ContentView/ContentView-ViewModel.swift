@@ -36,7 +36,7 @@ extension ContentView {
         // ShipAnimation
         var shipIsMovingLeft: Bool = false
         
-//      MARK: - Methods
+        // MARK: - Methods
         func isPlayingMode(){
             withAnimation(.snappy) {
                 self.highScoreBannerTopPadding = -600
@@ -45,6 +45,7 @@ extension ContentView {
                 self.currentScorePresented = false
                 self.score = 0
                 self.collectedCoins = 0
+                SoundManager.shared.play(sound: .gameBgSound, numberOfLoops: -1)
             }
         }
         
@@ -54,6 +55,7 @@ extension ContentView {
                 self.highScoreBannerTopPadding = -300
                 self.scoreTopPadding = -600
                 self.menuButtonsSidePadding = 20
+                SoundManager.shared.play(sound: .soundtrack, numberOfLoops: -1)
             }
         }
         
@@ -76,7 +78,7 @@ extension ContentView {
             }
         }
         
-        // MARK: -
+        // MARK: - The Ship
         @ViewBuilder
         func ship(shipType: Binding<Int>,
                   isPlayable: Binding<Bool>,

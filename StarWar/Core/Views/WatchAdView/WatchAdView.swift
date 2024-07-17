@@ -35,6 +35,7 @@ struct WatchAdView: View {
                 
                 HStack {
                     Button {
+                        SoundManager.shared.play(sound: .buttonClick)
                         isWatchAdViewPresented = false
                     } label: {
                         Rectangle()
@@ -70,7 +71,9 @@ struct WatchAdView: View {
     private func showAd(){
         if rewardAdsManager.rewardLoaded {
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+            SoundManager.shared.play(sound: .buttonClick)
             rewardAdsManager.displayReward(from: windowScene.windows.first!.rootViewController!) {
+                SoundManager.shared.play(sound: .collectionCoins)
                 AppStorageManager.money += collectedCoins
                 isWatchAdViewPresented = false
             }

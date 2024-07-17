@@ -158,6 +158,7 @@ struct MenuButtons: View {
         guard !isAddHighScorePresented else { return }
         guard !isWatchAdViewPresented else { return }
         withAnimation {
+            SoundManager.shared.play(sound: .buttonClick)
             isMarketPresented = true
             isLeaderboardPresented = false
             isSettingsPresented = false
@@ -170,6 +171,7 @@ struct MenuButtons: View {
         guard !isAddHighScorePresented else { return }
         guard !isWatchAdViewPresented else { return }
         withAnimation {
+            SoundManager.shared.play(sound: .buttonClick)
             isLeaderboardPresented = true
             isMarketPresented = false
             isSettingsPresented = false
@@ -181,6 +183,7 @@ struct MenuButtons: View {
         guard !isAddHighScorePresented else { return }
         guard !isWatchAdViewPresented else { return }
         withAnimation {
+            SoundManager.shared.play(sound: .buttonClick)
             isSettingsPresented = true
             isMarketPresented = false
             isLeaderboardPresented = false
@@ -192,19 +195,23 @@ struct MenuButtons: View {
         if isMarketPresented {
             withAnimation {
                 guard shipIsUnlocked else {
+                    SoundManager.shared.play(sound: .error)
                     messageIsPresented = true
                     return
                 }
+                SoundManager.shared.play(sound: .buttonClick)
                 isMarketPresented = false
                 isPlayable = true
             }
         } else if isLeaderboardPresented {
             withAnimation {
+                SoundManager.shared.play(sound: .buttonClick)
                 isLeaderboardPresented = false
                 shipIsMovingLeft = false
             }
         } else if isSettingsPresented {
             withAnimation {
+                SoundManager.shared.play(sound: .buttonClick)
                 isSettingsPresented = false
                 shipIsMovingLeft = false
             }
@@ -214,7 +221,9 @@ struct MenuButtons: View {
     private func showAd(){
         if rewardAdsManager.rewardLoaded {
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+            SoundManager.shared.play(sound: .buttonClick)
             rewardAdsManager.displayReward(from: windowScene.windows.first!.rootViewController!) {
+                SoundManager.shared.play(sound: .healthRestore)
                 AppStorageManager.pointOfHealth = 6
                 AppStorageManager.timerIsActive = false
             }
@@ -234,6 +243,7 @@ struct MenuButtons: View {
             self.timeRemaining = difference
             
             if self.timeRemaining < 0 {
+                SoundManager.shared.play(sound: .healthRestore)
                 AppStorageManager.pointOfHealth = 6
                 AppStorageManager.timerIsActive = false
             }

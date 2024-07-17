@@ -82,6 +82,7 @@ struct MovingCoins: View {
                 if let coinIndex = coins.firstIndex(where: { $0.id == coin.id }) {
                     coins.remove(at: coinIndex)
                     collectedCoins += 20
+                    SoundManager.shared.play(sound: .collectionCoins)
                     AppStorageManager.money += 20
                 }
                 break

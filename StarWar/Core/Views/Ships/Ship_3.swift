@@ -24,7 +24,7 @@ struct Ship_3: View {
         ZStack {
             Ship_3_Bullets(bullets: $bullets, 
                            shipPosition: $shipPosition,
-                           isPlaying: isPlaying)
+                           isPlaying: $isPlaying)
             
             Rectangle()
                 .frame(width: 80, height: 80)

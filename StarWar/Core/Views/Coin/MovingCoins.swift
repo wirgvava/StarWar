@@ -12,7 +12,7 @@ struct MovingCoins: View {
     @Binding var shipPosition: CGPoint
     @Binding var collectedCoins: Int
     @State private var coins = [Coin]()
-    @State private var intervalBetweenCoins = 1
+    @State private var intervalBetweenCoins = 0
     var shipType: Int
 
     var body: some View {
@@ -27,6 +27,7 @@ struct MovingCoins: View {
             if newValue {
                 startCoinAnimation()
             } else {
+                intervalBetweenCoins = 0
                 removeCoins()
             }
         }
@@ -34,13 +35,12 @@ struct MovingCoins: View {
     
     // Start coin falling animation
     private func startCoinAnimation(){
-        if isPlaying {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.001){
-                moveCoinsDown()
-                addCoins()
-                collectCoins()
-                startCoinAnimation()
-            }
+        guard isPlaying else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now()){
+            moveCoinsDown()
+            addCoins()
+            collectCoins()
+            startCoinAnimation()
         }
     }
 
@@ -53,7 +53,7 @@ struct MovingCoins: View {
                     x: CGFloat.random(in: 0...screenWidth),
                     y: 0))
             coins.append(newCoin)
-            intervalBetweenCoins = 1
+            intervalBetweenCoins = 0
         } else {
             intervalBetweenCoins += 1
         }

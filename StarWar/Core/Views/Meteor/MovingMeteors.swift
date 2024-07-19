@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct MovingMeteors: View {
+    @State private var meteors = [Meteor]()
+    @State private var explosions = [Explosion]()
+    @State private var intervalBetweenMeteors = 0
     @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
     @Binding var gameOver: Bool
     @Binding var shipPosition: CGPoint
-    @State private var meteors = [Meteor]()
-    @State private var explosions: [Explosion] = []
-    @State private var intervalBetweenMeteors = 1
     var shipType: Int
 
     var body: some View {
@@ -28,19 +28,21 @@ struct MovingMeteors: View {
         .onChange(of: isPlaying) { _, newValue in
             if newValue {
                 startMeteorAnimation()
+            } else {
+                intervalBetweenMeteors = 0
+                removeMeteors()
             }
         }
     }
     
     // Start falling meteor animation
     private func startMeteorAnimation(){
-        if isPlaying {
-            DispatchQueue.main.asyncAfter(deadline: .now()){
-                moveMeteorsDown()
-                addMeteors()
-                detectCollisionsForTheShip()
-                startMeteorAnimation()
-            }
+        guard isPlaying else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now()){
+            moveMeteorsDown()
+            addMeteors()
+            detectCollisionsForTheShip()
+            startMeteorAnimation()
         }
     }
 
@@ -53,7 +55,7 @@ struct MovingMeteors: View {
                     x: CGFloat.random(in: 0...screenWidth),
                     y: 0))
             meteors.append(newMeteor)
-            intervalBetweenMeteors = 1
+            intervalBetweenMeteors = 0
         } else {
             intervalBetweenMeteors += 1
         }
@@ -64,7 +66,7 @@ struct MovingMeteors: View {
         let screenHeight = UIScreen.main.bounds.height
         meteors = meteors.map { meteor in
             var newMeteor = meteor
-            newMeteor.position.y += 3.5
+            newMeteor.position.y += 5
             return newMeteor
         }.filter {
             $0.position.y <= screenHeight

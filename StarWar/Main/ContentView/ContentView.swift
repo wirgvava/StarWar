@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Stars(isPlaying: viewModel.isPlaying)
+            Stars(isPlaying: $viewModel.isPlaying)
                 .scaleEffect(viewModel.isPlaying ? 1.0 : 2.0)
                 .animation(.easeOut, value: viewModel.isPlaying)
             

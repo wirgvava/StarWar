@@ -11,16 +11,16 @@ struct Stars: View {
     @State private var speedUpSwitcher: Bool = false
     @State private var stars: [Star] = []
     @State private var intervalBetweenStars = 0
-    @State private var index: Int = 0
-    var isPlaying: Bool
-    let speeds = [
-        0.025, 0.01, 0.0075, 0.005, 0.0025, 0.001, 0
-    ]
+    @State private var starMovementSpeed: CGFloat = 1
+    @State private var bgOpacity = 1.0
+    @Binding var isPlaying: Bool
        
     var body: some View {
         ZStack {
             // Background color
-            Color.space.edgesIgnoringSafeArea(.all)
+            Color.black.ignoresSafeArea()
+            Color.space.ignoresSafeArea()
+                .opacity(bgOpacity)
             
             // Stars
             ForEach(stars) { star in
@@ -36,17 +36,21 @@ struct Stars: View {
         .onChange(of: isPlaying, { _, newValue in
             if newValue {
                 speedUpSwitcher.toggle()
+            } else {
+                withAnimation {
+                    starMovementSpeed = 1
+                    bgOpacity = 1.0
+                }
+                startStarAnimation()
             }
         })
         .onChange(of: speedUpSwitcher) { _, _ in
-            guard isPlaying else {
-                index = 0
-                startStarAnimation()
-                return
-            }
+            guard isPlaying else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                let lastIndex = speeds.count - 1
-                index = index == lastIndex ? lastIndex : index + 1
+                withAnimation {
+                    bgOpacity -= 0.1
+                    starMovementSpeed = min(5, starMovementSpeed + 0.5)
+                }
                 startStarAnimation()
                 speedUpSwitcher.toggle()
             }
@@ -68,7 +72,7 @@ struct Stars: View {
  
     // Start normal speed star animation
     private func startStarAnimation() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + speeds[index]) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             moveStarsDown()
             addStar()
             startStarAnimation()
@@ -100,7 +104,7 @@ struct Stars: View {
         let screenHeight = UIScreen.main.bounds.height
         stars = stars.map { star in
             var newStar = star
-            newStar.position.y += 1
+            newStar.position.y += starMovementSpeed
             return newStar
         }.filter {
             $0.position.y <= screenHeight

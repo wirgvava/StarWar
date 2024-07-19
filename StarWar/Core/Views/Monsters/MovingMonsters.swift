@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct MovingMonsters: View {
+    @State private var monsters: [Monster] = []
+    @State private var explosions: [Explosion] = []
+    @State private var intervalBetweenMonsters = 0
+    @State private var monsterMovementSpeed: CGFloat = 1
     @Binding var bullets: [Bullet]
     @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
     @Binding var gameOver: Bool
     @Binding var shipPosition: CGPoint
     @Binding var score: Int
-    @State private var monsters: [Monster] = []
-    @State private var explosions: [Explosion] = []
-    @State private var intervalBetweenMonsters = 1
-    @State private var index: Int = 0
     var shipType: Int
-    let speeds: [TimeInterval] = [
-        0.05, 0.045, 0.04, 0.035, 0.03, 0.025, 0.02, 0.015, 0.01,
-        0.009, 0.008, 0.007, 0.006, 0.005, 0.004, 0.003, 0.002, 0.001, 0
-    ]
         
     var body: some View {
         ZStack {
@@ -49,19 +45,20 @@ struct MovingMonsters: View {
             if newValue {
                 startMonsterAnimation()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                    let lastIndex = speeds.count - 1
-                    index = index == lastIndex ? lastIndex : index + 1
+                    monsterMovementSpeed += 0.1
                     startMonsterAnimation()
                 }
             } else {
-                index = 0
+                monsterMovementSpeed = 1
+                intervalBetweenMonsters = 0
+                removeMonsters()
             }
         })
-        .onChange(of: index, { _, _ in
-            guard index != speeds.count - 1 else { return }
+        .onChange(of: monsterMovementSpeed, { _, _ in
+            guard isPlaying else { return }
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-                index = isPlaying ? index + 1 : index
                 withAnimation(.smooth) {
+                    monsterMovementSpeed = min(3, monsterMovementSpeed + 0.1)
                     startMonsterAnimation()
                 }
             }
@@ -70,19 +67,18 @@ struct MovingMonsters: View {
     
     // Speed Up Monster animations
     private func startMonsterAnimation(){
-        if isPlaying {
-            DispatchQueue.main.asyncAfter(deadline: .now() + speeds[index]){
-                moveMonstersDown()
-                addMonsters()
-                detectCollisions()
-                startMonsterAnimation()
-            }
+        guard isPlaying else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now()){
+            moveMonstersDown()
+            addMonsters()
+            detectCollisions()
+            startMonsterAnimation()
         }
     }
 
     // Adding new monsters on the top
     private func addMonsters(){
-        if intervalBetweenMonsters == 30 {
+        if intervalBetweenMonsters == 40 {
             let screenWidth = UIScreen.main.bounds.width
             let newMonster = Monster(
                 position: CGPoint(
@@ -90,7 +86,7 @@ struct MovingMonsters: View {
                     y: 0),
                 monsterType: Int.random(in: 1...4))
             monsters.append(newMonster)
-            intervalBetweenMonsters = 1
+            intervalBetweenMonsters = 0
         } else {
             intervalBetweenMonsters += 1
         }
@@ -101,7 +97,7 @@ struct MovingMonsters: View {
         let screenHeight = UIScreen.main.bounds.height
         monsters = monsters.map { monster in
             var newMonster = monster
-            newMonster.position.y += 1
+            newMonster.position.y += monsterMovementSpeed
             return newMonster
         }.filter {
             $0.position.y <= screenHeight

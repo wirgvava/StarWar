@@ -10,8 +10,7 @@ import SwiftUI
 struct Ship_1_Bullets: View {
     @Binding var bullets: [Bullet]
     @Binding var shipPosition: CGPoint
-    @State private var timer: Timer?
-    var isPlaying: Bool
+    @Binding var isPlaying: Bool
     
     var body: some View {
         ForEach(bullets) { bullet in
@@ -19,35 +18,25 @@ struct Ship_1_Bullets: View {
                 .foregroundColor(.lightBlueBullet)
                 .frame(width: 6, height: 6)
                 .position(bullet.position)
-                .animation(.smooth, value: bullet.position)
         }
         .ignoresSafeArea()
         .onChange(of: isPlaying) { _, newValue in
             if newValue {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    startBulletAnimation()
-                }
+                startBulletAnimation()
             } else {
-                stopBulletsAnimationTimer()
                 bullets.removeAll()
             }
-        }.onDisappear(){
-            stopBulletsAnimationTimer()
         }
     }
     
     // Start Shooting bullets
     private func startBulletAnimation() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0, repeats: true, block: { _ in
+        guard isPlaying else { return }
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             moveBulletsTop()
             addBullet()
-        })
-    }
-    
-    // Stop Timers
-    private func stopBulletsAnimationTimer() {
-        timer?.invalidate()
-        timer = nil
+            startBulletAnimation()
+        }
     }
     
     // Adding new bullets
@@ -67,12 +56,14 @@ struct Ship_1_Bullets: View {
     // Moving bullets to the top
     private func moveBulletsTop() {
         let screenHeight = UIScreen.main.bounds.height
-        bullets = bullets.map { bullet in
-            var newBullet = bullet
-            newBullet.position.y -= 15
-            return newBullet
-        }.filter {
-            $0.position.y <= screenHeight
+        withAnimation {
+            bullets = bullets.map { bullet in
+                var newBullet = bullet
+                newBullet.position.y -= 15
+                return newBullet
+            }.filter {
+                $0.position.y <= screenHeight
+            }
         }
     }
 }

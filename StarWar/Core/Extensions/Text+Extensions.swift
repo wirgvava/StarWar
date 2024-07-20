@@ -8,6 +8,11 @@
 import SwiftUI
 
 extension Text {
+    
+    init(localized key: String, comment: String = "") {
+        self.init(NSLocalizedString(key, comment: comment))
+    }
+    
     func customFont(color: Color, size: CGFloat) -> some View {
         self
             .font(.custom("Minecraft", size: size))

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MarketView: View {
+    @ObservedObject var appStorageManager = AppStorageManager.shared
     @Binding var isUnlocked: Bool
     @Binding var shipType: Int
     @State private var price: Int = 250
@@ -16,7 +17,7 @@ struct MarketView: View {
         VStack {
             // Header with amount of money
             HStack {
-                Text("Market")
+                Text(localized: "market")
                     .customFont(color: .white, size: 40)
                 
                 Spacer()
@@ -27,7 +28,7 @@ struct MarketView: View {
                     .frame(width: 35, height: 35)
                     .padding(.horizontal)
                 
-                Text("\(AppStorageManager.money)")
+                Text("\(appStorageManager.money)")
                     .customFont(color: .white, size: 30)
             }
             .padding(.bottom, 100)
@@ -92,10 +93,10 @@ struct MarketView: View {
         }
         .padding(.horizontal)
         .onAppear() {
-            isUnlocked = AppStorageManager.unlockedShips.contains(shipType) ? true : false
+            isUnlocked = appStorageManager.unlockedShips.contains(shipType) ? true : false
         }
         .onChange(of: shipType) { _, newValue in
-            isUnlocked = AppStorageManager.unlockedShips.contains(newValue) ? true : false
+            isUnlocked = appStorageManager.unlockedShips.contains(newValue) ? true : false
             switchPrices(by: newValue)
         }
     }
@@ -127,14 +128,14 @@ struct MarketView: View {
     
     private func buyTheShip(){
         guard !isUnlocked else { return }
-        guard AppStorageManager.money >= price else { return }
+        guard appStorageManager.money >= price else { return }
         SoundManager.shared.play(sound: .buy)
-        AppStorageManager.money -= price
-        AppStorageManager.unlockedShips.append(shipType)
+        appStorageManager.money -= price
+        appStorageManager.unlockedShips.append(shipType)
         isUnlocked = true
         GameCenterManager.shared.save(
-            data: GameData(userHighScore: AppStorageManager.userHighScore,
-                           money: AppStorageManager.money,
-                           unlockedShips: AppStorageManager.unlockedShips))
+            data: GameData(userHighScore: appStorageManager.userHighScore,
+                           money: appStorageManager.money,
+                           unlockedShips: appStorageManager.unlockedShips))
     }
 }

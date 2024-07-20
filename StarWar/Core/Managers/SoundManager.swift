@@ -8,11 +8,10 @@
 import AVFoundation
 
 class SoundManager: NSObject {
-    
     static let shared = SoundManager()
-    
-    var mainPlayer: AVAudioPlayer?
-    var additionalPlayer: AVAudioPlayer?
+    var appStorageManager = AppStorageManager.shared
+    var musicPlayer: AVAudioPlayer?
+    var sfxPlayer: AVAudioPlayer?
     
     enum SoundNames: String {
         case soundtrack = "soundtrack"
@@ -34,14 +33,16 @@ class SoundManager: NSObject {
         do {
             switch sound {
             case .soundtrack, .gameBgSound:
-                mainPlayer = try AVAudioPlayer(contentsOf: url)
-                mainPlayer?.numberOfLoops = numberOfLoops
-                mainPlayer?.play()
+                guard appStorageManager.isMusicEnabled else { return }
+                musicPlayer = try AVAudioPlayer(contentsOf: url)
+                musicPlayer?.numberOfLoops = numberOfLoops
+                musicPlayer?.play()
                 
             default:
-                additionalPlayer = try AVAudioPlayer(contentsOf: url)
-                additionalPlayer?.numberOfLoops = numberOfLoops
-                additionalPlayer?.play()
+                guard appStorageManager.isSFXEnabled else { return }
+                sfxPlayer = try AVAudioPlayer(contentsOf: url)
+                sfxPlayer?.numberOfLoops = numberOfLoops
+                sfxPlayer?.play()
             }
             
         } catch {

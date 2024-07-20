@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovingCoins: View {
+    @ObservedObject var appStorageManager = AppStorageManager.shared
     @Binding var isPlaying: Bool
     @Binding var shipPosition: CGPoint
     @Binding var collectedCoins: Int
@@ -83,7 +84,7 @@ struct MovingCoins: View {
                     coins.remove(at: coinIndex)
                     collectedCoins += 20
                     SoundManager.shared.play(sound: .collectionCoins)
-                    AppStorageManager.money += 20
+                    appStorageManager.money += 20
                 }
                 break
             }

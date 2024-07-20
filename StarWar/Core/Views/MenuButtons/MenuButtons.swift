@@ -9,6 +9,7 @@ import SwiftUI
 import GoogleMobileAds
 
 struct MenuButtons: View {
+    @ObservedObject var appStorageManager = AppStorageManager.shared
     @ObservedObject var rewardAdsManager = RewardAdsManager()
     @State private var timer: Timer?
     @State private var timeRemaining: Int = 7200
@@ -37,14 +38,14 @@ struct MenuButtons: View {
                 
                 Spacer()
                 
-                if AppStorageManager.timerIsActive {
+                if appStorageManager.timerIsActive {
                     VStack {
                         Spacer()
                         
                         Button {
                             showAd()
                         } label: {
-                            Text("Watch Ad")
+                            Text(localized: "watch.ad")
                                 .customFont(color: .white, size: 24)
                                 .scaleEffect(animateToggle ? 1.5 : 1.0)
                         }
@@ -100,7 +101,7 @@ struct MenuButtons: View {
                 VStack {
                     Spacer()
                     if messageIsPresented {
-                        Text("Choose the ship you own.")
+                        Text(localized: "market.warning")
                             .customFont(color: .white, size: 20)
                     }
                     Spacer()
@@ -121,22 +122,22 @@ struct MenuButtons: View {
                        trailing: sidePadding))
         .onChange(of: gameOver) { _, newValue in
             if newValue {
-                AppStorageManager.pointOfHealth -= 1
+                appStorageManager.pointOfHealth -= 1
             }
         }
-        .onChange(of: AppStorageManager.pointOfHealth) { _, newValue in
+        .onChange(of: appStorageManager.pointOfHealth) { _, newValue in
             if newValue == 0 {
                 rewardAdsManager.loadReward()
-                AppStorageManager.date = .now.addingTimeInterval(7200)
-                AppStorageManager.timerIsActive = true
+                appStorageManager.date = .now.addingTimeInterval(7200)
+                appStorageManager.timerIsActive = true
                 sendNotification()
                 startTimer()
             }
         }
         .onAppear() {
             requestNotificationPermission()
-            if AppStorageManager.pointOfHealth == 0 {
-                let difference = Int(AppStorageManager.date.timeIntervalSince(Date.now))
+            if appStorageManager.pointOfHealth == 0 {
+                let difference = Int(appStorageManager.date.timeIntervalSince(Date.now))
                 self.timeRemaining = difference
                 rewardAdsManager.loadReward()
                 startTimer()
@@ -224,8 +225,8 @@ struct MenuButtons: View {
             SoundManager.shared.play(sound: .buttonClick)
             rewardAdsManager.displayReward(from: windowScene.windows.first!.rootViewController!) {
                 SoundManager.shared.play(sound: .healthRestore)
-                AppStorageManager.pointOfHealth = 6
-                AppStorageManager.timerIsActive = false
+                appStorageManager.pointOfHealth = 6
+                appStorageManager.timerIsActive = false
             }
         }
     }
@@ -233,19 +234,19 @@ struct MenuButtons: View {
     // Timer
     private func startTimer(){
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-            guard AppStorageManager.timerIsActive else {
+            guard appStorageManager.timerIsActive else {
                 timer?.invalidate()
                 timer = nil
                 return
             }
             
-            let difference = Int(AppStorageManager.date.timeIntervalSince(Date.now))
+            let difference = Int(appStorageManager.date.timeIntervalSince(Date.now))
             self.timeRemaining = difference
             
             if self.timeRemaining < 0 {
                 SoundManager.shared.play(sound: .healthRestore)
-                AppStorageManager.pointOfHealth = 6
-                AppStorageManager.timerIsActive = false
+                appStorageManager.pointOfHealth = 6
+                appStorageManager.timerIsActive = false
             }
         })
     }

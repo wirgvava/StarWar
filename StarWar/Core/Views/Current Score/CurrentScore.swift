@@ -13,7 +13,7 @@ struct CurrentScore: View {
     
     var body: some View {
         HStack {
-            Text("Score")
+            Text(localized: "score")
                 .customFont(color: .white, size: animateToggle ? 20 : 28)
             
             Spacer()

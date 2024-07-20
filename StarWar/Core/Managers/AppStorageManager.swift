@@ -7,15 +7,30 @@
 
 import SwiftUI
 
-class AppStorageManager {
-    @AppStorage("pointOfHealth") static var pointOfHealth: Int = 6
-    @AppStorage.Converter("date") static var date: Date = .now
-    @AppStorage("timerIsActive") static var timerIsActive = false
-    @AppStorage("userHighScore") static var userHighScore: Int = 0
-    @AppStorage("money") static var money: Int = 0
-    @AppStorage("unlockedShips") static var unlockedShipsJSON: String = "[1]"
+class AppStorageManager: ObservableObject {
     
-    static var unlockedShips: [Int] {
+    static let shared = AppStorageManager()
+    
+    @AppStorage("pointOfHealth") var pointOfHealth: Int = 6
+    @AppStorage.Converter("date") var date: Date = .now
+    @AppStorage("timerIsActive") var timerIsActive = false
+    @AppStorage("userHighScore") var userHighScore: Int = 0
+    @AppStorage("money") var money: Int = 0
+    @AppStorage("language") var language: Language = .en
+    @AppStorage("isSFXEnabled") var isSFXEnabled = true
+    @AppStorage("isMusicEnabled") var isMusicEnabled = true {
+        didSet {
+            if isMusicEnabled {
+                SoundManager.shared.play(sound: .soundtrack, numberOfLoops: -1)
+            } else {
+                SoundManager.shared.musicPlayer?.stop()
+            }
+        }
+    }
+    
+    @AppStorage("unlockedShips") var unlockedShipsJSON: String = "[1]"
+    
+    var unlockedShips: [Int] {
         get {
             decodeJSONToArray(unlockedShipsJSON) ?? []
         }

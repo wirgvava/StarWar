@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WatchAdView: View {
+    @ObservedObject var appStorageManager = AppStorageManager.shared
     @ObservedObject var rewardAdsManager = RewardAdsManager()
     @Binding var isWatchAdViewPresented: Bool
     var collectedCoins: Int
@@ -23,14 +24,17 @@ struct WatchAdView: View {
             
             VStack {
                 HStack {
-                    Text("You earned \(collectedCoins)")
+                    Text(localized: "double.coin.message.first")
+                        .customFont(color: .black, size: 30)
+                    Text("\(collectedCoins)")
                         .customFont(color: .black, size: 30)
                     
                     CoinView(size: 30)
                 }
                 
-                Text("Watch ad to double it")
+                Text(localized: "double.coin.message.second")
                     .customFont(color: .black, size: 30)
+                    .multilineTextAlignment(.center)
                     .padding(.bottom, 20)
                 
                 HStack {
@@ -43,7 +47,7 @@ struct WatchAdView: View {
                             .frame(width: ((UIScreen.main.bounds.width - 60) / 2) - 10,
                                    height: 60)
                             .overlay {
-                                Text("Close")
+                                Text(localized: "close")
                                     .customFont(color: .black, size: 20)
                             }
                     }
@@ -56,7 +60,7 @@ struct WatchAdView: View {
                             .frame(width: ((UIScreen.main.bounds.width - 60) / 2) - 10,
                                    height: 60)
                             .overlay {
-                                Text("Watch Ad")
+                                Text(localized: "watch.ad")
                                     .customFont(color: .black, size: 20)
                             }
                     }
@@ -74,7 +78,7 @@ struct WatchAdView: View {
             SoundManager.shared.play(sound: .buttonClick)
             rewardAdsManager.displayReward(from: windowScene.windows.first!.rootViewController!) {
                 SoundManager.shared.play(sound: .collectionCoins)
-                AppStorageManager.money += collectedCoins
+                appStorageManager.money += collectedCoins
                 isWatchAdViewPresented = false
             }
         }

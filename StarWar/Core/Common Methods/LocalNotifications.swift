@@ -26,7 +26,7 @@ func sendNotification() {
     content.sound = UNNotificationSound(named: .init(rawValue: "notification.wav"))
     
     // Extract date components from AppStorageManager.date
-    let targetDate = AppStorageManager.date
+    let targetDate = AppStorageManager.shared.date
     let calendar = Calendar.current
     let components = calendar.dateComponents([.year, .day, .hour, .minute, .second], from: targetDate)
     

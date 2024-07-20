@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  StarWar
+
+  Created by Konstantine Tsirgvava on 20.07.24.
+  
+*/
+
+"high.score" = "High Score";
+"score" = "Score";
+"market" = "Market";
+"market.warning" = "Choose the ship you own.";
+"leaderboard" = "= Leaderboard =";
+"settings" = "= Settings =";
+"sound" = "Sound";
+"language" = "Language";
+"double.coin.message.first" = "You Earned";
+"double.coin.message.second" = "Watch ad to double it";
+"close" = "Close";
+"watch.ad" = "Watch Ad";
+"leaderboard.banner.header" = "Congrats";
+"leaderboard.banner.message" = "Your score is in the Leaderboard";
+"enter.name" = "Enter Name";
+"add" = "Add";

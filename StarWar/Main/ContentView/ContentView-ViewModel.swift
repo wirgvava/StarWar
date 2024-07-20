@@ -10,6 +10,7 @@ import SwiftUI
 extension ContentView {
     @Observable
     class ViewModel {
+        var appStorageManager = AppStorageManager.shared
         private(set) var highScoreBannerTopPadding: CGFloat = -300
         private(set) var currentScorePresented = false
         private(set) var scoreTopPadding: CGFloat = -600
@@ -37,6 +38,11 @@ extension ContentView {
         var shipIsMovingLeft: Bool = false
         
         // MARK: - Methods
+        func onApear(){
+            SoundManager.shared.play(sound: .soundtrack, numberOfLoops: -1)
+            gameCenterAuthenticateAndFetchingData()
+        }
+        
         func isPlayingMode(){
             withAnimation(.snappy) {
                 self.highScoreBannerTopPadding = -600
@@ -71,9 +77,9 @@ extension ContentView {
         func fetchData(){
             GameCenterManager.shared.fetchSavedData { gameData in
                 if let gameData = gameData {
-                    AppStorageManager.money = gameData.money
-                    AppStorageManager.userHighScore = gameData.userHighScore
-                    AppStorageManager.unlockedShips = gameData.unlockedShips
+                    self.appStorageManager.money = gameData.money
+                    self.appStorageManager.userHighScore = gameData.userHighScore
+                    self.appStorageManager.unlockedShips = gameData.unlockedShips
                 }
             }
         }

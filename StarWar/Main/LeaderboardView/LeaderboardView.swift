@@ -10,7 +10,7 @@ import SwiftUI
 struct LeaderboardView: View {
     var body: some View {
         ZStack {
-            Text("= Leaderboard =")
+            Text(localized: "leaderboard")
                 .customFont(color: .white, size: 40)
                 .padding(.bottom, 350)
             

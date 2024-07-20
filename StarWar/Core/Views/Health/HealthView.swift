@@ -30,7 +30,7 @@ private func emptyHeart(width: CGFloat, height: CGFloat) -> some View {
 
 @ViewBuilder
 func healthView(heartSize: CGFloat) -> some View {
-    switch AppStorageManager.pointOfHealth {
+    switch AppStorageManager.shared.pointOfHealth {
     case 0:
         emptyHeart(width: heartSize, height: heartSize)
         emptyHeart(width: heartSize, height: heartSize)

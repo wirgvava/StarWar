@@ -23,11 +23,11 @@ struct AddHighScore: View {
                 .foregroundStyle(.limeBullet)
                 .overlay {
                     VStack(alignment: .center) {
-                        Text("Congrats")
+                        Text(localized: "leaderboard.banner.header")
                             .customFont(color: .pink, size: 30)
                         
-                        Text("Your score is in the Leaderboard")
-                            .customFont(color: .space, size: 16)
+                        Text(localized: "leaderboard.banner.message")
+                            .customFont(color: .space, size: 14)
                         
                         ZStack {
                             Rectangle()
@@ -40,7 +40,8 @@ struct AddHighScore: View {
                                        height: 50)
                                 .foregroundStyle(.white)
                                 .overlay {
-                                    TextField("Enter Name", text: $name)
+                                    TextField(NSLocalizedString("enter.name", comment: ""),
+                                              text: $name)
                                         .textFieldStyle(.plain)
                                         .foregroundStyle(.space)
                                         .font(.custom("Minecraft", size: 24))
@@ -62,7 +63,7 @@ struct AddHighScore: View {
                                     .frame(width: 160, height: 50)
                                     .foregroundStyle(.pink)
                                     .overlay {
-                                        Text("Add")
+                                        Text(localized: "add")
                                             .customFont(color: .limeBullet, size: 24)
                                     }
                             }

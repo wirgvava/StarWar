@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  StarWar
+
+  Created by Konstantine Tsirgvava on 20.07.24.
+  
+*/
+
+"high.score" = "Alta Puntuación";
+"score" = "Puntaje";
+"market" = "Mercado";
+"market.warning" = "Elige el barco que posees.";
+"leaderboard" = "= Tabla de clasificación =";
+"settings" = "= Ajustes =";
+"sound" = "Sonido";
+"language" = "Idioma";
+"double.coin.message.first" = "Ganaste";
+"double.coin.message.second" = "Mira el anuncio para duplicarlo.";
+"close" = "Cerca";
+"watch.ad" = "Ver anuncio";
+"leaderboard.banner.header" = "Felicitaciones";
+"leaderboard.banner.message" = "Tu puntuación está en la tabla de clasificación";
+"enter.name" = "Ingrese su nombre";
+"add" = "Agregar";

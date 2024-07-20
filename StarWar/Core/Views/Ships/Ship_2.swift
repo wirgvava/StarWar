@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Ship_2: View {
+    @ObservedObject var appStorageManager = AppStorageManager.shared
     @Binding var shipType: Int
     @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
@@ -39,7 +40,7 @@ struct Ship_2: View {
                 .gesture(
                     DragGesture()
                         .onChanged { value in
-                            if AppStorageManager.pointOfHealth != 0 {
+                            if appStorageManager.pointOfHealth != 0 {
                                 if isPlayable {
                                     self.shipPosition = value.location
                                     self.isPlaying = true

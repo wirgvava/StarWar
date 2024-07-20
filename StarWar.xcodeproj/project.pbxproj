@@ -31,6 +31,8 @@
 		A54436E12C47F699000E74CF /* notification.wav in Resources */ = {isa = PBXBuildFile; fileRef = A54436E02C47F699000E74CF /* notification.wav */; };
 		A54436E52C480312000E74CF /* error.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436E42C480312000E74CF /* error.mp3 */; };
 		A54436E72C4804A9000E74CF /* buy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A54436E62C4804A9000E74CF /* buy.mp3 */; };
+		A54A53F32C4C1B1E008DA816 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54A53F22C4C1B1A008DA816 /* LanguageManager.swift */; };
+		A54A53F52C4C1C0A008DA816 /* Bundle+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54A53F42C4C1C09008DA816 /* Bundle+Language.swift */; };
 		A56FC1DD2C3D4B4700F68711 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1DC2C3D4B4700F68711 /* FirebaseAnalytics */; };
 		A56FC1DF2C3D4B4700F68711 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1DE2C3D4B4700F68711 /* FirebaseCrashlytics */; };
 		A56FC1E12C3D4B4700F68711 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A56FC1E02C3D4B4700F68711 /* FirebaseFirestore */; };
@@ -64,6 +66,8 @@
 		A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */; };
 		A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */; };
 		A5C810342C2DCE2500FF2FFD /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */; };
+		A5CF24D32C4BC53600BF8F33 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF24D22C4BC53300BF8F33 /* SettingsView.swift */; };
+		A5CF24D62C4C007800BF8F33 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5CF24D42C4C007800BF8F33 /* Localizable.strings */; };
 		A5DC0D832C43D13100495CCF /* StarWarBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DC0D822C43D12900495CCF /* StarWarBanner.swift */; };
 		A5E12DBD2C3331E7008E92D8 /* HighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBC2C3331E7008E92D8 /* HighScore.swift */; };
 		A5E12DC02C33339D008E92D8 /* InGameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E12DBF2C33339D008E92D8 /* InGameInfo.swift */; };
@@ -111,6 +115,8 @@
 		A54436E02C47F699000E74CF /* notification.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notification.wav; sourceTree = "<group>"; };
 		A54436E42C480312000E74CF /* error.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = error.mp3; sourceTree = "<group>"; };
 		A54436E62C4804A9000E74CF /* buy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buy.mp3; sourceTree = "<group>"; };
+		A54A53F22C4C1B1A008DA816 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		A54A53F42C4C1C09008DA816 /* Bundle+Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Language.swift"; sourceTree = "<group>"; };
 		A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		A56FC1E62C3D50C300F68711 /* TopScores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopScores.swift; sourceTree = "<group>"; };
 		A56FC1EA2C3D6C9C00F68711 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
@@ -139,10 +145,13 @@
 		A5A3BEE72C29E7F000F16880 /* Ship_6_Bullets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship_6_Bullets.swift; sourceTree = "<group>"; };
 		A5A3BEEA2C29EBF500F16880 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		A5A822262C3EF1BA00C85152 /* AddHighScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHighScore.swift; sourceTree = "<group>"; };
+		A5AFAB412C4C15480007029E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMonsters.swift; sourceTree = "<group>"; };
 		A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
-		A5DAADF42C25BF38002E017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5CF24D22C4BC53300BF8F33 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A5CF24D52C4C007800BF8F33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A5CF24D72C4C00E800BF8F33 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A5DC0D822C43D12900495CCF /* StarWarBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarBanner.swift; sourceTree = "<group>"; };
 		A5E12DBC2C3331E7008E92D8 /* HighScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScore.swift; sourceTree = "<group>"; };
 		A5E12DBF2C33339D008E92D8 /* InGameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InGameInfo.swift; sourceTree = "<group>"; };
@@ -232,8 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				A56FC1E92C3D6C7900F68711 /* ContentView */,
-				A56FC1F12C3D971D00F68711 /* LeaderboardView */,
 				A557381C2C42C13F00A802C7 /* MarketView */,
+				A56FC1F12C3D971D00F68711 /* LeaderboardView */,
+				A5CF24D12C4BC51300BF8F33 /* SettingsView */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -342,7 +352,8 @@
 				A5551E542C25B83A00A7309C /* Fonts */,
 				A5EC2EA42C46F66B00C9AB5E /* Sounds */,
 				A587D69E2C25AFD700096F4B /* Assets.xcassets */,
-				A5DAADF42C25BF38002E017E /* Info.plist */,
+				A5CF24D42C4C007800BF8F33 /* Localizable.strings */,
+				A5AFAB412C4C15480007029E /* Info.plist */,
 				A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
@@ -384,10 +395,19 @@
 			isa = PBXGroup;
 			children = (
 				A522EDF32C3BFDE100D36552 /* AppStorage+Extensions.swift */,
+				A54A53F42C4C1C09008DA816 /* Bundle+Language.swift */,
 				A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */,
 				A59EBA442C3FE6CA00E21B02 /* Text+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A5CF24D12C4BC51300BF8F33 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				A5CF24D22C4BC53300BF8F33 /* SettingsView.swift */,
+			);
+			path = SettingsView;
 			sourceTree = "<group>";
 		};
 		A5DC0D812C43D12000495CCF /* StarWarBanner */ = {
@@ -463,6 +483,7 @@
 				A522EDF52C3C0B6500D36552 /* AppStorageManager.swift */,
 				A56FC1E42C3D4CD600F68711 /* FirestoreManager.swift */,
 				A501B6912C4181030063DA61 /* GameCenterManager.swift */,
+				A54A53F22C4C1B1A008DA816 /* LanguageManager.swift */,
 				A522EE002C3C231100D36552 /* RewardAdsManager.swift */,
 				A5EC2EA52C46F6B100C9AB5E /* SoundManager.swift */,
 			);
@@ -582,6 +603,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = A587D68E2C25AFD600096F4B;
 			packageReferences = (
@@ -605,6 +627,7 @@
 				A54436DD2C47F211000E74CF /* buttonClick.mp3 in Resources */,
 				A54436DE2C47F211000E74CF /* healthRestore.mp3 in Resources */,
 				A598FAAF2C25BBF800EF9F16 /* Minecraft.ttf in Resources */,
+				A5CF24D62C4C007800BF8F33 /* Localizable.strings in Resources */,
 				A54436E12C47F699000E74CF /* notification.wav in Resources */,
 				A54436E72C4804A9000E74CF /* buy.mp3 in Resources */,
 				A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */,
@@ -625,6 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54A53F52C4C1C0A008DA816 /* Bundle+Language.swift in Sources */,
 				A5DC0D832C43D13100495CCF /* StarWarBanner.swift in Sources */,
 				A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */,
 				A5E562BB2C25DA1400908A3B /* Explode.swift in Sources */,
@@ -653,6 +677,7 @@
 				A59A9C082C29BA55008409C1 /* Ship_4_Bullets.swift in Sources */,
 				A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */,
 				A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */,
+				A5CF24D32C4BC53600BF8F33 /* SettingsView.swift in Sources */,
 				A501B6942C419EC10063DA61 /* GameData.swift in Sources */,
 				A5EC2EA62C46F6B500C9AB5E /* SoundManager.swift in Sources */,
 				A59E9FE32C40541500CF5ABB /* SizeForShipType.swift in Sources */,
@@ -661,6 +686,7 @@
 				A56FC1EB2C3D6C9C00F68711 /* ContentView-ViewModel.swift in Sources */,
 				A5E3AABF2C3194F9007D923F /* StarView.swift in Sources */,
 				A5E562C12C25DB1C00908A3B /* Monster_2.swift in Sources */,
+				A54A53F32C4C1B1E008DA816 /* LanguageManager.swift in Sources */,
 				A5E562AC2C25CDDD00908A3B /* Ship_2.swift in Sources */,
 				A587D69B2C25AFD600096F4B /* StarWarApp.swift in Sources */,
 				A56FC1E72C3D50C300F68711 /* TopScores.swift in Sources */,
@@ -690,12 +716,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		A5CF24D42C4C007800BF8F33 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5CF24D52C4C007800BF8F33 /* en */,
+				A5CF24D72C4C00E800BF8F33 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		A587D6A32C25AFD700096F4B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -759,6 +798,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -836,6 +876,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ge.k.starWar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -874,6 +915,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ge.k.starWar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

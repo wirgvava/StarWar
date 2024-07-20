@@ -43,6 +43,12 @@ struct ContentView: View {
                 }
             }
             
+            if viewModel.isSettingsPresented {
+                withAnimation {
+                    SettingsView()
+                }
+            }
+            
             MenuButtons(isPlayable: $viewModel.isPlayable,
                         shipIsMovingLeft: $viewModel.shipIsMovingLeft,
                         shipIsUnlocked: $viewModel.shipIsUnlocked,
@@ -97,8 +103,7 @@ struct ContentView: View {
             }
         }
         .onAppear() {
-            SoundManager.shared.play(sound: .soundtrack, numberOfLoops: -1)
-            viewModel.gameCenterAuthenticateAndFetchingData()
+            viewModel.onApear()
         }
         .onChange(of: viewModel.isPlaying) { _, newValue in
             if newValue {

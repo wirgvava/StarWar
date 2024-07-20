@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovingMonsters: View {
+    @ObservedObject var appStorageManager = AppStorageManager.shared
     @State private var monsters: [Monster] = []
     @State private var explosions: [Explosion] = []
     @State private var intervalBetweenMonsters = 0
@@ -142,9 +143,9 @@ struct MovingMonsters: View {
                     removeMonsters()
                     SoundManager.shared.play(sound: .explosion)
                     GameCenterManager.shared.save(
-                        data: GameData(userHighScore: AppStorageManager.userHighScore,
-                                       money: AppStorageManager.money,
-                                       unlockedShips: AppStorageManager.unlockedShips))
+                        data: GameData(userHighScore: appStorageManager.userHighScore,
+                                       money: appStorageManager.money,
+                                       unlockedShips: appStorageManager.unlockedShips))
                 }
                 break
             }

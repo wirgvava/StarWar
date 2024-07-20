@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HighScore: View {
+    @ObservedObject var appStorageManager = AppStorageManager.shared
     @Binding var isAddHighScorePresented: Bool
     var isPlaying: Bool
     var score: Int
@@ -15,24 +16,24 @@ struct HighScore: View {
     
     var body: some View {
         HStack {
-            Text("High Score")
+            Text(localized: "high.score")
                 .customFont(color: .white, size: 28)
                 .padding(.top, topPadding + 80)
             
             Spacer()
             
-            Text("\(AppStorageManager.userHighScore)")
+            Text("\(appStorageManager.userHighScore)")
                 .customFont(color: .white, size: 28)
                 .padding(.top, topPadding + 80)
         }
         .padding(.horizontal)
         .onChange(of: score) { _, newValue in
-            if newValue > AppStorageManager.userHighScore {
-                AppStorageManager.userHighScore = newValue
+            if newValue > appStorageManager.userHighScore {
+                appStorageManager.userHighScore = newValue
                 GameCenterManager.shared.save(
                     data: GameData(userHighScore: newValue,
-                                   money: AppStorageManager.money,
-                                   unlockedShips: AppStorageManager.unlockedShips))
+                                   money: appStorageManager.money,
+                                   unlockedShips: appStorageManager.unlockedShips))
             }
         }
         .onChange(of: isPlaying) { _, newValue in

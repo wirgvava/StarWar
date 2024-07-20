@@ -19,9 +19,14 @@ struct InGameInfo: View {
             
             Spacer()
             
-            Text("Score\n\(score)")
-                .customFont(color: .white, size: 24)
-                .multilineTextAlignment(.trailing)
+            VStack(alignment: .trailing) {
+                Text(localized: "score")
+                    .customFont(color: .white, size: 24)
+                    .multilineTextAlignment(.trailing)
+                Text("\(score)")
+                    .customFont(color: .white, size: 24)
+                    .multilineTextAlignment(.trailing)
+            }
         }
         .padding(.horizontal)
         .padding(.top, scoreTopPadding)

@@ -28,6 +28,7 @@ struct AddHighScore: View {
                         
                         Text(localized: "leaderboard.banner.message")
                             .customFont(color: .space, size: 14)
+                            .multilineTextAlignment(.center)
                         
                         ZStack {
                             Rectangle()
@@ -56,11 +57,11 @@ struct AddHighScore: View {
                         } label: {
                             ZStack {
                                 Rectangle()
-                                    .frame(width: 150, height: 60)
+                                    .frame(width: UIScreen.main.bounds.width - 100, height: 50)
                                     .foregroundStyle(.pink)
                                 
                                 Rectangle()
-                                    .frame(width: 160, height: 50)
+                                    .frame(width: UIScreen.main.bounds.width - 90, height: 40)
                                     .foregroundStyle(.pink)
                                     .overlay {
                                         Text(localized: "add")

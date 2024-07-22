@@ -23,6 +23,8 @@ struct ContentView: View {
                           isPlaying: viewModel.isPlaying,
                           score: viewModel.score,
                           topPadding: viewModel.highScoreBannerTopPadding)
+                
+                DragToPlayView(isPlaying: viewModel.isPlaying)
             }
             
             if viewModel.currentScorePresented && !viewModel.isMarketPresented && !viewModel.isLeaderboardPresented && !viewModel.isSettingsPresented {

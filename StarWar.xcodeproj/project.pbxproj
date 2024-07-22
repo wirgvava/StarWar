@@ -66,6 +66,7 @@
 		A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */; };
 		A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */; };
 		A5C810342C2DCE2500FF2FFD /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */; };
+		A5CC62712C4E9359001B9ACB /* DragToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC62702C4E9353001B9ACB /* DragToPlayView.swift */; };
 		A5CF24D32C4BC53600BF8F33 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF24D22C4BC53300BF8F33 /* SettingsView.swift */; };
 		A5CF24D62C4C007800BF8F33 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5CF24D42C4C007800BF8F33 /* Localizable.strings */; };
 		A5DC0D832C43D13100495CCF /* StarWarBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DC0D822C43D12900495CCF /* StarWarBanner.swift */; };
@@ -149,6 +150,7 @@
 		A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMonsters.swift; sourceTree = "<group>"; };
 		A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		A5CC62702C4E9353001B9ACB /* DragToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragToPlayView.swift; sourceTree = "<group>"; };
 		A5CF24D22C4BC53300BF8F33 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A5CF24D52C4C007800BF8F33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A5CF24D72C4C00E800BF8F33 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -402,6 +404,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		A5CC626F2C4E9346001B9ACB /* DragToPlayView */ = {
+			isa = PBXGroup;
+			children = (
+				A5CC62702C4E9353001B9ACB /* DragToPlayView.swift */,
+			);
+			path = DragToPlayView;
+			sourceTree = "<group>";
+		};
 		A5CF24D12C4BC51300BF8F33 /* SettingsView */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,6 +471,7 @@
 				A57F95102C2820CD00C5A4DC /* Bullets */,
 				A5E562B62C25D16E00908A3B /* Coin */,
 				A51AE95B2C356C160064407A /* Current Score */,
+				A5CC626F2C4E9346001B9ACB /* DragToPlayView */,
 				A5E562B92C25DA0000908A3B /* Explode */,
 				A522EDF72C3C178900D36552 /* Health */,
 				A5E12DBB2C3331D7008E92D8 /* HighScore */,
@@ -681,6 +692,7 @@
 				A501B6942C419EC10063DA61 /* GameData.swift in Sources */,
 				A5EC2EA62C46F6B500C9AB5E /* SoundManager.swift in Sources */,
 				A59E9FE32C40541500CF5ABB /* SizeForShipType.swift in Sources */,
+				A5CC62712C4E9359001B9ACB /* DragToPlayView.swift in Sources */,
 				A587D69D2C25AFD600096F4B /* ContentView.swift in Sources */,
 				A5E562BF2C25DAC000908A3B /* Monster_1.swift in Sources */,
 				A56FC1EB2C3D6C9C00F68711 /* ContentView-ViewModel.swift in Sources */,

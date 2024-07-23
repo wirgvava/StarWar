@@ -142,10 +142,6 @@ struct MovingMonsters: View {
                     triggerExplosion(at: shipPosition)
                     removeMonsters()
                     SoundManager.shared.play(sound: .explosion)
-                    GameCenterManager.shared.save(
-                        data: GameData(userHighScore: appStorageManager.userHighScore,
-                                       money: appStorageManager.money,
-                                       unlockedShips: appStorageManager.unlockedShips))
                 }
                 break
             }

@@ -104,6 +104,16 @@ class GameCenterManager: NSObject {
         }
     }
     
+    // MARK: - Update Game Center data
+    func updateData() {
+        let appStorageManager = AppStorageManager.shared
+        GameCenterManager.shared.save(
+            data: GameData(userHighScore: appStorageManager.userHighScore,
+                           money: appStorageManager.money,
+                           unlockedShips: appStorageManager.unlockedShips)
+        )
+    }
+    
     //  MARK: - Encode/Decode
     private func encode(gameData: GameData) -> Data? {
         let encoder = JSONEncoder()

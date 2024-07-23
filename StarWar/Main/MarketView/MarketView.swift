@@ -129,13 +129,10 @@ struct MarketView: View {
     private func buyTheShip(){
         guard !isUnlocked else { return }
         guard appStorageManager.money >= price else { return }
-        SoundManager.shared.play(sound: .buy)
         appStorageManager.money -= price
         appStorageManager.unlockedShips.append(shipType)
         isUnlocked = true
-        GameCenterManager.shared.save(
-            data: GameData(userHighScore: appStorageManager.userHighScore,
-                           money: appStorageManager.money,
-                           unlockedShips: appStorageManager.unlockedShips))
+        SoundManager.shared.play(sound: .buy)
+        GameCenterManager.shared.updateData()
     }
 }

@@ -30,6 +30,8 @@ struct MovingCoins: View {
             } else {
                 intervalBetweenCoins = 0
                 removeCoins()
+                appStorageManager.money += collectedCoins
+                GameCenterManager.shared.updateData()
             }
         }
     }
@@ -84,7 +86,6 @@ struct MovingCoins: View {
                     coins.remove(at: coinIndex)
                     collectedCoins += 20
                     SoundManager.shared.play(sound: .collectionCoins)
-                    appStorageManager.money += 20
                 }
                 break
             }

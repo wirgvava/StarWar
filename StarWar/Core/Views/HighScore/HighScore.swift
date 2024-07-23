@@ -27,18 +27,10 @@ struct HighScore: View {
                 .padding(.top, topPadding + 80)
         }
         .padding(.horizontal)
-        .onChange(of: score) { _, newValue in
-            if newValue > appStorageManager.userHighScore {
-                appStorageManager.userHighScore = newValue
-                GameCenterManager.shared.save(
-                    data: GameData(userHighScore: newValue,
-                                   money: appStorageManager.money,
-                                   unlockedShips: appStorageManager.unlockedShips))
-            }
-        }
         .onChange(of: isPlaying) { _, newValue in
             if !newValue {
                 checkForLeaderboard()
+                updateUserHighScore()
             }
         }
     }
@@ -52,5 +44,11 @@ struct HighScore: View {
                 break
             }
         }
+    }
+    
+    private func updateUserHighScore(){
+        guard score > appStorageManager.userHighScore else { return }
+        appStorageManager.userHighScore = score
+        GameCenterManager.shared.updateData()
     }
 }

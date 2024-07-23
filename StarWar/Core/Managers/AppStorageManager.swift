@@ -11,6 +11,7 @@ class AppStorageManager: ObservableObject {
     
     static let shared = AppStorageManager()
     
+    @AppStorage("shipType") var shipType: Int = 1
     @AppStorage("pointOfHealth") var pointOfHealth: Int = 6
     @AppStorage.Converter("date") var date: Date = .now
     @AppStorage("timerIsActive") var timerIsActive = false

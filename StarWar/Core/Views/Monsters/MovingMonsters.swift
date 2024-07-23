@@ -19,7 +19,6 @@ struct MovingMonsters: View {
     @Binding var gameOver: Bool
     @Binding var shipPosition: CGPoint
     @Binding var score: Int
-    var shipType: Int
         
     var body: some View {
         ZStack {
@@ -151,7 +150,7 @@ struct MovingMonsters: View {
     // Monster distance to the ship
     private func monsterHitsShip(monster: Monster, shipPosition: CGPoint) -> Bool {
         let monsterPosition = CGRect(x: monster.position.x, y: monster.position.y - 60, width: 50, height: 50)
-        let shipSize = sizeForShip(type: shipType)
+        let shipSize = sizeForShip(type: appStorageManager.shipType)
         let shipPosition = CGRect(x: shipPosition.x, y: shipPosition.y, width: shipSize, height: shipSize)
         
         return shipPosition.intersects(monsterPosition)

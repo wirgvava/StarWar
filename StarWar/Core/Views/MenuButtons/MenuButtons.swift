@@ -28,6 +28,7 @@ struct MenuButtons: View {
     
     var sidePadding: CGFloat
     var gameOver: Bool
+    var shipType: Int
     
     var body: some View {
         HStack {
@@ -200,6 +201,7 @@ struct MenuButtons: View {
                     messageIsPresented = true
                     return
                 }
+                appStorageManager.shipType = shipType
                 SoundManager.shared.play(sound: .buttonClick)
                 isMarketPresented = false
                 isPlayable = true

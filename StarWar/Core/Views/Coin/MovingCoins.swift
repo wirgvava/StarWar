@@ -14,7 +14,6 @@ struct MovingCoins: View {
     @Binding var collectedCoins: Int
     @State private var coins = [Coin]()
     @State private var intervalBetweenCoins = 0
-    var shipType: Int
 
     var body: some View {
         ZStack {
@@ -95,7 +94,7 @@ struct MovingCoins: View {
     // Coin distance to the ship
     private func catchCoin(coin: Coin, with shipPosition: CGPoint) -> Bool {
         let coinPosition = CGRect(x: coin.position.x, y: coin.position.y - 40, width: 20, height: 20)
-        let shipSize = sizeForShip(type: shipType)
+        let shipSize = sizeForShip(type: appStorageManager.shipType)
         let shipPosition = CGRect(x: shipPosition.x, y: shipPosition.y, width: shipSize, height: shipSize)
         
         return shipPosition.intersects(coinPosition)

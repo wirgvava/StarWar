@@ -18,7 +18,7 @@ extension ContentView {
         var isPlayable: Bool = true
         var isPlaying: Bool = false
         var gameOver: Bool = false
-        var shipType: Int = 1
+        var shipType: Int = AppStorageManager.shared.shipType
         var shipIsUnlocked: Bool = true
         var bullets: [Bullet] = []
         var score: Int = 0

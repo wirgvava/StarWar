@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovingMeteors: View {
+    @ObservedObject var appStorageManager = AppStorageManager.shared
     @State private var meteors = [Meteor]()
     @State private var explosions = [Explosion]()
     @State private var intervalBetweenMeteors = 0
@@ -15,7 +16,6 @@ struct MovingMeteors: View {
     @Binding var isPlaying: Bool
     @Binding var gameOver: Bool
     @Binding var shipPosition: CGPoint
-    var shipType: Int
 
     var body: some View {
         ZStack {
@@ -96,7 +96,7 @@ struct MovingMeteors: View {
     // Meteor distance to the ship
     private func meteorHitsShip(meteor: Meteor, shipPosition: CGPoint) -> Bool {
         let meteorPosition = CGRect(x: meteor.position.x, y: meteor.position.y - 60, width: 50, height: 100)
-        let shipSize = sizeForShip(type: shipType)
+        let shipSize = sizeForShip(type: appStorageManager.shipType)
         let shipPosition = CGRect(x: shipPosition.x, y: shipPosition.y, width: shipSize, height: shipSize)
         
         return shipPosition.intersects(meteorPosition)

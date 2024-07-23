@@ -60,26 +60,24 @@ struct ContentView: View {
                         isAddHighScorePresented: $viewModel.isAddHighScorePresented,
                         isWatchAdViewPresented: $viewModel.isWatchAdViewPresented,
                         sidePadding: viewModel.menuButtonsSidePadding,
-                        gameOver: viewModel.gameOver)
+                        gameOver: viewModel.gameOver, 
+                        shipType: viewModel.shipType)
             
             MovingMonsters(bullets: $viewModel.bullets,
                            isPlayable: $viewModel.isPlayable,
                            isPlaying: $viewModel.isPlaying,
                            gameOver: $viewModel.gameOver,
                            shipPosition: $viewModel.shipPosition,
-                           score: $viewModel.score,
-                           shipType: viewModel.shipType)
+                           score: $viewModel.score)
             
             MovingCoins(isPlaying: $viewModel.isPlaying,
                         shipPosition: $viewModel.shipPosition,
-                        collectedCoins: $viewModel.collectedCoins, 
-                        shipType: viewModel.shipType)
+                        collectedCoins: $viewModel.collectedCoins)
             
             MovingMeteors(isPlayable: $viewModel.isPlayable,
                           isPlaying: $viewModel.isPlaying,
                           gameOver: $viewModel.gameOver,
-                          shipPosition: $viewModel.shipPosition,
-                          shipType: viewModel.shipType)
+                          shipPosition: $viewModel.shipPosition)
             
             viewModel.ship(shipType: $viewModel.shipType,
                            isPlayable: $viewModel.isPlayable,

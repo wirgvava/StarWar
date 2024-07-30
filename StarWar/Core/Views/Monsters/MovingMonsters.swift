@@ -82,7 +82,7 @@ struct MovingMonsters: View {
             let screenWidth = UIScreen.main.bounds.width
             let newMonster = Monster(
                 position: CGPoint(
-                    x: CGFloat.random(in: 0...screenWidth),
+                    x: CGFloat.random(in: 50...screenWidth - 50),
                     y: 0),
                 monsterType: Int.random(in: 1...4))
             monsters.append(newMonster)

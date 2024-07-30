@@ -42,7 +42,8 @@ struct Ship_3: View {
                         .onChanged { value in
                             if appStorageManager.pointOfHealth != 0 {
                                 if isPlayable {
-                                    self.shipPosition = value.location
+                                    self.shipPosition.y = value.location.y - 100
+                                    self.shipPosition.x = value.location.x
                                     self.isPlaying = true
                                 }
                             } else {

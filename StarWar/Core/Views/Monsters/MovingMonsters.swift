@@ -16,6 +16,7 @@ struct MovingMonsters: View {
     @Binding var bullets: [Bullet]
     @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
+    @Binding var isPaused: Bool
     @Binding var gameOver: Bool
     @Binding var shipPosition: CGPoint
     @Binding var score: Int
@@ -78,6 +79,7 @@ struct MovingMonsters: View {
 
     // Adding new monsters on the top
     private func addMonsters(){
+        guard !isPaused else { return }
         if intervalBetweenMonsters == 40 {
             let screenWidth = UIScreen.main.bounds.width
             let newMonster = Monster(
@@ -97,7 +99,7 @@ struct MovingMonsters: View {
         let screenHeight = UIScreen.main.bounds.height
         monsters = monsters.map { monster in
             var newMonster = monster
-            newMonster.position.y += monsterMovementSpeed
+            newMonster.position.y = isPaused ? newMonster.position.y : newMonster.position.y + monsterMovementSpeed
             return newMonster
         }.filter {
             $0.position.y <= screenHeight

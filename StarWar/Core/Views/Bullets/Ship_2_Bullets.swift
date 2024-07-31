@@ -11,6 +11,7 @@ struct Ship_2_Bullets: View {
     @Binding var bullets: [Bullet]
     @Binding var shipPosition: CGPoint
     @Binding var isPlaying: Bool
+    @Binding var isPaused: Bool
   
     var body: some View {
         ForEach(bullets) { bullet in
@@ -27,11 +28,21 @@ struct Ship_2_Bullets: View {
                 bullets.removeAll()
             }
         }
+        .onChange(of: isPaused) { _, newValue in
+            if newValue {
+                withAnimation {
+                    bullets.removeAll()
+                }
+            } else {
+                startBulletAnimation()
+            }
+        }
     }
     
     // Start Shooting bullets
     private func startBulletAnimation() {
         guard isPlaying else { return }
+        guard !isPaused else { return }
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             moveBulletsTop()
             addBullet()

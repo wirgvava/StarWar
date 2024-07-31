@@ -14,6 +14,7 @@ struct Stars: View {
     @State private var starMovementSpeed: CGFloat = 1
     @State private var bgOpacity = 1.0
     @Binding var isPlaying: Bool
+    @Binding var isPaused: Bool
        
     var body: some View {
         ZStack {
@@ -46,6 +47,10 @@ struct Stars: View {
         })
         .onChange(of: speedUpSwitcher) { _, _ in
             guard isPlaying else { return }
+            guard !isPaused else {
+                speedUpSwitcher.toggle()
+                return
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
                 withAnimation {
                     bgOpacity -= 0.1
@@ -81,6 +86,7 @@ struct Stars: View {
     
     // Adding new stars on the top
     private func addStar() {
+        guard !isPaused else { return }
         guard stars.count != 200 else {
             stars.removeFirst()
             return
@@ -104,7 +110,7 @@ struct Stars: View {
         let screenHeight = UIScreen.main.bounds.height
         stars = stars.map { star in
             var newStar = star
-            newStar.position.y += starMovementSpeed
+            newStar.position.y = isPaused ? newStar.position.y : newStar.position.y + starMovementSpeed
             return newStar
         }.filter {
             $0.position.y <= screenHeight

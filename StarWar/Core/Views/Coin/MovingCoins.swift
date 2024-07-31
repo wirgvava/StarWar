@@ -10,6 +10,7 @@ import SwiftUI
 struct MovingCoins: View {
     @ObservedObject var appStorageManager = AppStorageManager.shared
     @Binding var isPlaying: Bool
+    @Binding var isPaused: Bool
     @Binding var shipPosition: CGPoint
     @Binding var collectedCoins: Int
     @State private var coins = [Coin]()
@@ -48,6 +49,7 @@ struct MovingCoins: View {
 
     // Adding new coins on the top
     private func addCoins(){
+        guard !isPaused else { return }
         if intervalBetweenCoins == 3000 {
             let screenWidth = UIScreen.main.bounds.width
             let newCoin = Coin(
@@ -66,7 +68,7 @@ struct MovingCoins: View {
         let screenHeight = UIScreen.main.bounds.height
         coins = coins.map { coin in
             var newCoin = coin
-            newCoin.position.y += 5
+            newCoin.position.y = isPaused ? newCoin.position.y : newCoin.position.y + 5
             return newCoin
         }.filter {
             $0.position.y <= screenHeight

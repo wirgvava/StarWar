@@ -12,7 +12,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Stars(isPlaying: $viewModel.isPlaying)
+            Stars(isPlaying: $viewModel.isPlaying,
+                  isPaused: $viewModel.isPaused)
                 .scaleEffect(viewModel.isPlaying ? 1.0 : 2.0)
                 .animation(.easeOut, value: viewModel.isPlaying)
             
@@ -66,22 +67,26 @@ struct ContentView: View {
             MovingMonsters(bullets: $viewModel.bullets,
                            isPlayable: $viewModel.isPlayable,
                            isPlaying: $viewModel.isPlaying,
+                           isPaused: $viewModel.isPaused, 
                            gameOver: $viewModel.gameOver,
                            shipPosition: $viewModel.shipPosition,
                            score: $viewModel.score)
             
             MovingCoins(isPlaying: $viewModel.isPlaying,
+                        isPaused: $viewModel.isPaused,
                         shipPosition: $viewModel.shipPosition,
                         collectedCoins: $viewModel.collectedCoins)
             
             MovingMeteors(isPlayable: $viewModel.isPlayable,
                           isPlaying: $viewModel.isPlaying,
+                          isPaused: $viewModel.isPaused,
                           gameOver: $viewModel.gameOver,
                           shipPosition: $viewModel.shipPosition)
             
             viewModel.ship(shipType: $viewModel.shipType,
                            isPlayable: $viewModel.isPlayable,
-                           isPlaying: $viewModel.isPlaying,
+                           isPlaying: $viewModel.isPlaying, 
+                           isPaused: $viewModel.isPaused,
                            gameOver: $viewModel.gameOver,
                            shipPosition: $viewModel.shipPosition,
                            bullets: $viewModel.bullets,
@@ -91,6 +96,12 @@ struct ContentView: View {
             
             InGameInfo(score: viewModel.score,
                        scoreTopPadding: viewModel.scoreTopPadding)
+            
+            if viewModel.isPaused {
+                withAnimation {
+                    PauseView()
+                }
+            }
             
             if viewModel.isAddHighScorePresented {
                 AddHighScore(isAddHighScorePresented: $viewModel.isAddHighScorePresented,

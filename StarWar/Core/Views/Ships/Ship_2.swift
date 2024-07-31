@@ -12,6 +12,7 @@ struct Ship_2: View {
     @Binding var shipType: Int
     @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
+    @Binding var isPaused: Bool
     @Binding var gameOver: Bool
     @Binding var shipPosition: CGPoint
     @Binding var bullets: [Bullet]
@@ -25,7 +26,8 @@ struct Ship_2: View {
         ZStack {
             Ship_2_Bullets(bullets: $bullets, 
                            shipPosition: $shipPosition,
-                           isPlaying: $isPlaying)
+                           isPlaying: $isPlaying, 
+                           isPaused: $isPaused)
             
             Rectangle()
                 .frame(width: 70, height: 70)
@@ -45,11 +47,15 @@ struct Ship_2: View {
                                     self.shipPosition.y = value.location.y - 100
                                     self.shipPosition.x = value.location.x
                                     self.isPlaying = true
+                                    self.isPaused = false
                                 }
                             } else {
                                 vibration()
                             }
                         }
+                        .onEnded({ _ in
+                            self.isPaused = true
+                        })
                 )
             
             if gameOver {
@@ -115,6 +121,7 @@ struct Ship_2: View {
     Ship_2(shipType: .constant(1),
            isPlayable: .constant(true),
            isPlaying: .constant(true),
+           isPaused: .constant(false),
            gameOver: .constant(false),
            shipPosition: .constant(
             CGPoint(x: UIScreen.main.bounds.width / 2,

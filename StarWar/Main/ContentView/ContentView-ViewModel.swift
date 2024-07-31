@@ -17,6 +17,7 @@ extension ContentView {
         private(set) var menuButtonsSidePadding: CGFloat = 20
         var isPlayable: Bool = true
         var isPlaying: Bool = false
+        var isPaused: Bool = false
         var gameOver: Bool = false
         var shipType: Int = AppStorageManager.shared.shipType
         var shipIsUnlocked: Bool = true
@@ -89,6 +90,7 @@ extension ContentView {
         func ship(shipType: Binding<Int>,
                   isPlayable: Binding<Bool>,
                   isPlaying: Binding<Bool>,
+                  isPaused: Binding<Bool>,
                   gameOver: Binding<Bool>,
                   shipPosition: Binding<CGPoint>,
                   bullets: Binding<[Bullet]>,
@@ -97,6 +99,7 @@ extension ContentView {
             case 1:     Ship_1(shipType: shipType,
                                isPlayable: isPlayable,
                                isPlaying: isPlaying,
+                               isPaused: isPaused, 
                                gameOver: gameOver,
                                shipPosition: shipPosition,
                                bullets: bullets,
@@ -104,6 +107,7 @@ extension ContentView {
             case 2:     Ship_2(shipType: shipType,
                                isPlayable: isPlayable,
                                isPlaying: isPlaying,
+                               isPaused: isPaused,
                                gameOver: gameOver,
                                shipPosition: shipPosition,
                                bullets: bullets,
@@ -111,6 +115,7 @@ extension ContentView {
             case 3:     Ship_3(shipType: shipType,
                                isPlayable: isPlayable,
                                isPlaying: isPlaying,
+                               isPaused: isPaused,
                                gameOver: gameOver,
                                shipPosition: shipPosition,
                                bullets: bullets,
@@ -118,6 +123,7 @@ extension ContentView {
             case 4:     Ship_4(shipType: shipType,
                                isPlayable: isPlayable,
                                isPlaying: isPlaying,
+                               isPaused: isPaused,
                                gameOver: gameOver,
                                shipPosition: shipPosition,
                                bullets: bullets,
@@ -125,6 +131,7 @@ extension ContentView {
             case 5:     Ship_5(shipType: shipType,
                                isPlayable: isPlayable,
                                isPlaying: isPlaying,
+                               isPaused: isPaused,
                                gameOver: gameOver,
                                shipPosition: shipPosition,
                                bullets: bullets,
@@ -132,6 +139,7 @@ extension ContentView {
             case 6:     Ship_6(shipType: shipType,
                                isPlayable: isPlayable,
                                isPlaying: isPlaying,
+                               isPaused: isPaused,
                                gameOver: gameOver,
                                shipPosition: shipPosition,
                                bullets: bullets,
@@ -139,6 +147,7 @@ extension ContentView {
             default:    Ship_1(shipType: shipType,
                                isPlayable: isPlayable,
                                isPlaying: isPlaying,
+                               isPaused: isPaused,
                                gameOver: gameOver,
                                shipPosition: shipPosition,
                                bullets: bullets,

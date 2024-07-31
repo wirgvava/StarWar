@@ -10,6 +10,8 @@
 		A501B6922C41810D0063DA61 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6912C4181030063DA61 /* GameCenterManager.swift */; };
 		A501B6942C419EC10063DA61 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6932C419EBD0063DA61 /* GameData.swift */; };
 		A501B6962C41A8AF0063DA61 /* ArrayToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A501B6952C41A8970063DA61 /* ArrayToJSON.swift */; };
+		A509C9F22C5A7C81003DF08B /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A509C9F12C5A7C81003DF08B /* PauseView.swift */; };
+		A509C9F62C5A9B54003DF08B /* pause.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A509C9F52C5A9B54003DF08B /* pause.mp3 */; };
 		A50AB89E2C45211C0018C13E /* WatchAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50AB89D2C4521180018C13E /* WatchAdView.swift */; };
 		A50DB9562C3002EA00AB5143 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9552C3002EA00AB5143 /* Monster.swift */; };
 		A50DB9582C3002F200AB5143 /* Explosion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB9572C3002F200AB5143 /* Explosion.swift */; };
@@ -96,6 +98,8 @@
 		A501B6912C4181030063DA61 /* GameCenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterManager.swift; sourceTree = "<group>"; };
 		A501B6932C419EBD0063DA61 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
 		A501B6952C41A8970063DA61 /* ArrayToJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayToJSON.swift; sourceTree = "<group>"; };
+		A509C9F12C5A7C81003DF08B /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
+		A509C9F52C5A9B54003DF08B /* pause.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pause.mp3; sourceTree = "<group>"; };
 		A50AB89D2C4521180018C13E /* WatchAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAdView.swift; sourceTree = "<group>"; };
 		A50DB9552C3002EA00AB5143 /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		A50DB9572C3002F200AB5143 /* Explosion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Explosion.swift; sourceTree = "<group>"; };
@@ -191,6 +195,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A509C9F02C5A7C5F003DF08B /* PauseView */ = {
+			isa = PBXGroup;
+			children = (
+				A509C9F12C5A7C81003DF08B /* PauseView.swift */,
+			);
+			path = PauseView;
+			sourceTree = "<group>";
+		};
 		A50AB89C2C4520F50018C13E /* WatchAdView */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +491,7 @@
 				A5E12DC12C3336B5008E92D8 /* MenuButtons */,
 				A59E9FDB2C404E9E00CF5ABB /* Meteor */,
 				A5E562BC2C25DAA900908A3B /* Monsters */,
+				A509C9F02C5A7C5F003DF08B /* PauseView */,
 				A5E562B52C25D0D100908A3B /* Ships */,
 				A5F7EA242C260DF5000F3D41 /* Stars */,
 				A5DC0D812C43D12000495CCF /* StarWarBanner */,
@@ -552,6 +565,7 @@
 				A54436DB2C47F211000E74CF /* healthRestore.mp3 */,
 				A54436D42C47EA62000E74CF /* game bg sound.mp3 */,
 				A54436E02C47F699000E74CF /* notification.wav */,
+				A509C9F52C5A9B54003DF08B /* pause.mp3 */,
 				A54436D52C47EA62000E74CF /* soundtrack.mp3 */,
 			);
 			path = Sounds;
@@ -637,6 +651,7 @@
 			files = (
 				A54436DD2C47F211000E74CF /* buttonClick.mp3 in Resources */,
 				A54436DE2C47F211000E74CF /* healthRestore.mp3 in Resources */,
+				A509C9F62C5A9B54003DF08B /* pause.mp3 in Resources */,
 				A598FAAF2C25BBF800EF9F16 /* Minecraft.ttf in Resources */,
 				A5CF24D62C4C007800BF8F33 /* Localizable.strings in Resources */,
 				A54436E12C47F699000E74CF /* notification.wav in Resources */,
@@ -661,6 +676,7 @@
 			files = (
 				A54A53F52C4C1C0A008DA816 /* Bundle+Language.swift in Sources */,
 				A5DC0D832C43D13100495CCF /* StarWarBanner.swift in Sources */,
+				A509C9F22C5A7C81003DF08B /* PauseView.swift in Sources */,
 				A59A9C062C29B91E008409C1 /* Ship_5_Bullets.swift in Sources */,
 				A5E562BB2C25DA1400908A3B /* Explode.swift in Sources */,
 				A501B6922C41810D0063DA61 /* GameCenterManager.swift in Sources */,

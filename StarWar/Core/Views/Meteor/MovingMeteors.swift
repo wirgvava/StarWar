@@ -14,6 +14,7 @@ struct MovingMeteors: View {
     @State private var intervalBetweenMeteors = 0
     @Binding var isPlayable: Bool
     @Binding var isPlaying: Bool
+    @Binding var isPaused: Bool
     @Binding var gameOver: Bool
     @Binding var shipPosition: CGPoint
 
@@ -48,6 +49,7 @@ struct MovingMeteors: View {
 
     // Adding new meteors on the top
     private func addMeteors(){
+        guard !isPaused else { return }
         if intervalBetweenMeteors == 1500 {
             let screenWidth = UIScreen.main.bounds.width
             let newMeteor = Meteor(
@@ -66,7 +68,7 @@ struct MovingMeteors: View {
         let screenHeight = UIScreen.main.bounds.height
         meteors = meteors.map { meteor in
             var newMeteor = meteor
-            newMeteor.position.y += 5
+            newMeteor.position.y = isPaused ? newMeteor.position.y : newMeteor.position.y + 5
             return newMeteor
         }.filter {
             $0.position.y <= screenHeight

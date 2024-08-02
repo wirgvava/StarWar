@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         GADMobileAds.sharedInstance().start(completionHandler: nil)
-        FirestoreManager.getTopScores()
         
         return true
     }

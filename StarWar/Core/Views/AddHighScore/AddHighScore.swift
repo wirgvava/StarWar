@@ -79,7 +79,7 @@ struct AddHighScore: View {
         if !name.isEmpty {
             SoundManager.shared.play(sound: .buttonClick)
             isAddHighScorePresented = false
-            FirestoreManager.addTopScore(name: name, score: score)
+            FirestoreManager.shared.addTopScore(name: name, score: score)
         }
     }
 }

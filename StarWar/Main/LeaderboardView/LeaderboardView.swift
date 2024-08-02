@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LeaderboardView: View {
+    @ObservedObject var firestoreManager = FirestoreManager.shared
+    
     var body: some View {
         ZStack {
             Text(localized: "leaderboard")
@@ -15,7 +17,7 @@ struct LeaderboardView: View {
                 .padding(.bottom, 350)
             
             ScrollView {
-                ForEach(Array(FirestoreManager.topScores.prefix(100).enumerated()),
+                ForEach(Array(firestoreManager.topScores.prefix(100).enumerated()),
                         id: \.element) { index, user in
                     HStack {
                         Group {

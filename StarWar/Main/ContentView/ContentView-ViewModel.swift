@@ -26,7 +26,7 @@ extension ContentView {
         var collectedCoins: Int = 0
         var shipPosition: CGPoint = CGPoint(
             x: UIScreen.main.bounds.width / 2,
-            y: (UIScreen.main.bounds.height / 2) - 50)
+            y: (UIScreen.main.bounds.height))
         
         // Navigation
         var isWatchAdViewPresented: Bool = false
@@ -41,7 +41,11 @@ extension ContentView {
         // MARK: - Methods
         func onApear(){
             SoundManager.shared.play(sound: .soundtrack, numberOfLoops: -1)
-            gameCenterAuthenticateAndFetchingData()
+            withAnimation(.easeOut(duration: 1)) {
+                shipPosition = CGPoint(
+                    x: UIScreen.main.bounds.width / 2,
+                    y: (UIScreen.main.bounds.height / 2) - 50)
+            }
         }
         
         func isPlayingMode(){
@@ -63,25 +67,6 @@ extension ContentView {
                 self.scoreTopPadding = -600
                 self.menuButtonsSidePadding = 20
                 SoundManager.shared.play(sound: .soundtrack, numberOfLoops: -1)
-            }
-        }
-        
-        // MARK: - Game Center
-        func gameCenterAuthenticateAndFetchingData(){
-            GameCenterManager.shared.authenticate() { isAuthenticated in
-                if isAuthenticated {
-                    self.fetchData()
-                }
-            }
-        }
-        
-        func fetchData(){
-            GameCenterManager.shared.fetchSavedData { gameData in
-                if let gameData = gameData {
-                    self.appStorageManager.money = gameData.money
-                    self.appStorageManager.userHighScore = gameData.userHighScore
-                    self.appStorageManager.unlockedShips = gameData.unlockedShips
-                }
             }
         }
         

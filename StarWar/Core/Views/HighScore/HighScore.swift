@@ -36,7 +36,7 @@ struct HighScore: View {
     }
     
     private func checkForLeaderboard(){
-        let topScores = FirestoreManager.topScores
+        let topScores = FirestoreManager.shared.topScores
         
         for i in 0..<min(100, topScores.count) {
             if score > topScores[i].score {

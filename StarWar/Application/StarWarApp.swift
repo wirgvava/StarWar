@@ -14,7 +14,7 @@ struct StarWarApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoadingView()
         }
     }
 }

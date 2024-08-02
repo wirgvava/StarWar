@@ -68,6 +68,8 @@
 		A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */; };
 		A5C810312C2DAC6B00FF2FFD /* MovingMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */; };
 		A5C810342C2DCE2500FF2FFD /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */; };
+		A5CA273C2C5BDCB600451093 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CA273B2C5BDCB600451093 /* Launch Screen.storyboard */; };
+		A5CA273F2C5BDDC600451093 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CA273E2C5BDDC200451093 /* LoadingView.swift */; };
 		A5CC62712C4E9359001B9ACB /* DragToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC62702C4E9353001B9ACB /* DragToPlayView.swift */; };
 		A5CF24D32C4BC53600BF8F33 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF24D22C4BC53300BF8F33 /* SettingsView.swift */; };
 		A5CF24D62C4C007800BF8F33 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5CF24D42C4C007800BF8F33 /* Localizable.strings */; };
@@ -154,6 +156,8 @@
 		A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A5C810302C2DAC6B00FF2FFD /* MovingMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingMonsters.swift; sourceTree = "<group>"; };
 		A5C810332C2DCE2500FF2FFD /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extensions.swift"; sourceTree = "<group>"; };
+		A5CA273B2C5BDCB600451093 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		A5CA273E2C5BDDC200451093 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		A5CC62702C4E9353001B9ACB /* DragToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragToPlayView.swift; sourceTree = "<group>"; };
 		A5CF24D22C4BC53300BF8F33 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A5CF24D52C4C007800BF8F33 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 		A557381D2C42C16B00A802C7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				A5CA273D2C5BDDB600451093 /* LoadingView */,
 				A56FC1E92C3D6C7900F68711 /* ContentView */,
 				A557381C2C42C13F00A802C7 /* MarketView */,
 				A56FC1F12C3D971D00F68711 /* LeaderboardView */,
@@ -366,9 +371,10 @@
 				A5551E542C25B83A00A7309C /* Fonts */,
 				A5EC2EA42C46F66B00C9AB5E /* Sounds */,
 				A587D69E2C25AFD700096F4B /* Assets.xcassets */,
-				A5CF24D42C4C007800BF8F33 /* Localizable.strings */,
 				A5AFAB412C4C15480007029E /* Info.plist */,
 				A5C2505F2C3FFDA900AEFA71 /* GoogleService-Info.plist */,
+				A5CA273B2C5BDCB600451093 /* Launch Screen.storyboard */,
+				A5CF24D42C4C007800BF8F33 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -414,6 +420,14 @@
 				A59EBA442C3FE6CA00E21B02 /* Text+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A5CA273D2C5BDDB600451093 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				A5CA273E2C5BDDC200451093 /* LoadingView.swift */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		A5CC626F2C4E9346001B9ACB /* DragToPlayView */ = {
@@ -659,6 +673,7 @@
 				A5C250602C3FFDA900AEFA71 /* GoogleService-Info.plist in Resources */,
 				A54436E52C480312000E74CF /* error.mp3 in Resources */,
 				A587D6A22C25AFD700096F4B /* Preview Assets.xcassets in Resources */,
+				A5CA273C2C5BDCB600451093 /* Launch Screen.storyboard in Resources */,
 				A54436D62C47EA62000E74CF /* soundtrack.mp3 in Resources */,
 				A54436D72C47EA62000E74CF /* collecting coins.mp3 in Resources */,
 				A54436D82C47EA62000E74CF /* explosion.mp3 in Resources */,
@@ -721,6 +736,7 @@
 				A522EE012C3C231100D36552 /* RewardAdsManager.swift in Sources */,
 				A59E9FDF2C404FEA00CF5ABB /* Meteor.swift in Sources */,
 				A59E9FE12C40502100CF5ABB /* MovingMeteors.swift in Sources */,
+				A5CA273F2C5BDDC600451093 /* LoadingView.swift in Sources */,
 				A5E562C52C25DB5100908A3B /* Monster_4.swift in Sources */,
 				A5E562AE2C25CECF00908A3B /* Ship_3.swift in Sources */,
 				A5E562B82C25D17D00908A3B /* CoinView.swift in Sources */,
@@ -897,6 +913,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -936,6 +953,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
